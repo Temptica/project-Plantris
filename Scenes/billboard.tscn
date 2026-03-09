@@ -104,7 +104,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_br66b")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1673373212]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 sprite_frames = SubResource("SpriteFrames_f7b7n")
-frame_progress = 0.7985728
+frame_progress = 0.9282747
 
 [node name="Sprite3D" type="Sprite3D" parent="AnimatedSprite3D" unique_id=1276848865]
 transform = Transform3D(0.93309826, -0.35962158, 0, 0.35962158, 0.93309826, 0, 0, 0, 1, -0.3955927, 0.91576767, 0.08496666)

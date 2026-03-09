@@ -76,7 +76,7 @@ bus = &"SFX"
 script = ExtResource("5_skwfe")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387]
-transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 324.73187, 52.260376, 66.41266)
+transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, -67.13037, 52.260376, 66.41266)
 environment = ExtResource("2_adj8p")
 projection = 1
 size = 49.309

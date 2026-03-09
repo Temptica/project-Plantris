@@ -5,7 +5,7 @@ var cam_max : float = 50
 var size_min: float = 3
 var size_max : float = 18
 var base_position: Vector3
-var started: bool = false
+var started: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	BuildingSelector.Instance.building_changed.connect(_on_building_changed)
