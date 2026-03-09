@@ -6,15 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="4_jd38o"]
 [ext_resource type="FontFile" uid="uid://bk31f7q6fjfei" path="res://Fonts/Roundo-Regular.ttf" id="5_fy64h"]
 [ext_resource type="StyleBox" uid="uid://d1ghmxkq5kibu" path="res://ui_box_flat_darker.tres" id="6_fy64h"]
-[ext_resource type="StyleBox" uid="uid://bwh0n6graviei" path="res://ui_box_flat.tres" id="6_v6n52"]
+[ext_resource type="StyleBox" uid="uid://d053u0plwdlik" path="res://ui_box_flat.tres" id="6_v6n52"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oifk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0.2958249, 0.2251342, 1)
 border_blend = true
 corner_radius_top_left = 4
 corner_radius_top_right = 4
@@ -42,33 +43,71 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -300.0
 offset_top = -75.0
+offset_right = 10.0
 offset_bottom = 75.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_right = 65
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1702381973]
+[node name="PanelContainer" type="Panel" parent="MarginContainer" unique_id=1085141134]
 layout_mode = 2
+theme_override_styles/panel = ExtResource("6_v6n52")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1398978434]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="FlowerSelectionContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1500838010]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1095309675]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1501363864]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ScoreTitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1193314036]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("5_fy64h")
+theme_override_font_sizes/font_size = 32
+text = "SCORE:"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1093413265]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("5_fy64h")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="FlowerSelectionContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1500838010]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="HighlightPanel" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=386893086]
+[node name="HighlightPanel" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer" unique_id=386893086]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2oifk")
 
-[node name="HighlightPanelTexture" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/HighlightPanel" unique_id=2027504109]
+[node name="HighlightPanelTexture" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer/HighlightPanel" unique_id=2027504109]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -80,7 +119,7 @@ texture = ExtResource("4_jd38o")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Flower1" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=811100014]
+[node name="Flower1" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer" unique_id=811100014]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -89,7 +128,7 @@ texture_normal = ExtResource("3_ywmy4")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Flower2" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=1682873804]
+[node name="Flower2" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer" unique_id=1682873804]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -98,7 +137,7 @@ texture_focused = SubResource("ViewportTexture_2oifk")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Flower3" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=681854074]
+[node name="Flower3" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer" unique_id=681854074]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -113,14 +152,18 @@ unique_name_in_owner = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=938480868]
 layout_mode = 1
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+anchor_bottom = 1.0
+offset_left = -198.0
+offset_top = -188.0
+offset_right = 2.0
 grow_horizontal = 0
-theme_override_constants/margin_top = 150
-theme_override_constants/margin_right = 50
+grow_vertical = 0
+theme_override_constants/margin_right = 57
+theme_override_constants/margin_bottom = 162
 
 [node name="NextButton" type="Button" parent="MarginContainer2" unique_id=480694381]
 unique_name_in_owner = true
@@ -133,28 +176,7 @@ theme_override_styles/hover = ExtResource("6_fy64h")
 theme_override_styles/focus = ExtResource("6_fy64h")
 text = "NEXT BUILDING"
 
-[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=586358917]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3" unique_id=1501363864]
-layout_mode = 2
-
-[node name="ScoreTitleLabel" type="Label" parent="MarginContainer3/HBoxContainer" unique_id=1193314036]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_fy64h")
-text = "SCORE:"
-
-[node name="ScoreLabel" type="Label" parent="MarginContainer3/HBoxContainer" unique_id=1093413265]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_fy64h")
-text = "0"
-
-[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/Flower1" to="." method="_on_flower_button_pressed" binds= [1]]
-[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/Flower2" to="." method="_on_flower_button_pressed" binds= [2]]
-[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/Flower3" to="." method="_on_flower_button_pressed" binds= [3]]
+[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer/Flower1" to="." method="_on_flower_button_pressed" binds= [1]]
+[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer/Flower2" to="." method="_on_flower_button_pressed" binds= [2]]
+[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer/Flower3" to="." method="_on_flower_button_pressed" binds= [3]]
 [connection signal="pressed" from="MarginContainer2/NextButton" to="." method="_on_next_building_pressed"]

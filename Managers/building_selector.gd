@@ -18,7 +18,9 @@ func _ready() -> void:
 
 func select_next_building():
 	currentCount += 1
-	if currentCount  > buildings.size(): return
+	if currentCount  > buildings.size(): 
+		Camera.Instance.end()
+		return
 	
 	if currentBuilding != null: 
 		currentBuilding.full.disconnect(_on_filled)
@@ -39,3 +41,7 @@ func _enter_tree() -> void:
 
 func _exit_tree() -> void:
 	Instance = null
+	
+func start():
+	building_changed.emit(currentBuilding)
+	

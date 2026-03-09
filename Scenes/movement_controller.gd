@@ -3,6 +3,7 @@ extends Node
 class_name MovementController
 
 @export var selectedFlower : Flower
+@export var settings: Control
 var timer : Timer
 var last_direction:Vector2 = Vector2.ZERO
 const timeout_time = 0.2
@@ -58,6 +59,11 @@ func _on_timeout():
 		return;
 
 func _input(event):
+	if !Camera.Instance.started: return
+	if event.is_action_pressed("ui_cancel"):
+		settings.show()
+		get_tree().paused = true
+		return;
 	if event.is_action_pressed("right"):
 		move_right()
 		timer.start(timeout_time)

@@ -1,20 +1,33 @@
 [gd_scene format=3 uid="uid://i0qgm17ct3m8"]
 
 [ext_resource type="Script" uid="uid://bi8kh1em40uno" path="res://UI/settings.gd" id="1_7iqql"]
+[ext_resource type="StyleBox" uid="uid://d053u0plwdlik" path="res://ui_box_flat.tres" id="2_vbc7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgjsl"]
 
 [sub_resource type="SystemFont" id="SystemFont_qosaw"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_7iqql"]
 font = SubResource("SystemFont_qosaw")
 font_size = 40
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qosaw"]
 font_size = 32
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vbc7n"]
 font_size = 26
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hnc8t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wgjsl"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Control" unique_id=1819486395]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,9 +48,9 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 150
 theme_override_constants/margin_bottom = 100
 
-[node name="Panel" type="ColorRect" parent="MarginContainer" unique_id=1900942242]
+[node name="Panel" type="Panel" parent="MarginContainer" unique_id=864363180]
 layout_mode = 2
-color = Color(0.22282109, 0.21947062, 0.19691014, 1)
+theme_override_styles/panel = ExtResource("2_vbc7n")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel" unique_id=749690061]
 layout_mode = 1
@@ -50,6 +63,7 @@ grow_vertical = 2
 [node name="Settings" type="Panel" parent="MarginContainer/Panel/HBoxContainer" unique_id=2134074923]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wgjsl")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer/Settings" unique_id=2126456758]
 layout_mode = 1
@@ -171,6 +185,7 @@ text = "Return"
 [node name="Controlls" type="Panel" parent="MarginContainer/Panel/HBoxContainer" unique_id=1115224660]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hnc8t")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls" unique_id=669259932]
 layout_mode = 1
@@ -205,11 +220,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Move left:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1062814652]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "A/Left"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1006206419]
 layout_mode = 2
@@ -218,11 +235,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Move right:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=470150521]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "D/Right"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1971519841]
 layout_mode = 2
@@ -231,11 +250,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Move up:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=379255770]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "W/Up"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2047352193]
 layout_mode = 2
@@ -244,11 +265,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Move down:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=895719733]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "S/Down"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1535435577]
 layout_mode = 2
@@ -257,11 +280,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Select left:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1375439133]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Q/Left/L1"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=386460324]
 layout_mode = 2
@@ -270,11 +295,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Select right:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6" unique_id=1392709830]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "D/Right/R1"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1234323519]
 layout_mode = 2
@@ -283,11 +310,13 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Accept:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer7" unique_id=2029142838]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Enter/Space Controller: A /B"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=22669486]
 layout_mode = 2
@@ -296,21 +325,24 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 2
 text = "Next building:"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer8" unique_id=460439713]
 layout_mode = 2
 size_flags_horizontal = 10
 text = "Tab/ Controller: Y / X"
+label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2025495163]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Supports azerty and controllers fully 
 Controllers settings order: Nitendo / Xbox"
+label_settings = SubResource("LabelSettings_wgjsl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer/MasterSlider" to="." method="_set_master_label"]
-[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer/SFXSLider" to="." method="_set_sfx_label"]
-[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer/MusicSlider" to="." method="_set_music_label"]
+[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer/SFXSLider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/Button" to="." method="_on_return_button_pressed"]

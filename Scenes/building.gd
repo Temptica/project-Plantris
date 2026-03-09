@@ -81,6 +81,7 @@ func position_flower(flower : Flower):
 	
 
 func _can_place() -> bool:
+	if current_flower == null: return false
 	for flowSprite in current_flower.sprites:
 		if !flowSprite.plot.can_set(): return false
 	return true

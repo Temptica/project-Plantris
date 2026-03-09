@@ -15,10 +15,9 @@ func _ready() -> void:
 	
 	pass # Replace with function body.
 
-
 func _on_return_button_pressed() -> void:
+	get_tree().paused =  false
 	hide()
-
 
 func _on_master_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_linear(0,value/100.0)

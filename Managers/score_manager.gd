@@ -27,8 +27,10 @@ func _on_building_filled():
 func met_target() -> bool:
 	return score > target
 
+func reset():
+	score = 0
+	score_updated.emit(score)
+
 func _add_points(value:int):
 	score += value
 	score_updated.emit(score)
-	if met_target():
-		target_met.emit()

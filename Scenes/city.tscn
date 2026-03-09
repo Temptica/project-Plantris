@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d3x0nase63kkk"]
 
+[ext_resource type="Script" uid="uid://du2o1eoiuibvu" path="res://Scenes/city.gd" id="1_jqvoc"]
 [ext_resource type="Script" uid="uid://b6atwpp0gobk" path="res://Scenes/movement_controller.gd" id="1_o60eo"]
 [ext_resource type="AudioStream" uid="uid://d2vn7rcfx6foh" path="res://Music/A world left to plant.mp3" id="1_odnm4"]
 [ext_resource type="PackedScene" uid="uid://bmemkc2lglmi" path="res://Scenes/building.tscn" id="1_u7naw"]
@@ -18,7 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://blnaht66keh2k" path="res://Textures/Buildings/RijWoning3x4x6A.png" id="10_8sad3"]
 [ext_resource type="Texture2D" uid="uid://dbsgnyyvgr6e2" path="res://Textures/Buildings/RijWoning3x5x5B.png" id="14_jtc0r"]
 [ext_resource type="Texture2D" uid="uid://ba6amu1fxdbwk" path="res://Textures/Buildings/TowerBuilding7x7x13A.png" id="17_8sad3"]
+[ext_resource type="PackedScene" uid="uid://bltsncf5bwo1c" path="res://Scenes/menu.tscn" id="18_63v0p"]
 [ext_resource type="Texture2D" uid="uid://bt77fuedf6mtj" path="res://Textures/Buildings/TowerBuilding7x7x13B.png" id="18_n7wpf"]
+[ext_resource type="PackedScene" uid="uid://i0qgm17ct3m8" path="res://UI/settings.tscn" id="19_3pf4y"]
 [ext_resource type="Texture2D" uid="uid://dplw6hccsd2as" path="res://Textures/Buildings/SmallCubeBuilidingA.png" id="20_8sad3"]
 [ext_resource type="Texture2D" uid="uid://ci2x5d40crtpg" path="res://Textures/Buildings/TowerBuilding5x5x11B.png" id="20_ykcfl"]
 [ext_resource type="Texture2D" uid="uid://filv2jim4cue" path="res://Textures/Buildings/BigCuboidBuilding9x9x18B.png" id="21_58dp2"]
@@ -47,15 +50,18 @@ animations = [{
 }]
 
 [node name="City" type="Node3D" unique_id=868238897]
+script = ExtResource("1_jqvoc")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1346569711]
+process_mode = 3
 stream = ExtResource("1_odnm4")
 volume_db = 7.1178
 autoplay = true
 bus = &"Music"
 
-[node name="MovementController" type="Node" parent="." unique_id=1934432307]
+[node name="MovementController" type="Node" parent="." unique_id=1934432307 node_paths=PackedStringArray("settings")]
 script = ExtResource("1_o60eo")
+settings = NodePath("../Settings")
 
 [node name="ScoreManager" type="Node" parent="." unique_id=1612369225]
 script = ExtResource("1_wm66b")
@@ -66,13 +72,15 @@ max_polyphony = 5
 bus = &"SFX"
 script = ExtResource("5_skwfe")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387]
-transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 278.0583, 97.01749, 95.61987)
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387 node_paths=PackedStringArray("menu", "ui")]
+transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 277.73413, 97.01749, 95.61987)
 environment = ExtResource("2_adj8p")
 projection = 1
-size = 17.843
+size = 15.67
 near = 0.001
 script = ExtResource("5_adj8p")
+menu = NodePath("../Menu")
+ui = NodePath("../GameUi")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="Camera3D" unique_id=175481863]
 transform = Transform3D(0.70710665, 0, 0.70710665, 0.27059805, 0.9238794, -0.27059805, -0.6532814, 0.38268343, 0.6532814, -34.585632, -17.876917, -14.270464)
@@ -147,6 +155,18 @@ draw_pos = -5
 directional_shadow_mode = 0
 
 [node name="GameUi" parent="." unique_id=2146102133 instance=ExtResource("7_3qc4n")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Menu" parent="." unique_id=1224784581 node_paths=PackedStringArray("settings", "ui", "camera") instance=ExtResource("18_63v0p")]
+unique_name_in_owner = true
+settings = NodePath("../Settings")
+ui = NodePath("../GameUi")
+camera = NodePath("../Camera3D")
+
+[node name="Settings" parent="." unique_id=1819486395 instance=ExtResource("19_3pf4y")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Envioment3D" type="Node3D" parent="." unique_id=331093350]
 

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cektc707ua1ax"]
+[gd_scene format=3 uid="uid://bltsncf5bwo1c"]
 
 [ext_resource type="Texture2D" uid="uid://cg34hm0f42kaw" path="res://Textures/Enviroment/BilboardFrame1.png" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://cd8ifpnptuar0" path="res://Scenes/menu.gd" id="1_q3rjx"]
@@ -51,7 +51,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=551931506]
-position = Vector2(1062, 1276)
+position = Vector2(984, 1245)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_q3rjx")
 
@@ -77,7 +77,6 @@ scale = Vector2(0.5, 0.5)
 focus_neighbor_right = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
 texture_pressed = ExtResource("6_rfqti")
-texture_hover = ExtResource("6_rfqti")
 texture_focused = ExtResource("6_rfqti")
 
 [node name="SettingsButton" type="TextureButton" parent="Control" unique_id=948597099]
@@ -91,29 +90,36 @@ scale = Vector2(0.5, 0.5)
 focus_neighbor_left = NodePath("../StartButton")
 focus_neighbor_top = NodePath("../StartButton")
 texture_pressed = ExtResource("7_g8i7c")
-texture_hover = ExtResource("7_g8i7c")
 texture_focused = ExtResource("7_g8i7c")
 
-[node name="Label" type="Label" parent="Control" unique_id=235047187]
+[node name="ScoreTitleLabel" type="Label" parent="Control" unique_id=235047187]
+unique_name_in_owner = true
+visible = false
 layout_mode = 0
-offset_left = 311.0
-offset_top = 319.0
-offset_right = 685.0
-offset_bottom = 429.0
+offset_left = 292.0
+offset_top = 425.0
+offset_right = 666.0
+offset_bottom = 535.0
+rotation = -0.35160366
+scale = Vector2(0.57655615, 0.5487605)
 theme_override_colors/font_color = Color(0.09272381, 0.17680693, 0.06112632, 1)
 theme_override_fonts/font = ExtResource("11_5ti5v")
 theme_override_font_sizes/font_size = 100
 text = "SCORE:"
 
-[node name="Label2" type="Label" parent="Control" unique_id=91845337]
+[node name="ScoreLabel" type="Label" parent="Control" unique_id=91845337]
+unique_name_in_owner = true
+visible = false
 layout_mode = 0
-offset_left = 311.0
-offset_top = 410.0
-offset_right = 768.0
-offset_bottom = 520.0
+offset_left = 397.0
+offset_top = 443.0
+offset_right = 854.0
+offset_bottom = 553.0
+rotation = -0.35176104
+scale = Vector2(0.8504914, 0.7539629)
 theme_override_colors/font_color = Color(0.09272381, 0.17680693, 0.06112632, 1)
 theme_override_fonts/font = ExtResource("11_5ti5v")
 theme_override_font_sizes/font_size = 100
-text = "200000"
+text = "2000"
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=474634944]
