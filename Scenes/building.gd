@@ -51,8 +51,9 @@ func position_flower(flower : Flower):
 	
 	for piece in flower.sprites:
 		var isFlipped = flower.grid_position.x < 0
-		var piecePos = piece.get_position()
+		var piecePos: Vector2 = piece.get_position()
 		if isFlipped: piecePos.x *= -1
+		
 		var pos = flower.grid_position + piecePos
 		
 		var grid: BuildingGrid = leftGrid if pos.x < 0 else rightGrid

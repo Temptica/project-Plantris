@@ -13,7 +13,7 @@ func is_available() -> bool :
 func set_piece() :
 	if current_flower_piece == null: return;
 	
-	flower_piece = current_flower_piece
+	if !current_flower_piece.fake: flower_piece = current_flower_piece
 
 func set_current_piece(piece: FlowerPiece) -> bool :	
 	current_flower_piece = piece 
@@ -27,7 +27,7 @@ func remove_current():
 	current_flower_piece = null
 
 func can_set():
-	return current_flower_piece == null || flower_piece == null
+	return (current_flower_piece == null || current_flower_piece.fake) || flower_piece == null
 
 func is_free():
 	return flower_piece == null

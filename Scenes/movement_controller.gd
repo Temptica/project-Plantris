@@ -37,7 +37,7 @@ func set_flower(flower: Flower):
 			selectedFlower.grid_position.y = 0
 		Flower.FlowerType.NORMAL:
 			var y = _get_current_building().height/2
-			if y + selectedFlower.max_y > _get_current_building().height:
+			if y + selectedFlower.max_y+1 > _get_current_building().height:
 				y = _get_current_building().height - selectedFlower.max_y - 1
 			selectedFlower.grid_position.y = y
 	_draw_flower()

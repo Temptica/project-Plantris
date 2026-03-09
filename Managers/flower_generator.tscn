@@ -7,6 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="6_7k8da"]
 [ext_resource type="Texture2D" uid="uid://cin55q5vn6hwf" path="res://Textures/Plants/FernPlant3BlocksLShape.png" id="7_hgphy"]
 [ext_resource type="Texture2D" uid="uid://dyq43r43mean6" path="res://Textures/Plants/SunFlower2BlocksTall.png" id="7_ntl08"]
+[ext_resource type="Texture2D" uid="uid://bsnk68g8qpjjx" path="res://Textures/Plants/DiagonalPlant3x1.png" id="8_hgphy"]
+[ext_resource type="Texture2D" uid="uid://dmx3l78vy4bdc" path="res://Textures/Plants/Plant1x1.png" id="9_1o6hy"]
+[ext_resource type="Texture2D" uid="uid://dsnnqt8jfrfld" path="res://Textures/Plants/Plant1x2.png" id="10_3owaq"]
+[ext_resource type="Texture2D" uid="uid://dxv6xs4yhamos" path="res://Textures/Plants/Plant1x3.png" id="11_jvq4w"]
+[ext_resource type="Texture2D" uid="uid://cnh0k1qa20c0t" path="res://Textures/Plants/Plant1x3_1.png" id="12_3owaq"]
+[ext_resource type="Texture2D" uid="uid://bvnodfon58vnx" path="res://Textures/Plants/Plant1x4.png" id="13_hgfcw"]
+[ext_resource type="Texture2D" uid="uid://d2tuc3nnwgm14" path="res://Textures/Plants/Plant2x1.png" id="14_d6tq0"]
 
 [sub_resource type="Resource" id="Resource_m2ivq"]
 script = ExtResource("3_r3klc")
@@ -16,6 +23,7 @@ metadata/_custom_type_script = "uid://diqjl5ocf4ees"
 script = ExtResource("2_omk8r")
 sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_m2ivq")])
 texture = ExtResource("4_ntl08")
+flower_type = 1
 metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
 
 [sub_resource type="Resource" id="Resource_3owaq"]
@@ -26,7 +34,7 @@ metadata/_custom_type_script = "uid://diqjl5ocf4ees"
 script = ExtResource("2_omk8r")
 sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_3owaq")])
 texture = ExtResource("6_7k8da")
-flower_type = 2
+flower_type = 1
 metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
 
 [sub_resource type="Resource" id="Resource_s4ksg"]
@@ -42,6 +50,7 @@ metadata/_custom_type_script = "uid://diqjl5ocf4ees"
 script = ExtResource("2_omk8r")
 sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_s4ksg"), SubResource("Resource_d6tq0")])
 texture = ExtResource("7_ntl08")
+flower_type = 1
 metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
 
 [sub_resource type="Resource" id="Resource_bx0w4"]
@@ -65,6 +74,136 @@ texture = ExtResource("7_hgphy")
 flower_type = 1
 metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
 
+[sub_resource type="Resource" id="Resource_wiwqj"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_dgfu8"]
+script = ExtResource("3_r3klc")
+x = 1
+y = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_104gn"]
+script = ExtResource("3_r3klc")
+x = 2
+y = 2
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_iipd4"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_wiwqj"), SubResource("Resource_dgfu8"), SubResource("Resource_104gn")])
+texture = ExtResource("8_hgphy")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_4wooy"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_jx2xh"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_4wooy")])
+texture = ExtResource("9_1o6hy")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_0wfhp"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_r77sl"]
+script = ExtResource("3_r3klc")
+x = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_5hjhc"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_0wfhp"), SubResource("Resource_r77sl")])
+texture = ExtResource("10_3owaq")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_ggcd3"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_1nw0g"]
+script = ExtResource("3_r3klc")
+x = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_s1rs7"]
+script = ExtResource("3_r3klc")
+x = 2
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_twe6e"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_ggcd3"), SubResource("Resource_1nw0g"), SubResource("Resource_s1rs7")])
+texture = ExtResource("11_jvq4w")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_exvg7"]
+script = ExtResource("3_r3klc")
+fake = true
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_ek3hu"]
+script = ExtResource("3_r3klc")
+x = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_aq2e8"]
+script = ExtResource("3_r3klc")
+y = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_6jxje"]
+script = ExtResource("3_r3klc")
+x = 1
+y = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_uo2yi"]
+script = ExtResource("3_r3klc")
+x = 2
+y = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_33rq1"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_exvg7"), SubResource("Resource_ek3hu"), SubResource("Resource_aq2e8"), SubResource("Resource_6jxje"), SubResource("Resource_uo2yi")])
+texture = ExtResource("12_3owaq")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_4rnak"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_ens6t"]
+script = ExtResource("3_r3klc")
+x = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_2fc4e"]
+script = ExtResource("3_r3klc")
+x = 2
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_u7kxm"]
+script = ExtResource("3_r3klc")
+x = 3
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_pbk6k"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_4rnak"), SubResource("Resource_ens6t"), SubResource("Resource_2fc4e"), SubResource("Resource_u7kxm")])
+texture = ExtResource("13_hgfcw")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_qgxw3"]
+script = ExtResource("2_omk8r")
+texture = ExtResource("14_d6tq0")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
 [node name="FlowerGenerator" type="Node" unique_id=530866589]
 script = ExtResource("1_hdd7t")
-flowers = Array[ExtResource("2_omk8r")]([SubResource("Resource_1o6hy"), SubResource("Resource_jvq4w"), SubResource("Resource_hgfcw"), SubResource("Resource_ny11b")])
+flowers = Array[ExtResource("2_omk8r")]([SubResource("Resource_1o6hy"), SubResource("Resource_jvq4w"), SubResource("Resource_hgfcw"), SubResource("Resource_ny11b"), SubResource("Resource_iipd4"), SubResource("Resource_jx2xh"), SubResource("Resource_5hjhc"), SubResource("Resource_twe6e"), SubResource("Resource_33rq1"), SubResource("Resource_pbk6k"), SubResource("Resource_qgxw3")])

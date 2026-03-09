@@ -1,10 +1,18 @@
 [gd_scene format=3 uid="uid://i0qgm17ct3m8"]
 
+[ext_resource type="Script" uid="uid://bi8kh1em40uno" path="res://UI/settings.gd" id="1_7iqql"]
+
 [sub_resource type="SystemFont" id="SystemFont_qosaw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7iqql"]
 font = SubResource("SystemFont_qosaw")
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_qosaw"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_vbc7n"]
+font_size = 26
 
 [node name="Settings" type="Control" unique_id=1819486395]
 layout_mode = 3
@@ -13,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7iqql")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1573680224]
 layout_mode = 1
@@ -67,6 +76,97 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer" unique_id=1633404846]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="Master" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1191407682]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master" unique_id=1296936010]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master"
+label_settings = SubResource("LabelSettings_qosaw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master" unique_id=1181844686]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer" unique_id=1365575053]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 0 0"
+label_settings = SubResource("LabelSettings_vbc7n")
+horizontal_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer" unique_id=1133025101]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+value = 50.0
+
+[node name="SFX" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=195060502]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX" unique_id=1736238430]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX"
+label_settings = SubResource("LabelSettings_qosaw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX" unique_id=1844367535]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer" unique_id=88229275]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 0 0"
+label_settings = SubResource("LabelSettings_vbc7n")
+horizontal_alignment = 1
+
+[node name="SFXSLider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer" unique_id=598946935]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+value = 50.0
+
+[node name="Music" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1109613109]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music" unique_id=1318001302]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+label_settings = SubResource("LabelSettings_qosaw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music" unique_id=1891769974]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer" unique_id=362608695]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 0 0"
+label_settings = SubResource("LabelSettings_vbc7n")
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer" unique_id=396053378]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+value = 50.0
+
+[node name="Button" type="Button" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer" unique_id=1294478036]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Return"
 
 [node name="Controlls" type="Panel" parent="MarginContainer/Panel/HBoxContainer" unique_id=1115224660]
 layout_mode = 2
@@ -209,3 +309,8 @@ text = "Supports azerty and controllers fully
 Controllers settings order: Nitendo / Xbox"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer/MasterSlider" to="." method="_set_master_label"]
+[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer/SFXSLider" to="." method="_set_sfx_label"]
+[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer/MusicSlider" to="." method="_set_music_label"]
+[connection signal="pressed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/Button" to="." method="_on_return_button_pressed"]

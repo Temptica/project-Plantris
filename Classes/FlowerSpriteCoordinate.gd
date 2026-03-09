@@ -5,6 +5,7 @@ class_name FlowerPiece
 @export var y: int
 @export var depends_on_side: bool
 @export var left_side: bool
+@export var fake: bool
 var plot: Plot
 
 func get_position()-> Vector2:

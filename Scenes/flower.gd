@@ -2,6 +2,8 @@ extends Resource
 
 
 class_name Flower
+const WIND_SHADER = preload("res://Shaders/wind_wave.gdshader")
+
 @export var flower_name: String
 @export var sprites: Array[FlowerPiece]
 @export var texture: Texture2D
@@ -81,7 +83,7 @@ func set_position():
 	var offset: Vector3 = Vector3(0,_height,0)
 	
 	if _width > 1:
-		if plot.is_left: offset += Vector3(0,0,BuildingSelector.Instance.currentBuilding.unit/2.0)
+		if plot.is_left: offset += Vector3(0,0,((_width-1)* BuildingSelector.Instance.currentBuilding.unit/2.0))
 		else: offset += Vector3(-((_width-1)* BuildingSelector.Instance.currentBuilding.unit/2.0),0,0)
 	
 	sprite.position = offset
