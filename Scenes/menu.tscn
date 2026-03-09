@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cektc707ua1ax"]
+
+[ext_resource type="Texture2D" uid="uid://cg34hm0f42kaw" path="res://Textures/Enviroment/BilboardFrame1.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://cd8ifpnptuar0" path="res://Scenes/menu.gd" id="1_q3rjx"]
+[ext_resource type="Texture2D" uid="uid://d1unamaplhrel" path="res://Textures/Buildings/BigCuboidBuilding9x9x18A.png" id="1_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://bt77fuedf6mtj" path="res://Textures/Buildings/TowerBuilding7x7x13B.png" id="2_q3rjx"]
+[ext_resource type="Texture2D" uid="uid://ba6amu1fxdbwk" path="res://Textures/Buildings/TowerBuilding7x7x13A.png" id="3_6swd7"]
+[ext_resource type="Texture2D" uid="uid://filv2jim4cue" path="res://Textures/Buildings/BigCuboidBuilding9x9x18B.png" id="5_7qvly"]
+[ext_resource type="Texture2D" uid="uid://bk6mxq2w4ddqo" path="res://Textures/words/play.png" id="6_rfqti"]
+[ext_resource type="Texture2D" uid="uid://c4ll7navu6433" path="res://Textures/words/setting.png" id="7_g8i7c"]
+
+[node name="Control" type="Control" unique_id=1224784581 node_paths=PackedStringArray("settings_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q3rjx")
+settings_button = NodePath("SettingsButton")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=211956329]
+position = Vector2(-1626, 1666)
+texture = ExtResource("1_wbdvm")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=551931506]
+position = Vector2(1680, 2190)
+texture = ExtResource("2_q3rjx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1038373682]
+position = Vector2(-3707, 2821)
+texture = ExtResource("3_6swd7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1103972818]
+position = Vector2(51, 2345)
+texture = ExtResource("1_wbdvm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=422673783]
+position = Vector2(614, 310)
+texture = ExtResource("1_1rerr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=863175974]
+position = Vector2(-1782, 3023)
+texture = ExtResource("5_7qvly")
+
+[node name="StartButton" type="TextureButton" parent="." unique_id=514024646]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 704.0
+offset_top = 16.0
+offset_right = 1204.0
+offset_bottom = 516.0
+focus_neighbor_right = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+texture_pressed = ExtResource("6_rfqti")
+texture_hover = ExtResource("6_rfqti")
+texture_focused = ExtResource("6_rfqti")
+
+[node name="SettingsButton" type="TextureButton" parent="." unique_id=948597099]
+layout_mode = 0
+offset_left = 708.0
+offset_top = 93.0
+offset_right = 1208.0
+offset_bottom = 593.0
+focus_neighbor_left = NodePath("../StartButton")
+focus_neighbor_top = NodePath("../StartButton")
+texture_pressed = ExtResource("7_g8i7c")
+texture_hover = ExtResource("7_g8i7c")
+texture_focused = ExtResource("7_g8i7c")
