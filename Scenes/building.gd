@@ -70,7 +70,15 @@ func position_flower(flower : Flower):
 		else: showSprite.reparent(self)
 		current_flower = flower
 	flower.set_position()
-	flower.set_color(Color.WHITE if _can_place() else Color.DARK_RED)
+	
+	var flipped = flower.grid_position.x < 0
+	var color: Color = Color.WHITE
+	if !_can_place():
+		if flipped: color = Color.DARK_RED
+		else: color = Color.FIREBRICK
+	elif flipped: color = Color.GRAY
+	flower.set_color(color)
+	
 
 func _can_place() -> bool:
 	for flowSprite in current_flower.sprites:
@@ -83,6 +91,7 @@ func try_set_flower() -> bool:
 	for flowSprite in current_flower.sprites:
 		flowSprite.plot.set_piece()
 	current_flower.sprite.render_priority = 0
+	current_flower.set_color(Color.GRAY if current_flower.grid_position.x >= 0 else Color.DARK_GRAY)
 	for plot in leftGrid.grid:
 		if plot.is_free() : return true
 	
@@ -104,5 +113,15 @@ func remove_current_flower() -> void:
 
 func allow_building():
 	can_build = true;
-	current_flower =MovementController.Instance.selectedFlower
+	current_flower = MovementController.Instance.selectedFlower
 	position_flower(current_flower)
+	
+func has_bottom_space() -> bool:
+	if rightGrid.grid.filter(func(p:Plot):return p.y == 0 && p.is_free()).size(): return true
+	if leftGrid.grid.filter(func(p:Plot):return p.y == 0 && p.is_free()).size(): return true
+	return false
+
+func has_top_space() -> bool:
+	if rightGrid.grid.filter(func(p:Plot):return p.y == height && p.is_free()).size(): return true
+	if leftGrid.grid.filter(func(p:Plot):return p.y == height && p.is_free()).size(): return true
+	return false
