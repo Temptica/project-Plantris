@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5xpo7ebfnees"
-path.s3tc="res://.godot/imported/RijWoning3x4x5D.png-e643f9d23e8190ec86f0b9bd9b8b32d2.s3tc.ctex"
+uid="uid://do3s5y0ae4pcw"
+path.s3tc="res://.godot/imported/RoadC.png-c56fe0f0a58979d6ad309d22b8fb9f4c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Buildings/RijWoning3x4x5D.png"
-dest_files=["res://.godot/imported/RijWoning3x4x5D.png-e643f9d23e8190ec86f0b9bd9b8b32d2.s3tc.ctex"]
+source_file="res://Textures/Road/RoadC.png"
+dest_files=["res://.godot/imported/RoadC.png-c56fe0f0a58979d6ad309d22b8fb9f4c.s3tc.ctex"]
 
 [params]
 
