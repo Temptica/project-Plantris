@@ -36,7 +36,7 @@
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
-[sub_resource type="BoxMesh" id="BoxMesh_w6rww"]
+[sub_resource type="BoxMesh" id="BoxMesh_y6d4o"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_amr18")
 size = Vector3(6.64187, 6.64187, 6.64187)
@@ -76,10 +76,10 @@ bus = &"SFX"
 script = ExtResource("5_skwfe")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387]
-transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, -67.13037, 52.260376, 66.41266)
+transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 323.54135, 52.260376, 25.84047)
 environment = ExtResource("2_adj8p")
 projection = 1
-size = 49.309
+size = 49.204
 near = 0.001
 script = ExtResource("5_adj8p")
 
@@ -108,7 +108,7 @@ camera_y_position = 21.004769999999937
 
 [node name="Mesh" parent="BuildingSelector/Building4" index="0" unique_id=1140310072]
 transform = Transform3D(1, 0, -3.0553338e-13, 0, 1, 0, 0, 0, 1, 9.194935, 2.364195, -13.178925)
-mesh = SubResource("BoxMesh_w6rww")
+mesh = SubResource("BoxMesh_y6d4o")
 
 [node name="FrontSprite" parent="BuildingSelector/Building4/Mesh/Sprites" parent_id_path=PackedInt32Array(280373378, 1839207894) index="0" unique_id=1641866592]
 transform = Transform3D(0.57088375, -8.881784e-16, -0.8210309, 0, 1, 0, 0.8210309, 0, 0.57088375, 0, -4.8417015, 0.29256916)
