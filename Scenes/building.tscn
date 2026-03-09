@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bmemkc2lglmi"]
+
+[ext_resource type="Script" uid="uid://bx1ud1rs2yjn5" path="res://Scenes/building.gd" id="1_avus0"]
+[ext_resource type="Texture2D" uid="uid://dplw6hccsd2as" path="res://Textures/Buildings/SmallCubeBuilidingA.png" id="2_uj2qm"]
+[ext_resource type="Script" uid="uid://cd78o24smb0ne" path="res://Classes/buildingGrid.gd" id="3_amr18"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amr18"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b2wr7"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_amr18")
+size = Vector3(6.64187, 6.64187, 6.64187)
+
+[sub_resource type="BoxMesh" id="BoxMesh_amr18"]
+
+[node name="Building" type="Node3D" unique_id=2127810894]
+script = ExtResource("1_avus0")
+width = 3
+height = 3
+texture = ExtResource("2_uj2qm")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1140310072]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
+mesh = SubResource("BoxMesh_b2wr7")
+
+[node name="Sprites" type="Node3D" parent="Mesh" unique_id=1839207894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
+
+[node name="FrontSprite" type="Sprite3D" parent="Mesh/Sprites" unique_id=1641866592]
+unique_name_in_owner = true
+transform = Transform3D(0.57088375, 0, -0.8210309, 0, 1, 0, 0.8210309, 0, 0.57088375, 6.1118044e-10, 6.1118044e-10, 6.1118044e-10)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -1
+texture = ExtResource("2_uj2qm")
+
+[node name="LeftFlowers" type="Node3D" parent="Mesh" unique_id=717635129]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4526405, -3.32093, 3.32093)
+script = ExtResource("3_amr18")
+
+[node name="Corner" type="MeshInstance3D" parent="Mesh/LeftFlowers" unique_id=280454542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
+visible = false
+mesh = SubResource("BoxMesh_amr18")
+
+[node name="RightFlowers" type="Node3D" parent="Mesh" unique_id=1695218776]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32094, -3.32094, -3.34922)
+script = ExtResource("3_amr18")
+
+[node name="Corner" type="MeshInstance3D" parent="Mesh/RightFlowers" unique_id=2123039756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0559022e-10, -3.0559022e-10, 0.054589998)
+visible = false
+mesh = SubResource("BoxMesh_amr18")

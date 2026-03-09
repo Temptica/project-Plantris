@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://d3x0nase63kkk"]
+
+[ext_resource type="Script" uid="uid://b6atwpp0gobk" path="res://Scenes/movement_controller.gd" id="1_o60eo"]
+[ext_resource type="PackedScene" uid="uid://bmemkc2lglmi" path="res://Scenes/building.tscn" id="1_u7naw"]
+[ext_resource type="Script" uid="uid://dj71pif6yhthy" path="res://Managers/score_manager.gd" id="1_wm66b"]
+[ext_resource type="Environment" uid="uid://cbql4a8hrxtb" path="res://World/evniroment.tres" id="2_adj8p"]
+[ext_resource type="Script" uid="uid://tmjch38r1kc5" path="res://Managers/building_selector.gd" id="2_stmv5"]
+[ext_resource type="Texture2D" uid="uid://cb0mvxjmeceay" path="res://Textures/Buildings/BigCuboidBuilidingA.png" id="4_3qc4n"]
+[ext_resource type="Script" uid="uid://di5v40f8lk44" path="res://World/camera.gd" id="5_adj8p"]
+[ext_resource type="Texture2D" uid="uid://cgvgskwmom0dr" path="res://Textures/Buildings/TowerBuilding5x5x11A.png" id="6_ujmo6"]
+[ext_resource type="PackedScene" uid="uid://dpyca0isr31lo" path="res://UI/game_ui.tscn" id="7_3qc4n"]
+[ext_resource type="Texture2D" uid="uid://dkcjducvbx2aq" path="res://Textures/Buildings/RijWoning3x4x6B.png" id="7_h0cym"]
+[ext_resource type="Texture2D" uid="uid://e4vgng56eqoy" path="res://Textures/Buildings/RijWoning3x4x5B.png" id="7_p1kk6"]
+[ext_resource type="Texture2D" uid="uid://bbgus66g1wbi2" path="res://Textures/Buildings/RijWoning3x4x5C.png" id="8_76y8w"]
+[ext_resource type="Texture2D" uid="uid://blnaht66keh2k" path="res://Textures/Buildings/RijWoning3x4x6A.png" id="10_8sad3"]
+[ext_resource type="Texture2D" uid="uid://dbsgnyyvgr6e2" path="res://Textures/Buildings/RijWoning3x5x5B.png" id="14_jtc0r"]
+[ext_resource type="Texture2D" uid="uid://ba6amu1fxdbwk" path="res://Textures/Buildings/TowerBuilding7x7x13A.png" id="17_8sad3"]
+[ext_resource type="Texture2D" uid="uid://bt77fuedf6mtj" path="res://Textures/Buildings/TowerBuilding7x7x13B.png" id="18_n7wpf"]
+
+[node name="City" type="Node3D" unique_id=868238897]
+
+[node name="MovementController" type="Node" parent="." unique_id=1934432307]
+script = ExtResource("1_o60eo")
+
+[node name="ScoreManager" type="Node" parent="." unique_id=1612369225]
+script = ExtResource("1_wm66b")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387]
+transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 19.97057, 21.97719, 28.94091)
+environment = ExtResource("2_adj8p")
+projection = 1
+size = 10.0
+near = 0.001
+script = ExtResource("5_adj8p")
+
+[node name="BuildingSelector" type="Node3D" parent="." unique_id=640674882 node_paths=PackedStringArray("buildings")]
+script = ExtResource("2_stmv5")
+buildings = [NodePath("Building1"), NodePath("Building4"), NodePath("Building7"), NodePath("Building5"), NodePath("Building8"), NodePath("Building11"), NodePath("Building12"), NodePath("Building14"), NodePath("Building15"), NodePath("BuildingLast")]
+
+[node name="Building1" parent="BuildingSelector" unique_id=2127810894 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+depth = 3
+camera_x_position = -29.299879999999913
+camera_y_position = 20.315639999999934
+
+[node name="Building4" parent="BuildingSelector" unique_id=280373378 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 15.093798, 0, 0)
+depth = 3
+width = 4
+height = 5
+texture = ExtResource("7_p1kk6")
+camera_x_position = -9.90038999999997
+camera_y_position = 21.004769999999937
+
+[node name="Building7" parent="BuildingSelector" unique_id=1287959624 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 30.725792, 0, 0)
+depth = 3
+width = 4
+height = 6
+texture = ExtResource("10_8sad3")
+camera_x_position = 3.577719999999989
+camera_y_position = 21.977189999999933
+
+[node name="Building5" parent="BuildingSelector" unique_id=349767034 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 47.24404, 0, 0)
+depth = 3
+width = 4
+height = 5
+texture = ExtResource("8_76y8w")
+camera_x_position = 19.97056999999994
+camera_y_position = 21.977189999999933
+
+[node name="Building8" parent="BuildingSelector" unique_id=580413288 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 62.82515, 0, 0)
+depth = 3
+width = 4
+height = 6
+texture = ExtResource("7_h0cym")
+camera_x_position = 64.9999999999998
+camera_y_position = 20.315639999999934
+
+[node name="Building11" parent="BuildingSelector" unique_id=1077880982 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 79.91729, 0, -0.5044899)
+depth = 3
+width = 5
+height = 5
+texture = ExtResource("14_jtc0r")
+camera_x_position = 74.99999999999977
+camera_y_position = 20.315639999999934
+
+[node name="Building12" parent="BuildingSelector" unique_id=1524238318 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 99.6932, 0, -0.5911751)
+depth = 5
+width = 5
+height = 11
+texture = ExtResource("6_ujmo6")
+camera_x_position = 89.99999999999973
+camera_y_position = 20.315639999999934
+
+[node name="Building14" parent="BuildingSelector" unique_id=2089296339 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 127.29727, 0, -1.2886658)
+depth = 5
+width = 5
+height = 13
+texture = ExtResource("17_8sad3")
+camera_x_position = 129.9999999999996
+camera_y_position = 20.315639999999934
+
+[node name="Building15" parent="BuildingSelector" unique_id=919788139 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 164.59053, 0, -1.2886658)
+depth = 5
+width = 5
+height = 13
+texture = ExtResource("18_n7wpf")
+camera_x_position = 149.99999999999955
+camera_y_position = 20.315639999999934
+
+[node name="BuildingLast" parent="BuildingSelector" unique_id=1785335270 instance=ExtResource("1_u7naw")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 203.69498, 0, -0.11139393)
+depth = 9
+width = 9
+height = 18
+texture = ExtResource("4_3qc4n")
+camera_x_position = 34.174629999999894
+camera_y_position = 39.57951999999988
+draw_pos = -5
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=170634205]
+directional_shadow_mode = 0
+
+[node name="GameUi" parent="." unique_id=2146102133 instance=ExtResource("7_3qc4n")]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=331093350]
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D" unique_id=1643439494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1680202, 3.1732159, -11.700714)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("7_p1kk6")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Node3D" unique_id=1926539078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.814854, 3.1732159, -11.700714)
+modulate = Color(1, 0.83137256, 0.77254903, 1)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("7_p1kk6")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Node3D" unique_id=1129865130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.582146, 4.833357, -11.700714)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("7_h0cym")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Node3D" unique_id=172539817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.516403, 4.833357, -21.756216)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("7_h0cym")

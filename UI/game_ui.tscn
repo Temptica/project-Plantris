@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://dpyca0isr31lo"]
+
+[ext_resource type="Script" uid="uid://c4gk2nnbp8m0l" path="res://UI/game_ui.gd" id="1_kfjql"]
+[ext_resource type="PackedScene" uid="uid://b4c4glc3dnt5b" path="res://Managers/flower_generator.tscn" id="3_h0rig"]
+[ext_resource type="Texture2D" uid="uid://ldiluyf56hfp" path="res://Textures/Plants/SmallFlower1BlockA.png" id="3_ywmy4"]
+[ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="4_jd38o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oifk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2oifk"]
+
+[node name="GameUi" type="Control" unique_id=2146102133]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kfjql")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1129354219]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -75.0
+offset_bottom = 75.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1702381973]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1398978434]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="FlowerSelectionContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1500838010]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HighlightPanel" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=386893086]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2oifk")
+
+[node name="HighlightPanelTexture" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/HighlightPanel" unique_id=2027504109]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_jd38o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Flower1" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=811100014]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_ywmy4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Flower2" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=1682873804]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_ywmy4")
+texture_focused = SubResource("ViewportTexture_2oifk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Flower3" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer" unique_id=681854074]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_jd38o")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FlowerGenerator" parent="." unique_id=530866589 instance=ExtResource("3_h0rig")]
+unique_name_in_owner = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=407536928]
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=938480868]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 50
+
+[node name="NextButton" type="Button" parent="MarginContainer2" unique_id=480694381]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next building"
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=586358917]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3" unique_id=1501363864]
+layout_mode = 2
+
+[node name="ScoreTitleLabel" type="Label" parent="MarginContainer3/HBoxContainer" unique_id=1193314036]
+layout_mode = 2
+text = "Score:"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer3/HBoxContainer" unique_id=1093413265]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/Flower1" to="." method="_on_flower_button_pressed" binds= [1]]
+[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/Flower2" to="." method="_on_flower_button_pressed" binds= [2]]
+[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/FlowerSelectionContainer/Flower3" to="." method="_on_flower_button_pressed" binds= [3]]
+[connection signal="pressed" from="MarginContainer2/NextButton" to="." method="_on_next_building_pressed"]

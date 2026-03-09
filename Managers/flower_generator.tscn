@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b4c4glc3dnt5b"]
+
+[ext_resource type="Script" uid="uid://dab1j1k2viapb" path="res://Managers/flower_generator.gd" id="1_hdd7t"]
+[ext_resource type="Script" uid="uid://cewd8bq0kgk6o" path="res://Scenes/flower.gd" id="2_omk8r"]
+[ext_resource type="Script" uid="uid://diqjl5ocf4ees" path="res://Classes/FlowerSpriteCoordinate.gd" id="3_r3klc"]
+[ext_resource type="Texture2D" uid="uid://ldiluyf56hfp" path="res://Textures/Plants/SmallFlower1BlockA.png" id="4_ntl08"]
+[ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="6_7k8da"]
+[ext_resource type="Texture2D" uid="uid://cin55q5vn6hwf" path="res://Textures/Plants/FernPlant3BlocksLShape.png" id="7_hgphy"]
+[ext_resource type="Texture2D" uid="uid://dyq43r43mean6" path="res://Textures/Plants/SunFlower2BlocksTall.png" id="7_ntl08"]
+
+[sub_resource type="Resource" id="Resource_m2ivq"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_1o6hy"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_m2ivq")])
+texture = ExtResource("4_ntl08")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_3owaq"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_jvq4w"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_3owaq")])
+texture = ExtResource("6_7k8da")
+flower_type = 2
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_s4ksg"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_d6tq0"]
+script = ExtResource("3_r3klc")
+y = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_hgfcw"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_s4ksg"), SubResource("Resource_d6tq0")])
+texture = ExtResource("7_ntl08")
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[sub_resource type="Resource" id="Resource_bx0w4"]
+script = ExtResource("3_r3klc")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_511u5"]
+script = ExtResource("3_r3klc")
+x = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_jpraq"]
+script = ExtResource("3_r3klc")
+y = 1
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[sub_resource type="Resource" id="Resource_ny11b"]
+script = ExtResource("2_omk8r")
+sprites = Array[ExtResource("3_r3klc")]([SubResource("Resource_bx0w4"), SubResource("Resource_511u5"), SubResource("Resource_jpraq")])
+texture = ExtResource("7_hgphy")
+flower_type = 1
+metadata/_custom_type_script = "uid://cewd8bq0kgk6o"
+
+[node name="FlowerGenerator" type="Node" unique_id=530866589]
+script = ExtResource("1_hdd7t")
+flowers = Array[ExtResource("2_omk8r")]([SubResource("Resource_1o6hy"), SubResource("Resource_jvq4w"), SubResource("Resource_hgfcw"), SubResource("Resource_ny11b")])

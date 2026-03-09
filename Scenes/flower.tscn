@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cu87b61cdbjmb"]
+
+[ext_resource type="Script" uid="uid://cewd8bq0kgk6o" path="res://Scenes/flower.gd" id="1_s3cv5"]
+[ext_resource type="Script" uid="uid://diqjl5ocf4ees" path="res://Classes/FlowerSpriteCoordinate.gd" id="2_4r3j5"]
+[ext_resource type="Texture2D" uid="uid://xjyjayvrc8hm" path="res://Textures/Plants/flo.png" id="3_hbmji"]
+
+[sub_resource type="Resource" id="Resource_4r3j5"]
+script = ExtResource("2_4r3j5")
+x = 1
+y = 1
+texture = ExtResource("3_hbmji")
+metadata/_custom_type_script = "uid://diqjl5ocf4ees"
+
+[node name="Flower" type="Node3D" unique_id=1180845083]
+script = ExtResource("1_s3cv5")
+flower_name = "Roos"
+sprites = Array[ExtResource("2_4r3j5")]([SubResource("Resource_4r3j5")])

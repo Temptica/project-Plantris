@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://i0qgm17ct3m8"]
+
+[sub_resource type="SystemFont" id="SystemFont_qosaw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7iqql"]
+font = SubResource("SystemFont_qosaw")
+font_size = 40
+
+[node name="Settings" type="Control" unique_id=1819486395]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1573680224]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 100
+
+[node name="Panel" type="ColorRect" parent="MarginContainer" unique_id=1900942242]
+layout_mode = 2
+color = Color(0.22282109, 0.21947062, 0.19691014, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel" unique_id=749690061]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" type="Panel" parent="MarginContainer/Panel/HBoxContainer" unique_id=2134074923]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer/Settings" unique_id=2126456758]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer" unique_id=648489620]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer" unique_id=468138069]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_7iqql")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer" unique_id=1633404846]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Controlls" type="Panel" parent="MarginContainer/Panel/HBoxContainer" unique_id=1115224660]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls" unique_id=669259932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer" unique_id=212440612]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer" unique_id=1912759879]
+layout_mode = 2
+text = "CONTROLS"
+label_settings = SubResource("LabelSettings_7iqql")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer" unique_id=1373045072]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=83158197]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1706642345]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Move left:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1062814652]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "A/Left"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1006206419]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=866877251]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Move right:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=470150521]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "D/Right"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1971519841]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1879290690]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Move up:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=379255770]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "W/Up"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2047352193]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1792300023]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Move down:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=895719733]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "S/Down"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1535435577]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1003800599]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Select left:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1375439133]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Q/Left/L1"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=386460324]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6" unique_id=1830790776]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Select right:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6" unique_id=1392709830]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "D/Right/R1"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1234323519]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer7" unique_id=1899453984]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Accept:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer7" unique_id=2029142838]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Enter/Space Controller: A /B"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=22669486]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer8" unique_id=111980182]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Next building:"
+
+[node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer8" unique_id=460439713]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Tab/ Controller: Y / X"
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2025495163]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Supports azerty and controllers fully 
+Controllers settings order: Nitendo / Xbox"
+horizontal_alignment = 1
+vertical_alignment = 1
