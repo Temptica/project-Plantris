@@ -5,6 +5,7 @@ var cam_max : float = 50
 var size_min: float = 3
 var size_max : float = 18
 var base_position: Vector3
+var started: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	BuildingSelector.Instance.building_changed.connect(_on_building_changed)
@@ -12,6 +13,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_building_changed(building: Building):
+	if !started : return;
 	var sizeDif = size_max-size_min
 	
 	var cam_val = (building.height-size_min)/sizeDif
@@ -22,7 +24,3 @@ func _on_building_changed(building: Building):
 	tween.parallel().tween_property(self, "size", camSize,2)
 	tween.tween_callback(func(): building.allow_building())
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

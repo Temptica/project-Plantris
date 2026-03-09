@@ -28,16 +28,32 @@
 [ext_resource type="Texture2D" uid="uid://ctmjk07mr348d" path="res://Textures/Road/RoadB.png" id="23_lbsl3"]
 [ext_resource type="Texture2D" uid="uid://d1unamaplhrel" path="res://Textures/Buildings/BigCuboidBuilding9x9x18A.png" id="23_ykcfl"]
 [ext_resource type="Texture2D" uid="uid://clhd05b0bf00r" path="res://Textures/Road/RoadCross.png" id="24_8w8t5"]
+[ext_resource type="Texture2D" uid="uid://cg34hm0f42kaw" path="res://Textures/Enviroment/BilboardFrame1.png" id="24_y6d4o"]
 [ext_resource type="Texture2D" uid="uid://ch1qofvntu3i6" path="res://Textures/Road/RoadUpA.png" id="25_58dp2"]
+[ext_resource type="Texture2D" uid="uid://fv5q2jxlajus" path="res://Textures/Enviroment/BilboardFrame2.png" id="25_iqb2g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amr18"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0)
 
-[sub_resource type="BoxMesh" id="BoxMesh_76y8w"]
+[sub_resource type="BoxMesh" id="BoxMesh_w6rww"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_amr18")
 size = Vector3(6.64187, 6.64187, 6.64187)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmab1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_y6d4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_iqb2g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="City" type="Node3D" unique_id=868238897]
 
@@ -60,10 +76,10 @@ bus = &"SFX"
 script = ExtResource("5_skwfe")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387]
-transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 410.00977, 21.433311, 46.001442)
+transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 324.73187, 52.260376, 66.41266)
 environment = ExtResource("2_adj8p")
 projection = 1
-size = 14.286
+size = 49.309
 near = 0.001
 script = ExtResource("5_adj8p")
 
@@ -73,7 +89,7 @@ current = true
 
 [node name="BuildingSelector" type="Node3D" parent="." unique_id=640674882 node_paths=PackedStringArray("buildings")]
 script = ExtResource("2_stmv5")
-buildings = [NodePath("Building1"), NodePath("Building4"), NodePath("Building7"), NodePath(""), NodePath(""), NodePath("Building11"), NodePath("Building12"), NodePath("Building14"), NodePath(""), NodePath("BuildingLast")]
+buildings = [NodePath("Building1"), NodePath("Building4"), NodePath("Building7"), null, null, NodePath("Building11"), NodePath("Building12"), NodePath("Building14"), null, NodePath("BuildingLast")]
 
 [node name="Building1" parent="BuildingSelector" unique_id=2127810894 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
@@ -92,10 +108,13 @@ camera_y_position = 21.004769999999937
 
 [node name="Mesh" parent="BuildingSelector/Building4" index="0" unique_id=1140310072]
 transform = Transform3D(1, 0, -3.0553338e-13, 0, 1, 0, 0, 0, 1, 9.194935, 2.364195, -13.178925)
-mesh = SubResource("BoxMesh_76y8w")
+mesh = SubResource("BoxMesh_w6rww")
+
+[node name="FrontSprite" parent="BuildingSelector/Building4/Mesh/Sprites" parent_id_path=PackedInt32Array(280373378, 1839207894) index="0" unique_id=1641866592]
+transform = Transform3D(0.57088375, -8.881784e-16, -0.8210309, 0, 1, 0, 0.8210309, 0, 0.57088375, 0, -4.8417015, 0.29256916)
 
 [node name="Building7" parent="BuildingSelector" unique_id=1287959624 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 113.94092, 0, -13.025114)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 113.94092, -7.8445435, -13.025114)
 depth = 3
 width = 4
 height = 7
@@ -104,7 +123,7 @@ camera_x_position = 3.577719999999989
 camera_y_position = 21.977189999999933
 
 [node name="Building11" parent="BuildingSelector" unique_id=1077880982 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 170.91235, 0.43770218, -7.783798)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 170.91235, -5.141247, -7.783798)
 depth = 3
 width = 5
 height = 5
@@ -113,7 +132,7 @@ camera_x_position = 74.99999999999977
 camera_y_position = 20.315639999999934
 
 [node name="Building12" parent="BuildingSelector" unique_id=1524238318 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 235.45041, 0, -22.536388)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 235.45041, -12.246147, -22.536388)
 depth = 5
 width = 5
 height = 11
@@ -122,7 +141,7 @@ camera_x_position = 89.99999999999973
 camera_y_position = 20.315639999999934
 
 [node name="Building14" parent="BuildingSelector" unique_id=2089296339 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 303.41876, 0, -30.162537)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 303.41876, -14.298012, -30.162537)
 depth = 5
 width = 5
 height = 13
@@ -131,7 +150,7 @@ camera_x_position = 129.9999999999996
 camera_y_position = 20.315639999999934
 
 [node name="BuildingLast" parent="BuildingSelector" unique_id=1785335270 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 375.09265, 0, -39.62328)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 375.09265, -20.098183, -39.62328)
 depth = 9
 width = 9
 height = 18
@@ -372,6 +391,11 @@ billboard = 1
 shaded = true
 render_priority = -5
 texture = ExtResource("23_ykcfl")
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="Envioment3D/Sprite3D33" unique_id=924844658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.237762, 16.574762, -5.0368195)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_mmab1")
 
 [node name="Sprite3D34" type="Sprite3D" parent="Envioment3D" unique_id=561399044]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 393.32672, 4.4052773, -59.90889)
