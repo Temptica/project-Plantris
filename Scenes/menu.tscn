@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cektc707ua1ax"]
+[gd_scene format=3 uid="uid://bltsncf5bwo1c"]
 
 [ext_resource type="Texture2D" uid="uid://cg34hm0f42kaw" path="res://Textures/Enviroment/BilboardFrame1.png" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://cd8ifpnptuar0" path="res://Scenes/menu.gd" id="1_q3rjx"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bk6mxq2w4ddqo" path="res://Textures/words/play.png" id="6_rfqti"]
 [ext_resource type="Texture2D" uid="uid://c4ll7navu6433" path="res://Textures/words/setting.png" id="7_g8i7c"]
 
-[node name="Control" type="Control" unique_id=1224784581 node_paths=PackedStringArray("settings_button")]
+[node name="Control" type="Control" unique_id=1224784581]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,33 +17,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q3rjx")
-settings_button = NodePath("SettingsButton")
 
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=211956329]
+[node name="Control" type="Control" parent="." unique_id=632290124]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D5" type="Sprite2D" parent="Control" unique_id=211956329]
 position = Vector2(-1626, 1666)
 texture = ExtResource("1_wbdvm")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=551931506]
-position = Vector2(1680, 2190)
+[node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=551931506]
+position = Vector2(1062, 1276)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_q3rjx")
 
-[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1038373682]
+[node name="Sprite2D6" type="Sprite2D" parent="Control" unique_id=1038373682]
 position = Vector2(-3707, 2821)
 texture = ExtResource("3_6swd7")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1103972818]
-position = Vector2(51, 2345)
+[node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=1103972818]
+position = Vector2(286, 1335)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_wbdvm")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=422673783]
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=422673783]
 position = Vector2(614, 310)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1rerr")
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=863175974]
+[node name="Sprite2D4" type="Sprite2D" parent="Control" unique_id=863175974]
 position = Vector2(-1782, 3023)
 texture = ExtResource("5_7qvly")
 
-[node name="StartButton" type="TextureButton" parent="." unique_id=514024646]
+[node name="StartButton" type="TextureButton" parent="Control" unique_id=514024646]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 704.0
@@ -56,7 +63,8 @@ texture_pressed = ExtResource("6_rfqti")
 texture_hover = ExtResource("6_rfqti")
 texture_focused = ExtResource("6_rfqti")
 
-[node name="SettingsButton" type="TextureButton" parent="." unique_id=948597099]
+[node name="SettingsButton" type="TextureButton" parent="Control" unique_id=948597099]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 708.0
 offset_top = 93.0
@@ -67,3 +75,5 @@ focus_neighbor_top = NodePath("../StartButton")
 texture_pressed = ExtResource("7_g8i7c")
 texture_hover = ExtResource("7_g8i7c")
 texture_focused = ExtResource("7_g8i7c")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=474634944]

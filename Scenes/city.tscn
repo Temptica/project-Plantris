@@ -121,7 +121,7 @@ depth = 5
 width = 5
 height = 11
 texture = ExtResource("6_ujmo6")
-camera_x_position = 118.49736999999965
+camera_x_position = 118.49736999999963
 camera_y_position = 67.48895999999979
 
 [node name="Building14" parent="BuildingSelector" unique_id=2089296339 instance=ExtResource("1_u7naw")]
@@ -147,6 +147,7 @@ draw_pos = -5
 directional_shadow_mode = 0
 
 [node name="GameUi" parent="." unique_id=2146102133 instance=ExtResource("7_3qc4n")]
+visible = false
 
 [node name="Envioment3D" type="Node3D" parent="." unique_id=331093350]
 
