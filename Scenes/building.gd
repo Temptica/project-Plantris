@@ -25,7 +25,7 @@ func _ready() -> void:
 	
 	var boxMesh: BoxMesh = mesh.mesh;
 	boxMesh.size = Vector3(width*unit, height*unit, depth*unit)
-	global_position = Vector3(global_position.x, boxMesh.size.y/2.0, global_position.z)
+	#mesh.position = Vector3(0, boxMesh.size.y/2.0, 0)
 	plotSize = Vector2(unit,unit)
 	
 	if texture != null:

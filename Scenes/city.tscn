@@ -19,6 +19,25 @@
 [ext_resource type="Texture2D" uid="uid://dbsgnyyvgr6e2" path="res://Textures/Buildings/RijWoning3x5x5B.png" id="14_jtc0r"]
 [ext_resource type="Texture2D" uid="uid://ba6amu1fxdbwk" path="res://Textures/Buildings/TowerBuilding7x7x13A.png" id="17_8sad3"]
 [ext_resource type="Texture2D" uid="uid://bt77fuedf6mtj" path="res://Textures/Buildings/TowerBuilding7x7x13B.png" id="18_n7wpf"]
+[ext_resource type="Texture2D" uid="uid://dplw6hccsd2as" path="res://Textures/Buildings/SmallCubeBuilidingA.png" id="20_8sad3"]
+[ext_resource type="Texture2D" uid="uid://ci2x5d40crtpg" path="res://Textures/Buildings/TowerBuilding5x5x11B.png" id="20_ykcfl"]
+[ext_resource type="Texture2D" uid="uid://filv2jim4cue" path="res://Textures/Buildings/BigCuboidBuilding9x9x18B.png" id="21_58dp2"]
+[ext_resource type="Texture2D" uid="uid://gxdpdt8nc871" path="res://Textures/Road/RoadA.png" id="21_n7wpf"]
+[ext_resource type="Texture2D" uid="uid://do3s5y0ae4pcw" path="res://Textures/Road/RoadC.png" id="22_ly2n0"]
+[ext_resource type="Texture2D" uid="uid://c5xpo7ebfnees" path="res://Textures/Buildings/RijWoning3x4x5D.png" id="22_ykcfl"]
+[ext_resource type="Texture2D" uid="uid://ctmjk07mr348d" path="res://Textures/Road/RoadB.png" id="23_lbsl3"]
+[ext_resource type="Texture2D" uid="uid://d1unamaplhrel" path="res://Textures/Buildings/BigCuboidBuilding9x9x18A.png" id="23_ykcfl"]
+[ext_resource type="Texture2D" uid="uid://clhd05b0bf00r" path="res://Textures/Road/RoadCross.png" id="24_8w8t5"]
+[ext_resource type="Texture2D" uid="uid://ch1qofvntu3i6" path="res://Textures/Road/RoadUpA.png" id="25_58dp2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amr18"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_76y8w"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_amr18")
+size = Vector3(6.64187, 6.64187, 6.64187)
 
 [node name="City" type="Node3D" unique_id=868238897]
 
@@ -41,10 +60,10 @@ bus = &"SFX"
 script = ExtResource("5_skwfe")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387]
-transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 19.97057, 21.97719, 28.94091)
+transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 410.00977, 21.433311, 46.001442)
 environment = ExtResource("2_adj8p")
 projection = 1
-size = 10.0
+size = 14.286
 near = 0.001
 script = ExtResource("5_adj8p")
 
@@ -54,7 +73,7 @@ current = true
 
 [node name="BuildingSelector" type="Node3D" parent="." unique_id=640674882 node_paths=PackedStringArray("buildings")]
 script = ExtResource("2_stmv5")
-buildings = [NodePath("Building1"), NodePath("Building4"), NodePath("Building7"), NodePath("Building5"), NodePath("Building8"), NodePath("Building11"), NodePath("Building12"), NodePath("Building14"), NodePath("Building15"), NodePath("BuildingLast")]
+buildings = [NodePath("Building1"), NodePath("Building4"), NodePath("Building7"), NodePath(""), NodePath(""), NodePath("Building11"), NodePath("Building12"), NodePath("Building14"), NodePath(""), NodePath("BuildingLast")]
 
 [node name="Building1" parent="BuildingSelector" unique_id=2127810894 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
@@ -63,7 +82,7 @@ camera_x_position = -29.299879999999913
 camera_y_position = 20.315639999999934
 
 [node name="Building4" parent="BuildingSelector" unique_id=280373378 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 15.093798, 0, 0)
+transform = Transform3D(-1, 0, 8.742278e-08, -5.2730664e-09, 0.99817926, -0.06031685, -8.72636e-08, -0.06031685, -0.99817926, 49.487797, 0, -7.847191)
 depth = 3
 width = 4
 height = 5
@@ -71,8 +90,12 @@ texture = ExtResource("7_p1kk6")
 camera_x_position = -9.90038999999997
 camera_y_position = 21.004769999999937
 
+[node name="Mesh" parent="BuildingSelector/Building4" index="0" unique_id=1140310072]
+transform = Transform3D(1, 0, -3.0553338e-13, 0, 1, 0, 0, 0, 1, 9.194935, 2.364195, -13.178925)
+mesh = SubResource("BoxMesh_76y8w")
+
 [node name="Building7" parent="BuildingSelector" unique_id=1287959624 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 30.725792, 0, 0)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 113.94092, 0, -13.025114)
 depth = 3
 width = 4
 height = 7
@@ -80,26 +103,8 @@ texture = ExtResource("10_8sad3")
 camera_x_position = 3.577719999999989
 camera_y_position = 21.977189999999933
 
-[node name="Building5" parent="BuildingSelector" unique_id=349767034 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 47.24404, 0, 0)
-depth = 3
-width = 4
-height = 5
-texture = ExtResource("8_76y8w")
-camera_x_position = 19.97056999999994
-camera_y_position = 21.977189999999933
-
-[node name="Building8" parent="BuildingSelector" unique_id=580413288 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 62.82515, 0, 0)
-depth = 3
-width = 4
-height = 6
-texture = ExtResource("7_h0cym")
-camera_x_position = 64.9999999999998
-camera_y_position = 20.315639999999934
-
 [node name="Building11" parent="BuildingSelector" unique_id=1077880982 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 79.91729, 0, -0.5044899)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 170.91235, 0.43770218, -7.783798)
 depth = 3
 width = 5
 height = 5
@@ -108,7 +113,7 @@ camera_x_position = 74.99999999999977
 camera_y_position = 20.315639999999934
 
 [node name="Building12" parent="BuildingSelector" unique_id=1524238318 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 99.6932, 0, -0.5911751)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 235.45041, 0, -22.536388)
 depth = 5
 width = 5
 height = 11
@@ -117,7 +122,7 @@ camera_x_position = 89.99999999999973
 camera_y_position = 20.315639999999934
 
 [node name="Building14" parent="BuildingSelector" unique_id=2089296339 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 127.29727, 0, -1.2886658)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 303.41876, 0, -30.162537)
 depth = 5
 width = 5
 height = 13
@@ -125,17 +130,8 @@ texture = ExtResource("17_8sad3")
 camera_x_position = 129.9999999999996
 camera_y_position = 20.315639999999934
 
-[node name="Building15" parent="BuildingSelector" unique_id=919788139 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 164.59053, 0, -1.2886658)
-depth = 5
-width = 5
-height = 13
-texture = ExtResource("18_n7wpf")
-camera_x_position = 149.99999999999957
-camera_y_position = 20.315639999999934
-
 [node name="BuildingLast" parent="BuildingSelector" unique_id=1785335270 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 203.69498, 0, -0.11139393)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 375.09265, 0, -39.62328)
 depth = 9
 width = 9
 height = 18
@@ -149,34 +145,693 @@ directional_shadow_mode = 0
 
 [node name="GameUi" parent="." unique_id=2146102133 instance=ExtResource("7_3qc4n")]
 
-[node name="Node3D" type="Node3D" parent="." unique_id=331093350]
+[node name="Envioment3D" type="Node3D" parent="." unique_id=331093350]
 
-[node name="Sprite3D" type="Sprite3D" parent="Node3D" unique_id=1643439494]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1680202, 3.1732159, -11.700714)
+[node name="Sprite3D" type="Sprite3D" parent="Envioment3D" unique_id=1643439494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5931196, 2.0257034, -15.932447)
+flip_h = true
 billboard = 1
 shaded = true
 double_sided = false
 render_priority = -3
-texture = ExtResource("7_p1kk6")
+texture = ExtResource("14_jtc0r")
 
-[node name="Sprite3D2" type="Sprite3D" parent="Node3D" unique_id=1926539078]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.814854, 3.1732159, -11.700714)
+[node name="Sprite3D2" type="Sprite3D" parent="Envioment3D" unique_id=1926539078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.096958, 3.1732159, -3.7908745)
 modulate = Color(1, 0.83137256, 0.77254903, 1)
 billboard = 1
 shaded = true
 render_priority = -3
 texture = ExtResource("7_p1kk6")
 
-[node name="Sprite3D3" type="Sprite3D" parent="Node3D" unique_id=1129865130]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.582146, 4.833357, -11.700714)
+[node name="Sprite3D3" type="Sprite3D" parent="Envioment3D" unique_id=1129865130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.383331, 4.833357, -14.221043)
+flip_h = true
 billboard = 1
 shaded = true
 render_priority = -3
 texture = ExtResource("7_h0cym")
 
-[node name="Sprite3D4" type="Sprite3D" parent="Node3D" unique_id=172539817]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.516403, 4.833357, -21.756216)
+[node name="Sprite3D4" type="Sprite3D" parent="Envioment3D" unique_id=172539817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0206966, 4.833357, -26.064726)
+flip_h = true
 billboard = 1
 shaded = true
 render_priority = -3
 texture = ExtResource("7_h0cym")
+
+[node name="Sprite3D11" type="Sprite3D" parent="Envioment3D" unique_id=1307370590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.09709, 2.0257034, -18.921778)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("20_ykcfl")
+
+[node name="Sprite3D15" type="Sprite3D" parent="Envioment3D" unique_id=507612573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.12268, 2.0257034, -38.04724)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("18_n7wpf")
+
+[node name="Sprite3D12" type="Sprite3D" parent="Envioment3D" unique_id=1167766639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.98487, 1.8142338, -5.846916)
+modulate = Color(1, 0.83137256, 0.77254903, 1)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("7_p1kk6")
+
+[node name="Sprite3D13" type="Sprite3D" parent="Envioment3D" unique_id=331042915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.85913, 4.833357, -14.221043)
+flip_h = true
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("7_h0cym")
+
+[node name="Sprite3D14" type="Sprite3D" parent="Envioment3D" unique_id=2125263745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.75379, 4.833357, -24.011679)
+flip_h = true
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("7_h0cym")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Envioment3D" unique_id=1429520289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.782162, 4.833357, -31.112343)
+flip_h = true
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("6_ujmo6")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Envioment3D" unique_id=354822173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.336594, 4.833357, -23.09135)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("6_ujmo6")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Envioment3D" unique_id=2093044696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.29772, 4.833357, -18.124767)
+flip_h = true
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("20_8sad3")
+
+[node name="Sprite3D16" type="Sprite3D" parent="Envioment3D" unique_id=1431631401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 127.70241, 4.833357, 3.3051167)
+billboard = 1
+shaded = true
+render_priority = -5
+texture = ExtResource("20_8sad3")
+
+[node name="Sprite3D17" type="Sprite3D" parent="Envioment3D" unique_id=1962023843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.21715, 2.0257034, -5.9482937)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ykcfl")
+
+[node name="Sprite3D18" type="Sprite3D" parent="Envioment3D" unique_id=1146477421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.56142, 2.0257034, -36.01555)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("6_ujmo6")
+
+[node name="Sprite3D24" type="Sprite3D" parent="Envioment3D" unique_id=482554405]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 179.55379, 2.0257034, -47.86898)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("6_ujmo6")
+
+[node name="Sprite3D23" type="Sprite3D" parent="Envioment3D" unique_id=1471576219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.56287, 2.0257034, -50.75971)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("20_ykcfl")
+
+[node name="Sprite3D19" type="Sprite3D" parent="Envioment3D" unique_id=1774254191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 178.91704, 1.8142338, -5.310482)
+modulate = Color(1, 0.83137256, 0.77254903, 1)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("8_76y8w")
+
+[node name="Sprite3D20" type="Sprite3D" parent="Envioment3D" unique_id=35801834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 163.20831, 4.4052773, -8.98535)
+flip_h = true
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("22_ykcfl")
+
+[node name="Sprite3D22" type="Sprite3D" parent="Envioment3D" unique_id=250637121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 244.94257, 2.0257034, -0.6140213)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("20_8sad3")
+
+[node name="Sprite3D25" type="Sprite3D" parent="Envioment3D" unique_id=1988386170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 231.34853, 2.0257034, -30.912521)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("6_ujmo6")
+
+[node name="Sprite3D26" type="Sprite3D" parent="Envioment3D" unique_id=1510664185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.92407, 2.0257034, -43.280552)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("20_ykcfl")
+
+[node name="Sprite3D27" type="Sprite3D" parent="Envioment3D" unique_id=1531085244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.2133, 1.8142338, -27.753826)
+modulate = Color(1, 0.83137256, 0.77254903, 1)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("17_8sad3")
+
+[node name="Sprite3D31" type="Sprite3D" parent="Envioment3D" unique_id=863455918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 334.0722, 1.8142338, -59.25904)
+modulate = Color(1, 0.83137256, 0.77254903, 1)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("17_8sad3")
+
+[node name="Sprite3D28" type="Sprite3D" parent="Envioment3D" unique_id=751311379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 259.46884, 4.4052773, -55.371334)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("23_ykcfl")
+
+[node name="Sprite3D29" type="Sprite3D" parent="Envioment3D" unique_id=1170785360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 322.19165, 4.4052773, -31.616405)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("23_ykcfl")
+
+[node name="Sprite3D32" type="Sprite3D" parent="Envioment3D" unique_id=264636011]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 358.91833, 4.4052773, -46.609283)
+billboard = 1
+shaded = true
+render_priority = -5
+texture = ExtResource("17_8sad3")
+
+[node name="Sprite3D35" type="Sprite3D" parent="Envioment3D" unique_id=1726977354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 407.832, 4.4052773, -22.67009)
+billboard = 1
+shaded = true
+render_priority = -5
+texture = ExtResource("18_n7wpf")
+
+[node name="Sprite3D33" type="Sprite3D" parent="Envioment3D" unique_id=1070463386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 393.32672, 4.4052773, -31.33171)
+billboard = 1
+shaded = true
+render_priority = -5
+texture = ExtResource("23_ykcfl")
+
+[node name="Sprite3D34" type="Sprite3D" parent="Envioment3D" unique_id=561399044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 393.32672, 4.4052773, -59.90889)
+billboard = 1
+shaded = true
+render_priority = -5
+texture = ExtResource("23_ykcfl")
+
+[node name="Sprite3D30" type="Sprite3D" parent="Envioment3D" unique_id=1393040944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 304.93042, 4.4052773, -52.370934)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("4_3qc4n")
+
+[node name="Sprite3D21" type="Sprite3D" parent="Envioment3D" unique_id=379258805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.3173, 4.833357, -21.899153)
+flip_h = true
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("10_8sad3")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Envioment3D" unique_id=1787295640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.791626, 4.833357, -39.70241)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("21_58dp2")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Envioment3D" unique_id=1756427364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.8674, 4.833357, -1.039608)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("22_ykcfl")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Envioment3D" unique_id=1845619749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.48316, 4.833357, -4.985832)
+billboard = 1
+shaded = true
+render_priority = -3
+texture = ExtResource("7_h0cym")
+
+[node name="Roads3D2" type="Node3D" parent="." unique_id=1679817995]
+
+[node name="Sprite3D" type="Sprite3D" parent="Roads3D2" unique_id=1952763859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1548653, 2.0257034, 19.101345)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D13" type="Sprite3D" parent="Roads3D2" unique_id=1159085332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.36898, 2.0257034, 19.407818)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Roads3D2" unique_id=2135608998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.784469, 2.0257034, 19.03452)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Roads3D2" unique_id=652175270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.549398, 2.0257034, 18.883522)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D8" type="Sprite3D" parent="Roads3D2" unique_id=1495539436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.381306, 2.0257034, 18.883522)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D19" type="Sprite3D" parent="Roads3D2" unique_id=1339327632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.03308, 2.2226791, 20.03527)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D20" type="Sprite3D" parent="Roads3D2" unique_id=386841817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110.54027, 2.0257034, 19.577972)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D9" type="Sprite3D" parent="Roads3D2" unique_id=1554735329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.44392, 2.0257034, 19.792923)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D17" type="Sprite3D" parent="Roads3D2" unique_id=500856860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.61838, 2.2226791, 19.887177)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D25" type="Sprite3D" parent="Roads3D2" unique_id=1406817799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 177.49182, 2.2226791, 20.205997)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D26" type="Sprite3D" parent="Roads3D2" unique_id=1054969843]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.50104, 2.0257034, 20.446997)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D18" type="Sprite3D" parent="Roads3D2" unique_id=786911653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155.1201, 2.2226791, 20.083054)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D10" type="Sprite3D" parent="Roads3D2" unique_id=115077231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.570686, 2.0257034, 19.307661)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D11" type="Sprite3D" parent="Roads3D2" unique_id=915780220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.605774, 2.0257034, 19.209892)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Roads3D2" unique_id=993749944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.121443, 2.0257034, 19.162418)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("24_8w8t5")
+
+[node name="Sprite3D12" type="Sprite3D" parent="Roads3D2" unique_id=678784966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.356514, 2.0257034, 19.507328)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("24_8w8t5")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Roads3D2" unique_id=500637257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.799736, 2.0257034, 4.158533)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Roads3D2" unique_id=871025846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.799736, 2.0257034, -10.58564)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Roads3D2" unique_id=1949558170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.799736, 2.0257034, -25.6542)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D14" type="Sprite3D" parent="Roads3D2" unique_id=792556972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.08698, 2.0257034, 4.5148106)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D15" type="Sprite3D" parent="Roads3D2" unique_id=1174770916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.08698, 2.0257034, -10.58564)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D16" type="Sprite3D" parent="Roads3D2" unique_id=267497250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.08698, 2.0257034, -25.6542)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D31" type="Sprite3D" parent="Roads3D2" unique_id=901870553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 237.38934, 2.2226791, 20.532928)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D32" type="Sprite3D" parent="Roads3D2" unique_id=1493520180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.74779, 2.0257034, 20.09235)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D33" type="Sprite3D" parent="Roads3D2" unique_id=1728326773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 207.77705, 2.2226791, 20.385265)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D38" type="Sprite3D" parent="Roads3D2" unique_id=263298517]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 356.20703, 2.2226791, 21.016754)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D39" type="Sprite3D" parent="Roads3D2" unique_id=1428349099]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 296.90195, 2.0257034, 20.576176)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D40" type="Sprite3D" parent="Roads3D2" unique_id=1112641568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 281.93118, 2.2226791, 20.869091)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D45" type="Sprite3D" parent="Roads3D2" unique_id=134063407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 342.40424, 2.0257034, 20.576176)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D46" type="Sprite3D" parent="Roads3D2" unique_id=444033913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.43347, 2.2226791, 20.869091)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D47" type="Sprite3D" parent="Roads3D2" unique_id=2007182916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 400.67737, 2.2226791, 21.251049)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D48" type="Sprite3D" parent="Roads3D2" unique_id=1756850111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 386.3307, 2.0257034, 20.860313)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D49" type="Sprite3D" parent="Roads3D2" unique_id=1358675301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 371.232, 2.2226791, 21.110996)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D50" type="Sprite3D" parent="Roads3D2" unique_id=1602835133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 445.31204, 2.2226791, 21.50785)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("21_n7wpf")
+
+[node name="Sprite3D51" type="Sprite3D" parent="Roads3D2" unique_id=885665808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 430.8992, 2.0257034, 21.064232)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("23_lbsl3")
+
+[node name="Sprite3D52" type="Sprite3D" parent="Roads3D2" unique_id=2096518656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 415.60425, 2.2226791, 21.372417)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("22_ly2n0")
+
+[node name="Sprite3D34" type="Sprite3D" parent="Roads3D2" unique_id=1699738431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.5659, 2.0257034, 20.308123)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("24_8w8t5")
+
+[node name="Sprite3D35" type="Sprite3D" parent="Roads3D2" unique_id=106159024]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.29639, 2.0257034, 5.225792)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D36" type="Sprite3D" parent="Roads3D2" unique_id=1624422133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.29639, 2.0257034, -9.518381)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D37" type="Sprite3D" parent="Roads3D2" unique_id=267074525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 253.38315, 2.0257034, -24.77022)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D21" type="Sprite3D" parent="Roads3D2" unique_id=681446512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.38611, 2.0257034, 19.775635)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("24_8w8t5")
+
+[node name="Sprite3D22" type="Sprite3D" parent="Roads3D2" unique_id=1947268055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.08426, 2.0257034, 5.1672325)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D23" type="Sprite3D" parent="Roads3D2" unique_id=1508314598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.08426, 2.0257034, -9.732199)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D24" type="Sprite3D" parent="Roads3D2" unique_id=1032038866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.55753, 2.0257034, -25.6542)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D27" type="Sprite3D" parent="Roads3D2" unique_id=128929833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.70027, 2.0257034, 19.982327)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("24_8w8t5")
+
+[node name="Sprite3D28" type="Sprite3D" parent="Roads3D2" unique_id=1187308326]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.39842, 2.0257034, 4.858284)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D29" type="Sprite3D" parent="Roads3D2" unique_id=1275032040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 193.39842, 2.0257034, -9.885889)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D30" type="Sprite3D" parent="Roads3D2" unique_id=1486762713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 192.87169, 2.0257034, -25.206976)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D41" type="Sprite3D" parent="Roads3D2" unique_id=1015899393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 311.97314, 2.0257034, 20.641338)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -3
+texture = ExtResource("24_8w8t5")
+
+[node name="Sprite3D42" type="Sprite3D" parent="Roads3D2" unique_id=753855706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.53253, 2.0257034, 5.462105)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D43" type="Sprite3D" parent="Roads3D2" unique_id=1181675689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.52933, 2.0257034, -9.239084)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[node name="Sprite3D44" type="Sprite3D" parent="Roads3D2" unique_id=555481279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 312.922, 2.0257034, -25.206976)
+billboard = 1
+shaded = true
+double_sided = false
+render_priority = -10
+texture = ExtResource("25_58dp2")
+
+[editable path="BuildingSelector/Building4"]
