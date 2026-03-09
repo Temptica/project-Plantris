@@ -6,12 +6,15 @@ extends Control
 @onready var sfx_slider = %SFXSLider
 @onready var music_laber = %MusicLabel
 @onready var music_slider = %MusicSlider
+@onready var voice_label = %VoiceLabel
+@onready var voice_slider = %VoiceSlider
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_set_master_label(AudioServer.get_bus_volume_linear(0)*100)
 	_set_sfx_label(AudioServer.get_bus_volume_linear(1)*100)
 	_set_music_label(AudioServer.get_bus_volume_linear(2)*100)
+	_set_voice_label(AudioServer.get_bus_volume_linear(3)*100)
 	
 	pass # Replace with function body.
 
@@ -30,6 +33,10 @@ func _on_sfx_slider_value_changed(value : float):
 func _on_music_slider_value_changed(value : float):
 	AudioServer.set_bus_volume_linear(2,value/100.0)
 	_set_music_label(value)
+
+func _on_voice_slider_value_changed(value : float):
+	AudioServer.set_bus_volume_linear(3,value/100.0)
+	_set_voice_label(value)
 
 func _set_master_label(value:float):
 	var lbl = str(int(round(value))).pad_zeros(3)
@@ -57,3 +64,12 @@ func _set_music_label(value:float):
 		
 	music_laber.text = result
 	music_slider.value = value
+
+func _set_voice_label(value:float):
+	var lbl = str(int(round(value))).pad_zeros(3)
+	var result = ""
+	for i in range(lbl.length()):
+		result += lbl[i] + " "
+		
+	voice_label.text = result
+	voice_slider.value = value

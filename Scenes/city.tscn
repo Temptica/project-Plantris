@@ -861,3 +861,6 @@ shaded = true
 double_sided = false
 render_priority = -10
 texture = ExtResource("25_58dp2")
+
+[node name="Voices" type="AudioStreamPlayer" parent="." unique_id=874498148]
+bus = &"Voices"

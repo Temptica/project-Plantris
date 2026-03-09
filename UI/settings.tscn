@@ -90,7 +90,7 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer" unique_id=1633404846]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 30
+theme_override_constants/separation = 24
 
 [node name="Master" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1191407682]
 layout_mode = 2
@@ -169,6 +169,34 @@ label_settings = SubResource("LabelSettings_vbc7n")
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer" unique_id=396053378]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 2
+value = 50.0
+
+[node name="Voices" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2058596527]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices" unique_id=1893198441]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Voices"
+label_settings = SubResource("LabelSettings_qosaw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices" unique_id=358927997]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="VoiceLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VBoxContainer" unique_id=1791211471]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 0 0"
+label_settings = SubResource("LabelSettings_vbc7n")
+horizontal_alignment = 1
+
+[node name="VoiceSlider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VBoxContainer" unique_id=229739277]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -345,4 +373,5 @@ vertical_alignment = 1
 [connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer/SFXSLider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VBoxContainer/VoiceSlider" to="." method="_on_voice_slider_value_changed"]
 [connection signal="pressed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/Button" to="." method="_on_return_button_pressed"]
