@@ -32,15 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://ch1qofvntu3i6" path="res://Textures/Road/RoadUpA.png" id="25_58dp2"]
 [ext_resource type="Texture2D" uid="uid://fv5q2jxlajus" path="res://Textures/Enviroment/BilboardFrame2.png" id="25_iqb2g"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amr18"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0)
-
-[sub_resource type="BoxMesh" id="BoxMesh_w6rww"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_amr18")
-size = Vector3(6.64187, 6.64187, 6.64187)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_mmab1"]
 animations = [{
 "frames": [{
@@ -76,10 +67,10 @@ bus = &"SFX"
 script = ExtResource("5_skwfe")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1999979387]
-transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, -67.13037, 52.260376, 66.41266)
+transform = Transform3D(0.7071068, 0.27059808, -0.6532815, 0, 0.92387956, 0.3826835, 0.7071068, -0.27059808, 0.6532815, 278.0583, 97.01749, 95.61987)
 environment = ExtResource("2_adj8p")
 projection = 1
-size = 49.309
+size = 17.843
 near = 0.001
 script = ExtResource("5_adj8p")
 
@@ -89,29 +80,22 @@ current = true
 
 [node name="BuildingSelector" type="Node3D" parent="." unique_id=640674882 node_paths=PackedStringArray("buildings")]
 script = ExtResource("2_stmv5")
-buildings = [NodePath("Building1"), NodePath("Building4"), NodePath("Building7"), null, null, NodePath("Building11"), NodePath("Building12"), NodePath("Building14"), null, NodePath("BuildingLast")]
+buildings = [NodePath("Building1"), NodePath("Building4"), NodePath("Building7"), NodePath("Building11"), NodePath("Building12"), NodePath("Building14"), NodePath("BuildingLast")]
 
 [node name="Building1" parent="BuildingSelector" unique_id=2127810894 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 depth = 3
-camera_x_position = -29.299879999999913
-camera_y_position = 20.315639999999934
+camera_x_position = -92.51914999999973
+camera_y_position = 58.30485999999983
 
 [node name="Building4" parent="BuildingSelector" unique_id=280373378 instance=ExtResource("1_u7naw")]
-transform = Transform3D(-1, 0, 8.742278e-08, -5.2730664e-09, 0.99817926, -0.06031685, -8.72636e-08, -0.06031685, -0.99817926, 49.487797, 0, -7.847191)
+transform = Transform3D(-1, 0, 8.742278e-08, -5.2730664e-09, 0.99817926, -0.06031685, -8.72636e-08, -0.06031685, -0.99817926, 50.1293, -4.5185013, -7.847191)
 depth = 3
 width = 4
 height = 5
 texture = ExtResource("7_p1kk6")
-camera_x_position = -9.90038999999997
-camera_y_position = 21.004769999999937
-
-[node name="Mesh" parent="BuildingSelector/Building4" index="0" unique_id=1140310072]
-transform = Transform3D(1, 0, -3.0553338e-13, 0, 1, 0, 0, 0, 1, 9.194935, 2.364195, -13.178925)
-mesh = SubResource("BoxMesh_w6rww")
-
-[node name="FrontSprite" parent="BuildingSelector/Building4/Mesh/Sprites" parent_id_path=PackedInt32Array(280373378, 1839207894) index="0" unique_id=1641866592]
-transform = Transform3D(0.57088375, -8.881784e-16, -0.8210309, 0, 1, 0, 0.8210309, 0, 0.57088375, 0, -4.8417015, 0.29256916)
+camera_x_position = -49.67030999999985
+camera_y_position = 59.75242999999982
 
 [node name="Building7" parent="BuildingSelector" unique_id=1287959624 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 113.94092, -7.8445435, -13.025114)
@@ -119,8 +103,8 @@ depth = 3
 width = 4
 height = 7
 texture = ExtResource("10_8sad3")
-camera_x_position = 3.577719999999989
-camera_y_position = 21.977189999999933
+camera_x_position = 8.315259999999975
+camera_y_position = 63.05077999999981
 
 [node name="Building11" parent="BuildingSelector" unique_id=1077880982 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 170.91235, -5.141247, -7.783798)
@@ -128,8 +112,8 @@ depth = 3
 width = 5
 height = 5
 texture = ExtResource("14_jtc0r")
-camera_x_position = 74.99999999999977
-camera_y_position = 20.315639999999934
+camera_x_position = 68.6840499999998
+camera_y_position = 60.45590999999982
 
 [node name="Building12" parent="BuildingSelector" unique_id=1524238318 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 235.45041, -12.246147, -22.536388)
@@ -137,17 +121,17 @@ depth = 5
 width = 5
 height = 11
 texture = ExtResource("6_ujmo6")
-camera_x_position = 89.99999999999973
-camera_y_position = 20.315639999999934
+camera_x_position = 118.49736999999965
+camera_y_position = 67.48895999999979
 
 [node name="Building14" parent="BuildingSelector" unique_id=2089296339 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 303.41876, -14.298012, -30.162537)
-depth = 5
-width = 5
+depth = 7
+width = 7
 height = 13
 texture = ExtResource("17_8sad3")
-camera_x_position = 129.9999999999996
-camera_y_position = 20.315639999999934
+camera_x_position = 185.90239999999943
+camera_y_position = 70.5815499999998
 
 [node name="BuildingLast" parent="BuildingSelector" unique_id=1785335270 instance=ExtResource("1_u7naw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 375.09265, -20.098183, -39.62328)
@@ -155,8 +139,8 @@ depth = 9
 width = 9
 height = 18
 texture = ExtResource("4_3qc4n")
-camera_x_position = 34.174629999999894
-camera_y_position = 39.57951999999988
+camera_x_position = 248.35006999999925
+camera_y_position = 75.67461999999978
 draw_pos = -5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=170634205]
@@ -857,5 +841,3 @@ shaded = true
 double_sided = false
 render_priority = -10
 texture = ExtResource("25_58dp2")
-
-[editable path="BuildingSelector/Building4"]

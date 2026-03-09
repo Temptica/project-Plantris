@@ -5,7 +5,7 @@ class_name MovementController
 @export var selectedFlower : Flower
 var timer : Timer
 var last_direction:Vector2 = Vector2.ZERO
-const timeout_time = 0.3
+const timeout_time = 0.2
 static var Instance: MovementController
 
 signal flower_placed(flower:Flower)

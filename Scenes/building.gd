@@ -122,6 +122,6 @@ func has_bottom_space() -> bool:
 	return false
 
 func has_top_space() -> bool:
-	if rightGrid.grid.filter(func(p:Plot):return p.y == height && p.is_free()).size(): return true
-	if leftGrid.grid.filter(func(p:Plot):return p.y == height && p.is_free()).size(): return true
+	if rightGrid.grid.filter(func(p:Plot):return p.y == height-1 && p.is_free()).size(): return true
+	if leftGrid.grid.filter(func(p:Plot):return p.y == height-1 && p.is_free()).size(): return true
 	return false
