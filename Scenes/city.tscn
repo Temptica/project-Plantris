@@ -147,7 +147,6 @@ draw_pos = -5
 directional_shadow_mode = 0
 
 [node name="GameUi" parent="." unique_id=2146102133 instance=ExtResource("7_3qc4n")]
-visible = false
 
 [node name="Envioment3D" type="Node3D" parent="." unique_id=331093350]
 

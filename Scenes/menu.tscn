@@ -1,13 +1,40 @@
-[gd_scene format=3 uid="uid://bltsncf5bwo1c"]
+[gd_scene format=3 uid="uid://cektc707ua1ax"]
 
 [ext_resource type="Texture2D" uid="uid://cg34hm0f42kaw" path="res://Textures/Enviroment/BilboardFrame1.png" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://cd8ifpnptuar0" path="res://Scenes/menu.gd" id="1_q3rjx"]
 [ext_resource type="Texture2D" uid="uid://d1unamaplhrel" path="res://Textures/Buildings/BigCuboidBuilding9x9x18A.png" id="1_wbdvm"]
 [ext_resource type="Texture2D" uid="uid://bt77fuedf6mtj" path="res://Textures/Buildings/TowerBuilding7x7x13B.png" id="2_q3rjx"]
-[ext_resource type="Texture2D" uid="uid://ba6amu1fxdbwk" path="res://Textures/Buildings/TowerBuilding7x7x13A.png" id="3_6swd7"]
-[ext_resource type="Texture2D" uid="uid://filv2jim4cue" path="res://Textures/Buildings/BigCuboidBuilding9x9x18B.png" id="5_7qvly"]
+[ext_resource type="Texture2D" uid="uid://fv5q2jxlajus" path="res://Textures/Enviroment/BilboardFrame2.png" id="5_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://bibe3lp06ar61" path="res://Textures/Enviroment/BilboardEmptyFrame1.png" id="6_g8i7c"]
 [ext_resource type="Texture2D" uid="uid://bk6mxq2w4ddqo" path="res://Textures/words/play.png" id="6_rfqti"]
+[ext_resource type="Texture2D" uid="uid://bey8v14t1npla" path="res://Textures/Enviroment/BilboardEmptyFrame2.png" id="7_23t3j"]
 [ext_resource type="Texture2D" uid="uid://c4ll7navu6433" path="res://Textures/words/setting.png" id="7_g8i7c"]
+[ext_resource type="FontFile" uid="uid://bk31f7q6fjfei" path="res://Fonts/Roundo-Regular.ttf" id="11_5ti5v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3rjx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1rerr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wbdvm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_g8i7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_23t3j")
+}],
+"loop": true,
+"name": &"emptyboard",
+"speed": 5.0
+}]
 
 [node name="Control" type="Control" unique_id=1224784581]
 layout_mode = 3
@@ -23,40 +50,30 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sprite2D5" type="Sprite2D" parent="Control" unique_id=211956329]
-position = Vector2(-1626, 1666)
-texture = ExtResource("1_wbdvm")
-
 [node name="Sprite2D3" type="Sprite2D" parent="Control" unique_id=551931506]
 position = Vector2(1062, 1276)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_q3rjx")
-
-[node name="Sprite2D6" type="Sprite2D" parent="Control" unique_id=1038373682]
-position = Vector2(-3707, 2821)
-texture = ExtResource("3_6swd7")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control" unique_id=1103972818]
 position = Vector2(286, 1335)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_wbdvm")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=422673783]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=1250197315]
 position = Vector2(614, 310)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_1rerr")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Control" unique_id=863175974]
-position = Vector2(-1782, 3023)
-texture = ExtResource("5_7qvly")
+sprite_frames = SubResource("SpriteFrames_q3rjx")
+autoplay = "default"
 
 [node name="StartButton" type="TextureButton" parent="Control" unique_id=514024646]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 704.0
-offset_top = 16.0
-offset_right = 1204.0
-offset_bottom = 516.0
+offset_left = 658.0
+offset_top = 162.0
+offset_right = 1158.0
+offset_bottom = 662.0
+scale = Vector2(0.5, 0.5)
 focus_neighbor_right = NodePath("../SettingsButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
 texture_pressed = ExtResource("6_rfqti")
@@ -66,14 +83,37 @@ texture_focused = ExtResource("6_rfqti")
 [node name="SettingsButton" type="TextureButton" parent="Control" unique_id=948597099]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 708.0
-offset_top = 93.0
-offset_right = 1208.0
-offset_bottom = 593.0
+offset_left = 661.0
+offset_top = 202.0
+offset_right = 1161.0
+offset_bottom = 702.0
+scale = Vector2(0.5, 0.5)
 focus_neighbor_left = NodePath("../StartButton")
 focus_neighbor_top = NodePath("../StartButton")
 texture_pressed = ExtResource("7_g8i7c")
 texture_hover = ExtResource("7_g8i7c")
 texture_focused = ExtResource("7_g8i7c")
+
+[node name="Label" type="Label" parent="Control" unique_id=235047187]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 319.0
+offset_right = 685.0
+offset_bottom = 429.0
+theme_override_colors/font_color = Color(0.09272381, 0.17680693, 0.06112632, 1)
+theme_override_fonts/font = ExtResource("11_5ti5v")
+theme_override_font_sizes/font_size = 100
+text = "SCORE:"
+
+[node name="Label2" type="Label" parent="Control" unique_id=91845337]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 410.0
+offset_right = 768.0
+offset_bottom = 520.0
+theme_override_colors/font_color = Color(0.09272381, 0.17680693, 0.06112632, 1)
+theme_override_fonts/font = ExtResource("11_5ti5v")
+theme_override_font_sizes/font_size = 100
+text = "200000"
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=474634944]
