@@ -34,6 +34,12 @@
 [ext_resource type="Texture2D" uid="uid://cg34hm0f42kaw" path="res://Textures/Enviroment/BilboardFrame1.png" id="24_y6d4o"]
 [ext_resource type="Texture2D" uid="uid://ch1qofvntu3i6" path="res://Textures/Road/RoadUpA.png" id="25_58dp2"]
 [ext_resource type="Texture2D" uid="uid://fv5q2jxlajus" path="res://Textures/Enviroment/BilboardFrame2.png" id="25_iqb2g"]
+[ext_resource type="Script" uid="uid://2gpd7p03qqal" path="res://Scenes/voices.gd" id="35_63v0p"]
+[ext_resource type="AudioStream" uid="uid://c5pyi0csafpb0" path="res://Voices/Project plantris 1.wav" id="36_iyp84"]
+[ext_resource type="AudioStream" uid="uid://dn54rg236yg3v" path="res://Voices/Project plantris 2.wav" id="37_eaigw"]
+[ext_resource type="AudioStream" uid="uid://dnxsbvoexmvfi" path="res://Voices/Project plantris announcement.wav" id="38_r8i1m"]
+[ext_resource type="AudioStream" uid="uid://ccidmhxbq27xo" path="res://Voices/Project plantris voice mail.wav" id="39_5yo78"]
+[ext_resource type="AudioStream" uid="uid://c6jv8upx4k6uu" path="res://Voices/Project plantris win.wav" id="40_xngr7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mmab1"]
 animations = [{
@@ -864,3 +870,5 @@ texture = ExtResource("25_58dp2")
 
 [node name="Voices" type="AudioStreamPlayer" parent="." unique_id=874498148]
 bus = &"Voices"
+script = ExtResource("35_63v0p")
+voice_lines = Array[AudioStream]([ExtResource("36_iyp84"), ExtResource("37_eaigw"), ExtResource("38_r8i1m"), ExtResource("39_5yo78"), ExtResource("40_xngr7")])
