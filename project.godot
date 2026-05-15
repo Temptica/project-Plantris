@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="ProjectPlantris"
-run/main_scene="uid://d3x0nase63kkk"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+run/main_scene="uid://cx8rdc6qk8pc7"
+config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [audio]
@@ -21,12 +21,18 @@ buses/default_bus_layout="uid://dbcs2scmmmx2f"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
 [dotnet]
 
 project/assembly_name="ProjectPlantris"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rider-plugin/plugin.cfg")
 
 [input]
 
@@ -98,5 +104,3 @@ next_building={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"

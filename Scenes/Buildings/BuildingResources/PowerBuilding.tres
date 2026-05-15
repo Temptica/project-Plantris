@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildingLayoutResource" format=3 uid="uid://cjccbnr38jyx2"]
+
+[ext_resource type="Script" uid="uid://cerhevm87whap" path="res://Scenes/Buildings/BuildingLayoutResource.cs" id="1_i8m6i"]
+[ext_resource type="Texture2D" uid="uid://dplw6hccsd2as" path="res://Textures/Buildings/SmallCubeBuilidingA.png" id="1_lol7e"]
+
+[resource]
+script = ExtResource("1_i8m6i")
+Texture = ExtResource("1_lol7e")
+Depth = 3
+Width = 3
+Height = 3
+BuildingHeight = 610.0
+BuildingWidth = 510.0
+BuildingDepth = 492.0
+GridOffset = Vector2(-8, 492.7249)

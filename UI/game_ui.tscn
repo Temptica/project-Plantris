@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://dpyca0isr31lo"]
 
-[ext_resource type="Script" uid="uid://c4gk2nnbp8m0l" path="res://UI/game_ui.gd" id="1_kfjql"]
-[ext_resource type="PackedScene" uid="uid://b4c4glc3dnt5b" path="res://Managers/flower_generator.tscn" id="3_h0rig"]
-[ext_resource type="Texture2D" uid="uid://ldiluyf56hfp" path="res://Textures/Plants/SmallFlower1BlockA.png" id="3_ywmy4"]
-[ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="4_jd38o"]
-[ext_resource type="FontFile" uid="uid://bk31f7q6fjfei" path="res://Fonts/Roundo-Regular.ttf" id="5_fy64h"]
-[ext_resource type="StyleBox" uid="uid://d1ghmxkq5kibu" path="res://ui_box_flat_darker.tres" id="6_fy64h"]
-[ext_resource type="StyleBox" uid="uid://d053u0plwdlik" path="res://ui_box_flat.tres" id="6_v6n52"]
+[ext_resource type="StyleBox" uid="uid://d053u0plwdlik" path="res://ui_box_flat.tres" id="1_fy64h"]
+[ext_resource type="Script" uid="uid://bavp4fjjbtdjn" path="res://UI/GameUi.cs" id="1_v6n52"]
+[ext_resource type="FontFile" uid="uid://bk31f7q6fjfei" path="res://Fonts/Roundo-Regular.ttf" id="2_v6n52"]
+[ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="3_ywmy4"]
+[ext_resource type="Texture2D" uid="uid://ldiluyf56hfp" path="res://Textures/Plants/SmallFlower1BlockA.png" id="4_jd38o"]
+[ext_resource type="PackedScene" uid="uid://b4c4glc3dnt5b" path="res://Managers/flower_generator.tscn" id="5_bjx7l"]
+[ext_resource type="StyleBox" uid="uid://d1ghmxkq5kibu" path="res://ui_box_flat_darker.tres" id="6_oohqu"]
+[ext_resource type="Script" uid="uid://cu8cbopqkr6pw" path="res://Scenes/Flowers/Flower.cs" id="8_bjx7l"]
+[ext_resource type="Resource" uid="uid://bdxrcpke4hlqh" path="res://Scenes/Flowers/FlowerResources/Daisy.tres" id="8_jd38o"]
+[ext_resource type="Script" uid="uid://bjmtfvrt58ryu" path="res://Scenes/Flowers/FlowerPiece.cs" id="9_bjx7l"]
+[ext_resource type="Texture2D" uid="uid://dyq43r43mean6" path="res://Textures/Plants/SunFlower2BlocksTall.png" id="10_oohqu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oifk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -24,6 +28,32 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2oifk"]
 
+[sub_resource type="Resource" id="Resource_bjx7l"]
+script = ExtResource("9_bjx7l")
+metadata/_custom_type_script = "uid://bjmtfvrt58ryu"
+
+[sub_resource type="Resource" id="Resource_oohqu"]
+script = ExtResource("8_bjx7l")
+FlowerName = "Tullip"
+Sprites = Array[ExtResource("9_bjx7l")]([SubResource("Resource_bjx7l")])
+Texture = ExtResource("3_ywmy4")
+metadata/_custom_type_script = "uid://cu8cbopqkr6pw"
+
+[sub_resource type="Resource" id="Resource_q8rbd"]
+script = ExtResource("9_bjx7l")
+
+[sub_resource type="Resource" id="Resource_q0y33"]
+script = ExtResource("9_bjx7l")
+Y = 1
+metadata/_custom_type_script = "uid://bjmtfvrt58ryu"
+
+[sub_resource type="Resource" id="Resource_orm7x"]
+script = ExtResource("8_bjx7l")
+FlowerName = "Sunflower"
+Sprites = Array[ExtResource("9_bjx7l")]([SubResource("Resource_q8rbd"), SubResource("Resource_q0y33")])
+Texture = ExtResource("10_oohqu")
+metadata/_custom_type_script = "uid://cu8cbopqkr6pw"
+
 [node name="GameUi" type="Control" unique_id=2146102133]
 layout_mode = 3
 anchors_preset = 15
@@ -31,7 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kfjql")
+script = ExtResource("1_v6n52")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1129354219]
 custom_minimum_size = Vector2(300, 150)
@@ -51,7 +81,7 @@ theme_override_constants/margin_right = 65
 
 [node name="PanelContainer" type="Panel" parent="MarginContainer" unique_id=1085141134]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("6_v6n52")
+theme_override_styles/panel = ExtResource("1_fy64h")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1398978434]
 layout_mode = 1
@@ -82,7 +112,7 @@ size_flags_horizontal = 8
 [node name="ScoreTitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1193314036]
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("5_fy64h")
+theme_override_fonts/font = ExtResource("2_v6n52")
 theme_override_font_sizes/font_size = 32
 text = "SCORE:"
 
@@ -90,7 +120,7 @@ text = "SCORE:"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
-theme_override_fonts/font = ExtResource("5_fy64h")
+theme_override_fonts/font = ExtResource("2_v6n52")
 theme_override_font_sizes/font_size = 32
 text = "0"
 
@@ -115,7 +145,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_jd38o")
+texture = ExtResource("3_ywmy4")
 expand_mode = 1
 stretch_mode = 5
 
@@ -124,7 +154,7 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_ywmy4")
+texture_normal = ExtResource("4_jd38o")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -132,7 +162,7 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("3_ywmy4")
+texture_normal = ExtResource("4_jd38o")
 texture_focused = SubResource("ViewportTexture_2oifk")
 ignore_texture_size = true
 stretch_mode = 5
@@ -141,12 +171,13 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("4_jd38o")
+texture_normal = ExtResource("3_ywmy4")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="FlowerGenerator" parent="." unique_id=530866589 instance=ExtResource("3_h0rig")]
+[node name="FlowerGenerator" parent="." unique_id=530866589 instance=ExtResource("5_bjx7l")]
 unique_name_in_owner = true
+Flowers = Array[ExtResource("8_bjx7l")]([ExtResource("8_jd38o"), SubResource("Resource_oohqu"), SubResource("Resource_orm7x")])
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=407536928]
 
@@ -169,14 +200,11 @@ theme_override_constants/margin_bottom = 162
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.05251441, 0.18503243, 0.15472445, 1)
-theme_override_fonts/font = ExtResource("5_fy64h")
-theme_override_styles/normal = ExtResource("6_v6n52")
-theme_override_styles/pressed = ExtResource("6_fy64h")
-theme_override_styles/hover = ExtResource("6_fy64h")
-theme_override_styles/focus = ExtResource("6_fy64h")
+theme_override_fonts/font = ExtResource("2_v6n52")
+theme_override_styles/normal = ExtResource("1_fy64h")
+theme_override_styles/pressed = ExtResource("6_oohqu")
+theme_override_styles/hover = ExtResource("6_oohqu")
+theme_override_styles/focus = ExtResource("6_oohqu")
 text = "NEXT BUILDING"
 
-[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer/Flower1" to="." method="_on_flower_button_pressed" binds= [1]]
-[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer/Flower2" to="." method="_on_flower_button_pressed" binds= [2]]
-[connection signal="button_down" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FlowerSelectionContainer/Flower3" to="." method="_on_flower_button_pressed" binds= [3]]
 [connection signal="pressed" from="MarginContainer2/NextButton" to="." method="_on_next_building_pressed"]

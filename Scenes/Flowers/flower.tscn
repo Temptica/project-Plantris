@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c537ihtnwrnek"]
+
+[ext_resource type="Script" uid="uid://cu8cbopqkr6pw" path="res://Scenes/Flowers/Flower.cs" id="1_k1wa2"]
+
+[node name="Flower" type="Node3D" unique_id=1180845083]
+script = ExtResource("1_k1wa2")
