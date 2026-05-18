@@ -1,7 +1,6 @@
 using Godot;
 using Godot.Collections;
 using ProjectPlantris.Managers;
-using ProjectPlantris.Scenes.Buildings;
 
 namespace ProjectPlantris.Scenes.Flowers;
 
@@ -54,7 +53,7 @@ public partial class Flower : Resource
             Type = Type,
         };
 
-        copy.SetSpriteValues();
+        copy.SetSprite();
 
         return copy;
     }
@@ -82,12 +81,12 @@ public partial class Flower : Resource
         }
 
         Width = MaxX - MinX + 1;
-        Height = MaxY - MinY;
+        Height = MaxY - MinY + 1;
 
-        SetSpriteValues();
+        SetSprite();
     }
 
-    private void SetSpriteValues()
+    private void SetSprite()
     {
         Sprite = new Sprite2D
         {
@@ -97,7 +96,6 @@ public partial class Flower : Resource
 
     public void Confirm()
     {
-        
     }
 
     public Sprite2D ShowSprite()
@@ -112,11 +110,11 @@ public partial class Flower : Resource
         return Sprite;
     }
 
-    public void SetPosition()
+    public void SetPosition(Transform2D transform)
     {
         var plot = LeftBottomPiece.Plot;
         if (plot is null || BuildingSelector.Instance.CurrentBuilding is null) return;
-        
+
         Sprite.FlipH = plot.IsLeft;
 
         if (Sprite.GetParent() is null)
@@ -128,23 +126,24 @@ public partial class Flower : Resource
             Sprite.Reparent(plot);
         }
 
-        var offset = new Vector2(0, Height);
+        // Determine the direction the object expands along the grid's X-axis
+        var xDirection = plot.IsLeft ? 1f : -1f;
+    
+        // Depending on your grid setup, you might need to change this to -1f 
+        // if positive local Y moves DOWN the screen instead of UP.
+        var yDirection = 1f; 
 
-        if (Width > 1)
-        {
-            var unitOffset = (Width - 1) * BuildingSelector.Instance.CurrentBuilding.Unit / 2.0f;
+        // 1. Calculate the center in local GRID space before the transform.
+        // A 1x1 object has its center at (0.5, 0.5).
+        // For larger objects, we shift the center by half of the extra size.
+        var localCenter = new Vector2(
+            0.5f + (Width - 1) / 2f * xDirection,
+            0.5f + (Height - 1) / 2f * yDirection
+        );
 
-            if (plot.IsLeft)
-            {
-                offset += new Vector2(0, unitOffset);
-            }
-            else
-            {
-                offset += new Vector2(-unitOffset, 0);
-            }
-        }
-
-        Sprite.Position = offset;
+        // 2. Multiply by the transform. This maps your perfectly calculated 
+        // grid coordinate into the skewed screen/pixel space.
+        Sprite.Position = transform * localCenter;
     }
 
     public void SetColor(Color color)

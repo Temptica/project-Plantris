@@ -6,10 +6,8 @@
 [resource]
 script = ExtResource("2_np46w")
 Texture = ExtResource("1_u6uny")
-Depth = 3
-Width = 4
 Height = 6
-BuildingHeight = 1452.0
-BuildingWidth = 666.6
-BuildingDepth = 505.0
-GridOffset = Vector2(-74, 936)
+BuildingHeight = 1446.855
+BuildingWidth = 662.038
+BuildingDepth = 491.405
+GridOffset = Vector2(-77.358, 931.263)

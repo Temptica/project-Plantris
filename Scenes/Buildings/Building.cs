@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using ProjectPlantris.Scenes.Buildings.BuildingGrids;
@@ -14,14 +15,20 @@ public partial class Building : Node2D
 
     [Export] public bool HasLeftGrid { get; set; } = true;
     [Export] public bool HasRightGrid { get; set; } = true;
+    [Export] public bool HasRoofGrid { get; set; }
+
+    [ExportToolButton("refresh", Icon = "Reload")]
+    private Callable Refresh => Callable.From(UpdateTexture);
 
     public BuildingLeftGrid? LeftGrid { get; private set; }
     public BuildingRightGrid? RightGrid { get; private set; }
+    public BuildingRoofGrid? RoofGrid { get; private set; }
+
+    public List<BuildingGrid> Grids = [];
 
     public int Depth => LayoutResource.Depth;
     public int Width => LayoutResource.Width;
     public int Height => LayoutResource.Height;
-    public float Unit => LayoutResource.BuildingHeight / LayoutResource.Height;
 
     private Sprite2D _sprite = null!;
     private Flower? _currentFlower;
@@ -32,12 +39,14 @@ public partial class Building : Node2D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        Grids = [];
         if (HasRightGrid)
         {
             RightGrid = new BuildingRightGrid();
             RightGrid.CreateGrid(LayoutResource.Width, LayoutResource.Height, LayoutResource.BuildingWidth,
                 LayoutResource.BuildingHeight, LayoutResource.BuildingAngle, LayoutResource.GridOffset);
             AddChild(RightGrid);
+            Grids.Add(RightGrid);
         }
 
         if (HasLeftGrid)
@@ -46,9 +55,24 @@ public partial class Building : Node2D
             LeftGrid.CreateGrid(LayoutResource.Depth, LayoutResource.Height, LayoutResource.BuildingDepth,
                 LayoutResource.BuildingHeight, LayoutResource.BuildingAngle, LayoutResource.GridOffset);
             AddChild(LeftGrid);
+            Grids.Add(LeftGrid);
+        }
+
+        if (HasRoofGrid)
+        {
+            RoofGrid = new BuildingRoofGrid();
+            var gridOffset = LayoutResource.GridOffset + new Vector2(0, LayoutResource.BuildingHeight);
+            RoofGrid.CreateGrid(LayoutResource.Depth, LayoutResource.Width, LayoutResource.BuildingDepth,
+                LayoutResource.BuildingHeight, LayoutResource.BuildingAngle, gridOffset);
+            Grids.Add(RoofGrid);
         }
 
         _sprite = GetNode<Sprite2D>("Sprite2D");
+        UpdateTexture();
+    }
+
+    private void UpdateTexture()
+    {
         _sprite.Texture = LayoutResource.Texture;
     }
 
@@ -69,6 +93,7 @@ public partial class Building : Node2D
         var cellSizeDepth = LayoutResource.BuildingDepth / LayoutResource.Depth;
         var radCol = Mathf.DegToRad(-LayoutResource.BuildingAngle);
         var radDepth = Mathf.DegToRad(LayoutResource.BuildingAngle);
+
 
         // Define basis vectors for the skew
         // We normalize them if we want to use them as a transform basis and keep drawing in 'cellSize' units
@@ -135,6 +160,38 @@ public partial class Building : Node2D
             }
         }
 
+        if (HasRoofGrid)
+        {
+            for (var row = 0; row < LayoutResource.Depth; row++)
+            {
+                for (var col = 0; col < LayoutResource.Width; col++)
+                {
+                    var pos = col * u + row * -d;
+
+                    // If you want the roof grid at the TOP of the building instead of the bottom, 
+                    // you can add the height vector: pos += LayoutResource.Height * v;
+                    pos += LayoutResource.GridOffset + new Vector2(0, -LayoutResource.BuildingHeight);
+
+                    // Transform2D takes X_basis, Y_basis, and Origin.
+                    // For a flat floor, X is our width vector (u), and Y is our depth vector (-d).
+                    var transform = new Transform2D(u, -d, pos);
+
+                    DrawSetTransformMatrix(transform);
+
+                    // Now we draw in the skewed local space.
+                    // A unit rectangle here will be skewed according to u and v.
+                    // Note: Rect2(0, -1, 1, 1) means the rectangle starts at the 'bottom'
+                    // in our grid (where v is up-pointing) and goes 1 unit up.
+                    var rect = new Rect2(0, 0, 1, 1);
+                    DrawRect(rect, Colors.Magenta, false);
+
+                    // If you were to draw a texture, it would now be correctly skewed:
+                    // DrawTextureRect(someTexture, rect, false);
+                    DrawRect(new Rect2(-0.1f, -0.1f, 0.2f, 0.2f), Colors.Green);
+                }
+            }
+        }
+
         // Reset transform
         DrawSetTransformMatrix(Transform2D.Identity);
     }
@@ -157,29 +214,34 @@ public partial class Building : Node2D
     {
         if (flower is null) return;
 
-        foreach (var plot in LeftGrid?.Grid ?? [])
+        foreach (var plot in Grids.SelectMany(g => g.Grid))
         {
             plot.RemoveCurrent();
         }
 
-        foreach (var plot in RightGrid?.Grid ?? [])
-        {
-            plot.RemoveCurrent();
-        }
+        var isFlipped = flower.GridPosition.X < 0;
+        var isRoof = flower.GridPosition.Y > Height;
+        BuildingGrid grid = (isFlipped
+            ? LeftGrid
+            : isRoof
+                ? RoofGrid
+                : RightGrid)!;
 
         foreach (var piece in flower.Sprites)
         {
-            var isFlipped = flower.GridPosition.X < 0;
             var piecePosition = new Vector2(piece.X, piece.Y);
 
             if (isFlipped)
             {
                 piecePosition.X *= -1;
             }
+            else if (isRoof)
+            {
+                piecePosition.Y -= Height;
+            }
 
-            BuildingGrid? grid = isFlipped ? LeftGrid : RightGrid;
             var position = flower.GridPosition + piecePosition;
-            var slot = grid?.GetPlot((int)position.X, (int)position.Y);
+            var slot = grid.GetPlot((int)position.X, (int)position.Y);
 
             slot?.SetCurrentPiece(piece);
         }
@@ -210,7 +272,7 @@ public partial class Building : Node2D
             _currentFlower = flower;
         }
 
-        flower.SetPosition();
+        flower.SetPosition(grid.Transform);
 
         var flipped = flower.GridPosition.X < 0;
         var color = Colors.White;
@@ -254,21 +316,9 @@ public partial class Building : Node2D
         _currentFlower.Confirm();
         _currentFlower.SetColor(_currentFlower.GridPosition.X >= 0 ? Colors.Gray : Colors.DarkGray);
 
-        if (LeftGrid != null)
-        {
-            foreach (var plot in LeftGrid.Grid)
-            {
-                if (plot.IsFree()) return true;
-            }
-        }
-
-        if (RightGrid != null)
-        {
-            foreach (var plot in RightGrid.Grid)
-            {
-                if (plot.IsFree()) return true;
-            }
-        }
+        if (LeftGrid?.HasFreeSpot() ?? false) return true;
+        if (RightGrid?.HasFreeSpot() ?? false) return true;
+        if (RoofGrid?.HasFreeSpot() ?? false) return true;
 
         EmitSignalFull();
 

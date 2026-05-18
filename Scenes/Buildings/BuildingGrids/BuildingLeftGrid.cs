@@ -16,9 +16,9 @@ public partial class BuildingLeftGrid : BuildingGrid
         var u = new Vector2(Mathf.Cos(radDepth), Mathf.Sin(radDepth)) * cellSizeDepth;
         Transform = new Transform2D(u, v, Vector2.Zero);
 
-        for (var row = 0; row < gridHeight; row++)
+        for (var row = 0; row < gridHeight; row++)// (y)
         {
-            for (var col = 0; col < gridWidth; col++)
+            for (var col = 0; col < gridWidth; col++) // (x)
             {
                 var pos = (-col - 1) * u + row * v;
                 pos += gridOffset;
@@ -30,5 +30,7 @@ public partial class BuildingLeftGrid : BuildingGrid
                 AddChild(plot);
             }
         }
+        
+        Grid.Sort();
     }
 }

@@ -8,6 +8,7 @@
 script = ExtResource("1_ywl2g")
 LayoutResource = ExtResource("2_k6o7a")
 TurnOnDebug = true
+HasRoofGrid = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1402347436]
 z_index = -1

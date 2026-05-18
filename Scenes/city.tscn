@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cx8rdc6qk8pc7"]
+
+[ext_resource type="Script" uid="uid://cx7ibmu63kf57" path="res://Managers/MovementController.cs" id="1_3qc4n"]
+[ext_resource type="Script" uid="uid://ddbj6eyegp7vu" path="res://Scenes/Camera.cs" id="2_ujmo6"]
+[ext_resource type="Script" uid="uid://caojahnwxde37" path="res://Managers/BuildingSelector.cs" id="3_h0cym"]
+[ext_resource type="PackedScene" uid="uid://pj833ntpd5kk" path="res://Scenes/Buildings/Building.tscn" id="4_wm66b"]
+[ext_resource type="Resource" uid="uid://cjccbnr38jyx2" path="res://Scenes/Buildings/BuildingResources/PowerBuilding.tres" id="5_ifi4l"]
+[ext_resource type="Resource" uid="uid://73ecujxiertp" path="res://Scenes/Buildings/BuildingResources/4x6x3Building.tres" id="6_2cq4n"]
+[ext_resource type="PackedScene" uid="uid://dpyca0isr31lo" path="res://UI/game_ui.tscn" id="7_gab5h"]
+
+[node name="City" type="Node2D" unique_id=63220871]
+
+[node name="Managers" type="Node" parent="." unique_id=1295830035]
+
+[node name="MovementController" type="Node" parent="Managers" unique_id=1235529870]
+script = ExtResource("1_3qc4n")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1513711695 node_paths=PackedStringArray("Ui")]
+position = Vector2(1041, 567)
+zoom = Vector2(0.4, 0.4)
+script = ExtResource("2_ujmo6")
+Ui = NodePath("../CanvasLayer/GameUi")
+
+[node name="BuildingSelector" type="Node2D" parent="." unique_id=1050000912 node_paths=PackedStringArray("Buildings")]
+script = ExtResource("3_h0cym")
+Buildings = [NodePath("Building"), NodePath("Building2"), NodePath("Building3")]
+
+[node name="Building3" parent="BuildingSelector" unique_id=814127962 instance=ExtResource("4_wm66b")]
+position = Vector2(1694, 647)
+LayoutResource = ExtResource("5_ifi4l")
+HasLeftGrid = false
+
+[node name="Building2" parent="BuildingSelector" unique_id=688049169 instance=ExtResource("4_wm66b")]
+position = Vector2(1135.0001, 446.00003)
+HasLeftGrid = false
+
+[node name="Building" parent="BuildingSelector" unique_id=30608006 instance=ExtResource("4_wm66b")]
+position = Vector2(510, 683)
+LayoutResource = ExtResource("6_2cq4n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=798563598]
+
+[node name="GameUi" parent="CanvasLayer" unique_id=2146102133 instance=ExtResource("7_gab5h")]

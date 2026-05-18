@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using ProjectPlantris.Scenes.Buildings.BuildingGrids;
 using ProjectPlantris.Scenes.Flowers;
@@ -5,7 +6,7 @@ using ProjectPlantris.Scenes.Flowers;
 namespace ProjectPlantris.Scenes.Buildings;
 
 [Tool]
-public partial class Plot : Node2D
+public partial class Plot : Node2D, IComparable
 {
     public int X { get; set; }
     public int Y { get; set; }
@@ -16,15 +17,7 @@ public partial class Plot : Node2D
     public FlowerPiece? CurrentFlowerPiece { get; private set; }
     public FlowerPiece? FlowerPiece { get; private set; }
 
-    private PlotState State
-    {
-        get;
-        set
-        {
-            field = value;
-            QueueRedraw();
-        }
-    }
+    public PlotState State { get; private set; }
 
     public static Plot Create(int x, int y, Vector2 position, BuildingGrid grid, bool isLeft = false)
     {
@@ -54,19 +47,8 @@ public partial class Plot : Node2D
             _ => Colors.RebeccaPurple,
         };
         
-        DrawRect(rect, color, false);
+        DrawRect(rect, color, false, width:-2);
     }
-    
-    // var textureSize = _texture.GetSize();
-    //
-    // var leftFlipYOffset = isLeft ? -transform.X.Y : 0f;
-    //
-    // plot._sprite.Position = new Vector2(
-    //     textureSize.X / 2f,
-    //     -textureSize.Y / 2f - leftFlipYOffset
-    // );
-    //
-    // plot._sprite.FlipH = isLeft;
     
     public bool IsAvailable() => State == PlotState.Available;
     
@@ -79,7 +61,6 @@ public partial class Plot : Node2D
             State = PlotState.Placed;
             FlowerPiece = CurrentFlowerPiece;
         }
-        
     }
     
     public void SetCurrentPiece(FlowerPiece piece)
@@ -136,5 +117,10 @@ public partial class Plot : Node2D
     public void Disable()
     {
         State = PlotState.Inactive;
+    }
+
+    public int CompareTo(object? obj)
+    {
+        return obj is not Plot other ? 1 : State.CompareTo(other.State);
     }
 }
