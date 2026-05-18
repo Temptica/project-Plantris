@@ -17,8 +17,17 @@ public partial class Plot : Node2D, IComparable
     public FlowerPiece? CurrentFlowerPiece { get; private set; }
     public FlowerPiece? FlowerPiece { get; private set; }
 
-    public PlotState State { get; private set; }
+    public bool IsEnabled;
 
+    public PlotState State => GetState();
+
+    private PlotState GetState()
+    {
+        if(!IsEnabled) return PlotState.Inactive;
+        if ( FlowerPiece != null) return PlotState.Placed;
+        return CurrentFlowerPiece is {IsFake:false} ? PlotState.Selected : PlotState.Available;
+
+    }
     public static Plot Create(int x, int y, Vector2 position, BuildingGrid grid, bool isLeft = false)
     {
         var plot = new Plot
@@ -37,7 +46,7 @@ public partial class Plot : Node2D, IComparable
     {
         DrawSetTransformMatrix(Grid.Transform);
 
-        var rect = new Rect2(0, 0, 1, 1);
+        var rect = new Rect2(0, 0, 0.98f, 0.98f);
         var color = State switch
         {
             PlotState.Inactive => Colors.Transparent,
@@ -46,60 +55,50 @@ public partial class Plot : Node2D, IComparable
             PlotState.Placed => Colors.DarkRed,
             _ => Colors.RebeccaPurple,
         };
-        
-        DrawRect(rect, color, false, width:-2);
+
+        DrawRect(rect, color, false, width: -2);
     }
-    
+
     public bool IsAvailable() => State == PlotState.Available;
-    
+
     public void SetPiece()
     {
         if (CurrentFlowerPiece == null) return;
-        
+
         if (!CurrentFlowerPiece.IsFake)
         {
-            State = PlotState.Placed;
             FlowerPiece = CurrentFlowerPiece;
         }
     }
-    
+
     public void SetCurrentPiece(FlowerPiece piece)
     {
         CurrentFlowerPiece = piece;
         CurrentFlowerPiece.Plot = this;
-
-        if (piece.IsFake)
-        {
-            State = State == PlotState.Placed ? PlotState.Placed : PlotState.Available;
-            return;
-        }
-        
-        State = PlotState.Selected;
     }
-    
+
     public void RemoveCurrent()
     {
-        if(CurrentFlowerPiece == null) return;
-        
-        if(CurrentFlowerPiece.Plot == this)
+        if (CurrentFlowerPiece == null) return;
+
+        if (CurrentFlowerPiece.Plot == this)
         {
             CurrentFlowerPiece.Plot = null;
         }
-        
+
         CurrentFlowerPiece = null;
-        State = PlotState.Available;
     }
-    
+
     public bool CanSet()
     {
         return CurrentFlowerPiece == null || CurrentFlowerPiece.IsFake || FlowerPiece == null;
     }
-    
+
     public bool IsFree()
     {
         return FlowerPiece == null;
     }
-    
+
     protected override void Dispose(bool disposing)
     {
         Grid = null!;
@@ -111,12 +110,12 @@ public partial class Plot : Node2D, IComparable
 
     public void Enable()
     {
-        State = PlotState.Available;
+        IsEnabled  = true;
     }
-    
+
     public void Disable()
     {
-        State = PlotState.Inactive;
+        IsEnabled  = false;
     }
 
     public int CompareTo(object? obj)

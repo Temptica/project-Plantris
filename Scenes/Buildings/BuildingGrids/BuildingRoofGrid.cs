@@ -5,8 +5,7 @@ namespace ProjectPlantris.Scenes.Buildings.BuildingGrids;
 public partial class BuildingRoofGrid : BuildingGrid
 {
     public override void CreateGrid(int gridWidth, int gridHeight, float buildingWidth, float buildingHeight,
-        float buildingAngle,
-        Vector2 gridOffset)
+        float buildingAngle, Vector2 gridOffset)
     {
         var cellSizeWidth = buildingWidth / gridWidth;
         var cellSizeDepth = buildingHeight / gridHeight;
@@ -16,7 +15,7 @@ public partial class BuildingRoofGrid : BuildingGrid
         var d = new Vector2(Mathf.Cos(radDepth), Mathf.Sin(radDepth)) * cellSizeDepth;
         var u = new Vector2(Mathf.Cos(radCol), Mathf.Sin(radCol)) * cellSizeWidth;
         Transform = new Transform2D(u, -d, Vector2.Zero);
-
+        
         for (var row = 0; row < gridHeight; row++) // y
         {
             for (var col = 0; col < gridWidth; col++) // x
@@ -35,5 +34,11 @@ public partial class BuildingRoofGrid : BuildingGrid
         }
 
         Grid.Sort();
+    }
+
+    public override void _Draw()
+    {
+        GD.Print("draw roof");
+        base._Draw();
     }
 }

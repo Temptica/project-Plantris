@@ -5,12 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bk31f7q6fjfei" path="res://Fonts/Roundo-Regular.ttf" id="2_v6n52"]
 [ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="3_ywmy4"]
 [ext_resource type="Texture2D" uid="uid://ldiluyf56hfp" path="res://Textures/Plants/SmallFlower1BlockA.png" id="4_jd38o"]
-[ext_resource type="PackedScene" uid="uid://b4c4glc3dnt5b" path="res://Managers/flower_generator.tscn" id="5_bjx7l"]
 [ext_resource type="StyleBox" uid="uid://d1ghmxkq5kibu" path="res://ui_box_flat_darker.tres" id="6_oohqu"]
-[ext_resource type="Script" uid="uid://cu8cbopqkr6pw" path="res://Scenes/Flowers/Flower.cs" id="8_bjx7l"]
-[ext_resource type="Resource" uid="uid://bdxrcpke4hlqh" path="res://Scenes/Flowers/FlowerResources/Daisy.tres" id="8_jd38o"]
-[ext_resource type="Script" uid="uid://bjmtfvrt58ryu" path="res://Scenes/Flowers/FlowerPiece.cs" id="9_bjx7l"]
-[ext_resource type="Texture2D" uid="uid://dyq43r43mean6" path="res://Textures/Plants/SunFlower2BlocksTall.png" id="10_oohqu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2oifk"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -27,32 +22,6 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2oifk"]
-
-[sub_resource type="Resource" id="Resource_bjx7l"]
-script = ExtResource("9_bjx7l")
-metadata/_custom_type_script = "uid://bjmtfvrt58ryu"
-
-[sub_resource type="Resource" id="Resource_oohqu"]
-script = ExtResource("8_bjx7l")
-FlowerName = "Tullip"
-Sprites = Array[ExtResource("9_bjx7l")]([SubResource("Resource_bjx7l")])
-Texture = ExtResource("3_ywmy4")
-metadata/_custom_type_script = "uid://cu8cbopqkr6pw"
-
-[sub_resource type="Resource" id="Resource_q8rbd"]
-script = ExtResource("9_bjx7l")
-
-[sub_resource type="Resource" id="Resource_q0y33"]
-script = ExtResource("9_bjx7l")
-Y = 1
-metadata/_custom_type_script = "uid://bjmtfvrt58ryu"
-
-[sub_resource type="Resource" id="Resource_orm7x"]
-script = ExtResource("8_bjx7l")
-FlowerName = "Sunflower"
-Sprites = Array[ExtResource("9_bjx7l")]([SubResource("Resource_q8rbd"), SubResource("Resource_q0y33")])
-Texture = ExtResource("10_oohqu")
-metadata/_custom_type_script = "uid://cu8cbopqkr6pw"
 
 [node name="GameUi" type="Control" unique_id=2146102133]
 layout_mode = 3
@@ -174,10 +143,6 @@ size_flags_horizontal = 3
 texture_normal = ExtResource("3_ywmy4")
 ignore_texture_size = true
 stretch_mode = 5
-
-[node name="FlowerGenerator" parent="." unique_id=530866589 instance=ExtResource("5_bjx7l")]
-unique_name_in_owner = true
-Flowers = Array[ExtResource("8_bjx7l")]([ExtResource("8_jd38o"), SubResource("Resource_oohqu"), SubResource("Resource_orm7x")])
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=407536928]
 

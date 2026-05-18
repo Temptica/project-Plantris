@@ -10,7 +10,7 @@ public partial class GameUi : Control
     private TextureButton _flowerButton1 = null!;
     private TextureButton _flowerButton2 = null!;
     private TextureButton _flowerButton3 = null!;
-    private FlowerGenerator _flowerGenerator = null!;
+    private static FlowerGenerator FlowerGenerator => FlowerGenerator.Instance;
     private Panel _panel = null!;
     private TextureRect _panelTexture = null!;
     private HBoxContainer _flowerSelectionContainer = null!;
@@ -29,7 +29,6 @@ public partial class GameUi : Control
         _flowerButton1 = GetNode<TextureButton>("%Flower1");
         _flowerButton2 = GetNode<TextureButton>("%Flower2");
         _flowerButton3 = GetNode<TextureButton>("%Flower3");
-        _flowerGenerator = GetNode<FlowerGenerator>("%FlowerGenerator");
         _panel = GetNode<Panel>("%HighlightPanel");
         _panelTexture = GetNode<TextureRect>("%HighlightPanelTexture");
         _flowerSelectionContainer = GetNode<HBoxContainer>("%FlowerSelectionContainer");
@@ -156,7 +155,7 @@ public partial class GameUi : Control
         {
             case 1:
             {
-                _flower1 = _flowerGenerator.GetRandomFlower();
+                _flower1 = FlowerGenerator.GetRandomFlower();
 
                 if (_flower1 is not null)
                 {
@@ -167,7 +166,7 @@ public partial class GameUi : Control
             }
             case 2:
             {
-                _flower2 = _flowerGenerator.GetRandomFlower();
+                _flower2 = FlowerGenerator.GetRandomFlower();
 
                 if (_flower2 is not null)
                 {
@@ -178,7 +177,7 @@ public partial class GameUi : Control
             }
             default:
             {
-                _flower3 = _flowerGenerator.GetRandomFlower();
+                _flower3 = FlowerGenerator.GetRandomFlower();
 
                 if (_flower3 is not null)
                 {

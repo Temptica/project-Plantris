@@ -235,7 +235,9 @@ public partial class MovementController : Node
             _selectedFlower.Sprites.Max(sprite => sprite.Y) +
             1;
 
-        if (upMostNewPosition >= currentBuilding.Height)
+        var buildingHeight = currentBuilding.Height;
+        if (_selectedFlower.AllowRoof && currentBuilding.HasRoofGrid) buildingHeight += currentBuilding.Depth;
+        if (upMostNewPosition >= buildingHeight)
         {
             return;
         }

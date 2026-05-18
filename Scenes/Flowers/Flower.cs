@@ -18,6 +18,7 @@ public partial class Flower : Resource
     [Export] public Array<FlowerPiece> Sprites { get; set; } = [new FlowerPiece()];
     [Export] public required Texture2D Texture { get; set; }
     [Export] public FlowerType Type { get; set; } = FlowerType.Normal;
+    [Export] public bool AllowRoof { get; set; } = true;
 
     public Sprite2D Sprite { get; set; } = null!;
     public Vector2 GridPosition { get; set; }
@@ -126,23 +127,15 @@ public partial class Flower : Resource
             Sprite.Reparent(plot);
         }
 
-        // Determine the direction the object expands along the grid's X-axis
         var xDirection = plot.IsLeft ? 1f : -1f;
     
-        // Depending on your grid setup, you might need to change this to -1f 
-        // if positive local Y moves DOWN the screen instead of UP.
-        var yDirection = 1f; 
+        const float yDirection = 1f; 
 
-        // 1. Calculate the center in local GRID space before the transform.
-        // A 1x1 object has its center at (0.5, 0.5).
-        // For larger objects, we shift the center by half of the extra size.
         var localCenter = new Vector2(
             0.5f + (Width - 1) / 2f * xDirection,
             0.5f + (Height - 1) / 2f * yDirection
         );
-
-        // 2. Multiply by the transform. This maps your perfectly calculated 
-        // grid coordinate into the skewed screen/pixel space.
+        
         Sprite.Position = transform * localCenter;
     }
 

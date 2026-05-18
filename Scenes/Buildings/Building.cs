@@ -61,9 +61,10 @@ public partial class Building : Node2D
         if (HasRoofGrid)
         {
             RoofGrid = new BuildingRoofGrid();
-            var gridOffset = LayoutResource.GridOffset + new Vector2(0, LayoutResource.BuildingHeight);
-            RoofGrid.CreateGrid(LayoutResource.Depth, LayoutResource.Width, LayoutResource.BuildingDepth,
-                LayoutResource.BuildingHeight, LayoutResource.BuildingAngle, gridOffset);
+            var gridOffset = LayoutResource.GridOffset + new Vector2(0, -LayoutResource.BuildingHeight);
+            RoofGrid.CreateGrid(LayoutResource.Width, LayoutResource.Depth, LayoutResource.BuildingWidth,
+                LayoutResource.BuildingDepth, LayoutResource.BuildingAngle, gridOffset);
+            AddChild(RoofGrid);
             Grids.Add(RoofGrid);
         }
 
@@ -78,7 +79,7 @@ public partial class Building : Node2D
 
     public override void _Process(double delta)
     {
-        if (!TurnOnDebug || (!OS.IsDebugBuild() && !Engine.IsEditorHint())) return;
+        if (!TurnOnDebug || !Engine.IsEditorHint()) return;
 
         _sprite.Texture = LayoutResource.Texture;
         QueueRedraw();
@@ -220,20 +221,32 @@ public partial class Building : Node2D
         }
 
         var isFlipped = flower.GridPosition.X < 0;
-        var isRoof = flower.GridPosition.Y > Height;
-        BuildingGrid grid = (isFlipped
-            ? LeftGrid
-            : isRoof
-                ? RoofGrid
+        var isRoof = flower.GridPosition.Y >= Height;
+
+        if (isFlipped && isRoof)
+        {
+         //   flower.GridPosition = new Vector2(1, flower.GridPosition.Y);
+        }
+
+        BuildingGrid grid = (isRoof
+            ? RoofGrid
+            : isFlipped
+                ? LeftGrid
                 : RightGrid)!;
 
         foreach (var piece in flower.Sprites)
         {
             var piecePosition = new Vector2(piece.X, piece.Y);
 
-            if (isFlipped)
+            if (isFlipped && !isRoof)
             {
-                piecePosition.X *= -1;
+                piecePosition.X += Depth;
+            }
+            else if (isFlipped && isRoof)
+            {
+                piecePosition.Y = piecePosition.Y - Height + piecePosition.X;
+                piecePosition.X = 1;
+                isFlipped = false;
             }
             else if (isRoof)
             {
@@ -273,15 +286,13 @@ public partial class Building : Node2D
         }
 
         flower.SetPosition(grid.Transform);
-
-        var flipped = flower.GridPosition.X < 0;
         var color = Colors.White;
 
         if (!CanPlace())
         {
-            color = flipped ? Colors.DarkRed : Colors.Firebrick;
+            color = isFlipped ? Colors.DarkRed : Colors.Firebrick;
         }
-        else if (flipped)
+        else if (isFlipped)
         {
             color = Colors.Gray;
         }
@@ -291,17 +302,8 @@ public partial class Building : Node2D
 
     private bool CanPlace()
     {
-        if (_currentFlower is null) return false;
-
-        foreach (var flowerPiece in _currentFlower.Sprites)
-        {
-            if (flowerPiece.Plot is null || !flowerPiece.Plot.CanSet())
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return _currentFlower is not null &&
+               _currentFlower.Sprites.All(flowerPiece => flowerPiece.Plot is not null && flowerPiece.Plot.CanSet());
     }
 
     public bool TrySetFlower()
@@ -316,11 +318,7 @@ public partial class Building : Node2D
         _currentFlower.Confirm();
         _currentFlower.SetColor(_currentFlower.GridPosition.X >= 0 ? Colors.Gray : Colors.DarkGray);
 
-        if (LeftGrid?.HasFreeSpot() ?? false) return true;
-        if (RightGrid?.HasFreeSpot() ?? false) return true;
-        if (RoofGrid?.HasFreeSpot() ?? false) return true;
-
-        EmitSignalFull();
+        if (!Grids.Any(g => g.HasFreeSpot())) EmitSignalFull();
 
         return true;
     }
@@ -329,20 +327,9 @@ public partial class Building : Node2D
     {
         if (_currentFlower is null) return;
 
-        if (LeftGrid != null)
+        foreach (var plot in Grids.SelectMany(g => g.Grid))
         {
-            foreach (var plot in LeftGrid.Grid)
-            {
-                plot.RemoveCurrent();
-            }
-        }
-
-        if (RightGrid != null)
-        {
-            foreach (var plot in RightGrid.Grid)
-            {
-                plot.RemoveCurrent();
-            }
+            plot.RemoveCurrent();
         }
 
         _currentFlower.HideSprite();
@@ -350,16 +337,22 @@ public partial class Building : Node2D
 
     public void Enable(Flower? flower = null)
     {
-        LeftGrid?.Enable();
-        RightGrid?.Enable();
+        foreach (var grid in Grids)
+        {
+            grid.Enable();
+        }
+
         _currentFlower = flower;
         PositionFlower(_currentFlower);
     }
 
     public void Disable()
     {
-        LeftGrid?.Disable();
-        RightGrid?.Disable();
+        foreach (var grid in Grids)
+        {
+            grid.Disable();
+        }
+
         RemoveCurrentFlower();
     }
 
@@ -373,5 +366,10 @@ public partial class Building : Node2D
     {
         return (HasRightGrid && RightGrid!.Grid.Any(plot => plot.Y == 0 && plot.IsFree())) ||
                (HasLeftGrid && LeftGrid!.Grid.Any(plot => plot.Y == 0 && plot.IsFree()));
+    }
+
+    public bool HasRoofSpace()
+    {
+        return RoofGrid?.HasFreeSpot() ?? false;
     }
 }

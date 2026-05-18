@@ -11,29 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7e4f84-01aa-46d8-9aba-aaa555199422" name="Changes" comment="Add building size calculator. Fix grid movement system">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRoofGrid.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRoofGrid.cs.uid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenes/city.tscn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scenes/drag_and_drop.gd.uid" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addons/rider-plugin/bin/rider-plugin.gdextension.uid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/MovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/MovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectPlantris.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPlantris.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingLeftGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingLeftGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRightGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRightGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutResource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/4x6x3Building2.tres" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/4x6x3Building2.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRoofGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRoofGrid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Plot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Plot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/PlotState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/PlotState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/city.tscn" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Flowers/Flower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Flowers/Flower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/city.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/city.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/GameUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/GameUi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/game_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/UI/game_ui.tscn" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +37,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4881db23b1834147bd6855274699690d580800/7f/12802c8c/CanvasItem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -68,7 +58,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Executable.Player.executor": "Run",
+    ".NET Executable.Player.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -86,7 +76,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -171,6 +161,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Scenes/Buildings/Building.cs</url>
+          <line>227</line>
+          <properties documentPath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" containingFunctionPresentation="Method 'PositionFlower'">
+            <startOffsets>
+              <option value="8961" />
+            </startOffsets>
+            <endOffsets>
+              <option value="9021" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

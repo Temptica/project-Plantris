@@ -20,12 +20,13 @@ public partial class BuildingLeftGrid : BuildingGrid
         {
             for (var col = 0; col < gridWidth; col++) // (x)
             {
-                var pos = (-col - 1) * u + row * v;
+                var colPos = -col - 1;
+                var pos = colPos * u + row * v;
                 pos += gridOffset;
 
                 // To draw skewed textures correctly, we use Transform2D
                 // The basis vectors u and v define the axes of our skewed grid
-                var plot = Plot.Create(col, row, pos, this, true);
+                var plot = Plot.Create(gridWidth + colPos, row, pos, this, true);
                 Grid.Add(plot);
                 AddChild(plot);
             }

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cx8rdc6qk8pc7"]
 
 [ext_resource type="Script" uid="uid://cx7ibmu63kf57" path="res://Managers/MovementController.cs" id="1_3qc4n"]
+[ext_resource type="PackedScene" uid="uid://b4c4glc3dnt5b" path="res://Managers/flower_generator.tscn" id="2_h0cym"]
 [ext_resource type="Script" uid="uid://ddbj6eyegp7vu" path="res://Scenes/Camera.cs" id="2_ujmo6"]
 [ext_resource type="Script" uid="uid://caojahnwxde37" path="res://Managers/BuildingSelector.cs" id="3_h0cym"]
 [ext_resource type="PackedScene" uid="uid://pj833ntpd5kk" path="res://Scenes/Buildings/Building.tscn" id="4_wm66b"]
@@ -14,6 +15,8 @@
 
 [node name="MovementController" type="Node" parent="Managers" unique_id=1235529870]
 script = ExtResource("1_3qc4n")
+
+[node name="FlowerGenerator" parent="Managers" unique_id=530866589 instance=ExtResource("2_h0cym")]
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1513711695 node_paths=PackedStringArray("Ui")]
 position = Vector2(1041, 567)
@@ -29,6 +32,7 @@ Buildings = [NodePath("Building"), NodePath("Building2"), NodePath("Building3")]
 position = Vector2(1694, 647)
 LayoutResource = ExtResource("5_ifi4l")
 HasLeftGrid = false
+HasRoofGrid = false
 
 [node name="Building2" parent="BuildingSelector" unique_id=688049169 instance=ExtResource("4_wm66b")]
 position = Vector2(1135.0001, 446.00003)
