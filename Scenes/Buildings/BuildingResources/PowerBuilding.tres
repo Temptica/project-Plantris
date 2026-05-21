@@ -1,7 +1,36 @@
 [gd_resource type="Resource" script_class="BuildingLayoutResource" format=3 uid="uid://cjccbnr38jyx2"]
 
+[ext_resource type="Script" uid="uid://bmwxfs3vwmq4m" path="res://Scenes/Buildings/BuildingLayoutGap.cs" id="1_ctc6x"]
 [ext_resource type="Script" uid="uid://cerhevm87whap" path="res://Scenes/Buildings/BuildingLayoutResource.cs" id="1_i8m6i"]
 [ext_resource type="Texture2D" uid="uid://dplw6hccsd2as" path="res://Textures/Buildings/SmallCubeBuilidingA.png" id="1_lol7e"]
+[ext_resource type="Script" uid="uid://cpv40uw6r4pvq" path="res://Scenes/Buildings/BuildingLayoutGapNode.cs" id="2_0rh1v"]
+
+[sub_resource type="Resource" id="Resource_74vq3"]
+script = ExtResource("2_0rh1v")
+Y = 2
+
+[sub_resource type="Resource" id="Resource_u8de7"]
+script = ExtResource("2_0rh1v")
+X = 1
+Y = 2
+
+[sub_resource type="Resource" id="Resource_yf5sp"]
+script = ExtResource("2_0rh1v")
+Y = 1
+
+[sub_resource type="Resource" id="Resource_kvwgk"]
+script = ExtResource("2_0rh1v")
+X = 1
+Y = 1
+
+[sub_resource type="Resource" id="Resource_5tneu"]
+script = ExtResource("1_ctc6x")
+Gaps = Array[ExtResource("2_0rh1v")]([SubResource("Resource_74vq3"), SubResource("Resource_u8de7"), SubResource("Resource_yf5sp"), SubResource("Resource_kvwgk")])
+RoofGrid = true
+GridOffset = Vector2(0, 1)
+_format = "XX
+XX"
+metadata/_custom_type_script = "uid://bmwxfs3vwmq4m"
 
 [resource]
 script = ExtResource("1_i8m6i")
@@ -9,6 +38,7 @@ Texture = ExtResource("1_lol7e")
 Depth = 3
 Width = 3
 Height = 3
+Gaps = Array[ExtResource("1_ctc6x")]([SubResource("Resource_5tneu")])
 BuildingHeight = 610.0
 BuildingWidth = 510.0
 BuildingDepth = 492.0

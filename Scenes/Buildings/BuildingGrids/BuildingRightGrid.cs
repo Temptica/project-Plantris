@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 namespace ProjectPlantris.Scenes.Buildings.BuildingGrids;
@@ -6,7 +8,7 @@ namespace ProjectPlantris.Scenes.Buildings.BuildingGrids;
 public partial class BuildingRightGrid : BuildingGrid
 {
     public override void CreateGrid(int gridWidth, int gridHeight, float buildingWidth, float buildingHeight,
-        float buildingAngle, Vector2 gridOffset)
+        float buildingAngle, Vector2 gridOffset, List<BuildingLayoutGap> gaps)
     {
         var cellSizeHeight = buildingHeight / gridHeight;
         var cellSizeWidth = buildingWidth / gridWidth;
@@ -24,8 +26,9 @@ public partial class BuildingRightGrid : BuildingGrid
                 pos += gridOffset;
 
                 var plot = Plot.Create(col, row, pos, this);
+                if(gaps.Any(g => g.Gaps.Any(gn => gn.Equals(plot)))) plot.IsGap = true;
                 Grid.Add(plot);
-                AddChild(plot);
+                AddChild(plot,OS.IsDebugBuild());
             }
         }
         

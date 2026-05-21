@@ -29,10 +29,8 @@ script = ExtResource("3_h0cym")
 Buildings = [NodePath("Building"), NodePath("Building2"), NodePath("Building3")]
 
 [node name="Building3" parent="BuildingSelector" unique_id=814127962 instance=ExtResource("4_wm66b")]
-position = Vector2(1694, 647)
+position = Vector2(2170, 405)
 LayoutResource = ExtResource("5_ifi4l")
-HasLeftGrid = false
-HasRoofGrid = false
 
 [node name="Building2" parent="BuildingSelector" unique_id=688049169 instance=ExtResource("4_wm66b")]
 position = Vector2(1135.0001, 446.00003)

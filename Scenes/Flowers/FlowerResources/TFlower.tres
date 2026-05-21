@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="Flower" format=3 uid="uid://dxj6u4dl38ctt"]
+
+[ext_resource type="Script" uid="uid://bjmtfvrt58ryu" path="res://Scenes/Flowers/FlowerPiece.cs" id="1_cw8u2"]
+[ext_resource type="Texture2D" uid="uid://cnh0k1qa20c0t" path="res://Textures/Plants/Plant1x3_1.png" id="2_lr2pe"]
+[ext_resource type="Script" uid="uid://cu8cbopqkr6pw" path="res://Scenes/Flowers/Flower.cs" id="3_ytsht"]
+
+[sub_resource type="Resource" id="Resource_cw8u2"]
+script = ExtResource("1_cw8u2")
+Y = 1
+IsAttachmentPoint = true
+
+[sub_resource type="Resource" id="Resource_lr2pe"]
+script = ExtResource("1_cw8u2")
+X = 1
+Y = 1
+IsAttachmentPoint = true
+
+[sub_resource type="Resource" id="Resource_ytsht"]
+script = ExtResource("1_cw8u2")
+X = 2
+Y = 1
+IsAttachmentPoint = true
+
+[sub_resource type="Resource" id="Resource_6rixb"]
+script = ExtResource("1_cw8u2")
+X = 1
+IsAttachmentPoint = true
+
+[sub_resource type="Resource" id="Resource_nnu7n"]
+script = ExtResource("1_cw8u2")
+IsFake = true
+
+[resource]
+script = ExtResource("3_ytsht")
+Sprites = Array[ExtResource("1_cw8u2")]([SubResource("Resource_cw8u2"), SubResource("Resource_lr2pe"), SubResource("Resource_ytsht"), SubResource("Resource_6rixb"), SubResource("Resource_nnu7n")])
+Texture = ExtResource("2_lr2pe")
+Format = "AAA
+oAo"
+metadata/_custom_type_script = "uid://cu8cbopqkr6pw"

@@ -12,7 +12,7 @@ public abstract partial class BuildingGrid : Node2D
     public new Transform2D Transform { get; set; }
 
     public abstract void CreateGrid(int gridWidth, int gridHeight, float buildingWidth, float buildingHeight,
-        float buildingAngle, Vector2 gridOffset);
+        float buildingAngle, Vector2 gridOffset, List<BuildingLayoutGap> gaps);
 
     public Plot? GetPlot(int x, int y) => Grid.Find(p => p.X == x && p.Y == y);
 

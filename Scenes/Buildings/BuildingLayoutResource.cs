@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Godot;
+using Godot.Collections;
 
 namespace ProjectPlantris.Scenes.Buildings;
 
@@ -7,9 +9,11 @@ public partial class BuildingLayoutResource : Resource
 {
     [Export] public Texture2D Texture { get; set; } = null!;
 
-    [ExportGroup("Grid Units")] [Export] public int Depth { get; private set; } = 3; // Left facade grid count
-    [Export] public int Width { get; private set; } = 4; // Right facade grid count
-    [Export] public int Height { get; private set; } = 5; // Vertical grid count
+    [ExportGroup("Grid Units")] [Export] public int Depth { get; set; } // Left facade grid count
+    [Export] public int Width { get; set; } // Right facade grid count
+    [Export] public int Height { get; set; } // Vertical grid count
+
+    [ExportGroup("Gaps")] [Export] public Array<BuildingLayoutGap> Gaps { get; set; } = [];
 
     [ExportGroup("Calculated Dimensions (Pixels)")]
     [Export]
@@ -60,7 +64,7 @@ public partial class BuildingLayoutResource : Resource
         // The true horizontal pixel span across the base corners
         float baselineHorizontalWidth = rightX - leftX;
         float totalGridWidthUnits = Width + Depth;
-        
+
         // Distribute the width proportionally using your 3:4 grid unit ratio
         var pixelWidthPerUnit = baselineHorizontalWidth / totalGridWidthUnits;
         BuildingDepth = Depth * pixelWidthPerUnit;
@@ -71,13 +75,13 @@ public partial class BuildingLayoutResource : Resource
 
         // Visual height occupied by the roof projection slanting up and back
         var roofProjectedHeight = totalGridWidthUnits * pixelWidthPerUnit * tanAngle;
-        
+
         // Deduct the roof's visual height from the total asset height to find the true vertical wall height
         BuildingHeight = totalPixelHeight - roofProjectedHeight;
 
         // 4. Pinpoint the Front Center Ground Origin Vertex
         var frontCornerX = leftX + BuildingDepth;
-        
+
         // Projecting from the lowest absolute row down to the center seam based on asymmetric width layout
         float frontCornerY = bottomY;
         if (Width > Depth)
@@ -98,48 +102,61 @@ public partial class BuildingLayoutResource : Resource
         GridOffset = new Vector2(frontCornerX - textureCenter.X, frontCornerY - textureCenter.Y);
 
         EmitChanged();
-        GD.Print($"Corrected Full Scale -> Width: {BuildingWidth}px | Depth: {BuildingDepth}px | Height: {BuildingHeight}px | Offset: {GridOffset}");
+        GD.Print(
+            $"Corrected Full Scale -> Width: {BuildingWidth}px | Depth: {BuildingDepth}px | Height: {BuildingHeight}px | Offset: {GridOffset}");
     }
 
     #region Scanners (Only X boundaries look at the bottom half)
 
     private static int ScanXFromLeftBottomHalf(Image img, int w, int h, int startY)
     {
-        for (var x = 0; x < w; x++) {
-            for (var y = startY; y < h; y++) {
+        for (var x = 0; x < w; x++)
+        {
+            for (var y = startY; y < h; y++)
+            {
                 if (img.GetPixel(x, y).A > 0.1f) return x; // Found leftmost X in bottom half
             }
         }
+
         return -1;
     }
 
     private static int ScanXFromRightBottomHalf(Image img, int w, int h, int startY)
     {
-        for (var x = w - 1; x >= 0; x--) {
-            for (var y = startY; y < h; y++) {
+        for (var x = w - 1; x >= 0; x--)
+        {
+            for (var y = startY; y < h; y++)
+            {
                 if (img.GetPixel(x, y).A > 0.1f) return x; // Found rightmost X in bottom half
             }
         }
+
         return -1;
     }
 
     private static int ScanYFromTop(Image img, int w, int h)
     {
-        for (var y = 0; y < h; y++) {
-            for (var x = 0; x < w; x++) {
+        for (var y = 0; y < h; y++)
+        {
+            for (var x = 0; x < w; x++)
+            {
                 if (img.GetPixel(x, y).A > 0.1f) return y; // Absolute top Y of entire image
             }
         }
+
         return -1;
     }
 
     private static int ScanYFromBottom(Image img, int w, int h)
     {
-        for (var y = h - 1; y >= 0; y--) {
-            for (var x = 0; x < w; x++) {
+        for (var y = h - 1; y >= 0; y--)
+        {
+            for (var x = 0; x < w; x++)
+            {
                 if (img.GetPixel(x, y).A > 0.1f) return y; // Absolute bottom Y of entire image
             }
         }
+
         return -1;
     }
 

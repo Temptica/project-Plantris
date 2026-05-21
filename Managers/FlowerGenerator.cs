@@ -27,7 +27,7 @@ public partial class FlowerGenerator : Node
 
     public Flower? GetRandomFlower()
     {
-        var currentBuilding = BuildingSelector.Instance.CurrentBuilding;
+        var currentBuilding = BuildingSelector.CurrentBuilding;
         if (currentBuilding == null)
         {
             return null;
@@ -56,7 +56,7 @@ public partial class FlowerGenerator : Node
             return false;
         }
 
-        var currentBuilding = BuildingSelector.Instance.CurrentBuilding;
+        var currentBuilding = BuildingSelector.CurrentBuilding;
 
         return (flower.Type != Flower.FlowerType.Bottom || !(!currentBuilding?.HasBottomSpace() ?? false)) &&
                (flower.Type != Flower.FlowerType.Top || !(!currentBuilding?.HasTopSpace() ?? false));

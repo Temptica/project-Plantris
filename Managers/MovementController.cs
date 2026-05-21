@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using Godot;
 using ProjectPlantris.Scenes;
 using ProjectPlantris.Scenes.Buildings;
@@ -30,7 +32,7 @@ public partial class MovementController : Node
     [Signal]
     public delegate void FlowerMovedEventHandler();
 
-    private static Building? CurrentBuilding => BuildingSelector.Instance.CurrentBuilding;
+    private static Building? CurrentBuilding => BuildingSelector.CurrentBuilding;
 
     public override void _Ready()
     {
@@ -223,20 +225,27 @@ public partial class MovementController : Node
     {
         if (_selectedFlower == null || CurrentBuilding is null) return;
 
-        if (_selectedFlower.Type != Flower.FlowerType.Normal)
+        if (_selectedFlower.Type == Flower.FlowerType.Bottom &&
+            (!_selectedFlower.AllowRoof || !CurrentBuilding.HasRoofGrid))
         {
             return;
         }
 
-        var currentBuilding = CurrentBuilding;
-
+        if (_selectedFlower.Type == Flower.FlowerType.Bottom && _selectedFlower.GridPosition.Y < CurrentBuilding.Height)
+        {
+            _selectedFlower.GridPosition = new Vector2(_selectedFlower.GridPosition.X, CurrentBuilding.Height);
+            return;
+        }
+        
         var upMostNewPosition =
             _selectedFlower.GridPosition.Y +
             _selectedFlower.Sprites.Max(sprite => sprite.Y) +
             1;
 
-        var buildingHeight = currentBuilding.Height;
-        if (_selectedFlower.AllowRoof && currentBuilding.HasRoofGrid) buildingHeight += currentBuilding.Depth;
+        var buildingHeight = CurrentBuilding.Height;
+        if (_selectedFlower.AllowRoof && CurrentBuilding.HasRoofGrid) buildingHeight += CurrentBuilding.Depth;
+
+
         if (upMostNewPosition >= buildingHeight)
         {
             return;
@@ -249,7 +258,7 @@ public partial class MovementController : Node
     {
         if (_selectedFlower == null || CurrentBuilding is null) return;
 
-        if (_selectedFlower.Type != Flower.FlowerType.Normal)
+        if (_selectedFlower.Type == Flower.FlowerType.Top)
         {
             return;
         }
@@ -257,6 +266,11 @@ public partial class MovementController : Node
         if (_selectedFlower.GridPosition.Y == 0)
         {
             return;
+        }
+
+        if (_selectedFlower.Type == Flower.FlowerType.Bottom && _selectedFlower.GridPosition.Y ==  CurrentBuilding.Height)
+        {
+            _selectedFlower.GridPosition = new Vector2(_selectedFlower.GridPosition.X, 1);
         }
 
         _selectedFlower.GridPosition -= Vector2.Down;
@@ -272,7 +286,7 @@ public partial class MovementController : Node
             return;
         }
 
-        EmitSignal(SignalName.FlowerPlaced, _selectedFlower);
+        EmitSignalFlowerPlaced(_selectedFlower);
     }
 
     private void DrawFlower()

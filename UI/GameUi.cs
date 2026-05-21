@@ -44,7 +44,7 @@ public partial class GameUi : Control
         _movementController.FlowerSelectedPrev += OnFlowerSelectPrev;
         _movementController.FlowerSelectedNext += OnFlowerSelectNext;
 
-        // ScoreManager.Instance.ScoreUpdated += OnScoreUpdated;
+        ScoreManager.Instance.ScoreUpdated += OnScoreUpdated;
         BuildingSelector.Instance.BuildingChanged += OnBuildingChanged;
 
         if (_flower1 is not null)
@@ -59,10 +59,10 @@ public partial class GameUi : Control
         _movementController.FlowerSelectedPrev -= OnFlowerSelectPrev;
         _movementController.FlowerSelectedNext -= OnFlowerSelectNext;
 
-        // if (ScoreManager.Instance is not null)
-        // {
-        //     ScoreManager.Instance.ScoreUpdated -= OnScoreUpdated;
-        // }
+        if (ScoreManager.Instance is not null)
+        {
+            ScoreManager.Instance.ScoreUpdated -= OnScoreUpdated;
+        }
 
         BuildingSelector.Instance.BuildingChanged -= OnBuildingChanged;
     }
@@ -215,6 +215,8 @@ public partial class GameUi : Control
 
     private void OnBuildingChanged(Building building)
     {
-        SetNewFlower(_selectedIndex);
+        SetNewFlower(1);
+        SetNewFlower(2);
+        SetNewFlower(3);
     }
 }
