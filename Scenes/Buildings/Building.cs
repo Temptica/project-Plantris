@@ -26,6 +26,8 @@ public partial class Building : Node2D
 
     public List<BuildingGrid> Grids = [];
 
+    public int PlotCount;
+
     public int Depth => LayoutResource.Depth;
     public int Width => LayoutResource.Width;
     public int Height => LayoutResource.Height;
@@ -73,6 +75,7 @@ public partial class Building : Node2D
 
         _sprite = GetNode<Sprite2D>("Sprite2D");
         UpdateTexture();
+        PlotCount = Grids.SelectMany(g => g.Plots).Count(p => !p.IsGap);
     }
 
     private void UpdateTexture()
@@ -144,7 +147,7 @@ public partial class Building : Node2D
             {
                 for (var col = LayoutResource.Depth; col > 0; col--)
                 {
-                    var pos = (-col) * d + row * v;
+                    var pos = -col * d + row * v;
                     pos += LayoutResource.GridOffset;
 
                     // To draw skewed textures correctly, we use Transform2D
@@ -174,6 +177,7 @@ public partial class Building : Node2D
 
         if (HasRoofGrid)
         {
+            //Intentional ? due to editor
             var gaps = LayoutResource.Gaps.Where(g => g?.RoofGrid ?? false).SelectMany(g => g.Gaps).ToList();
             for (var row = 0; row < LayoutResource.Depth; row++)
             {
@@ -228,7 +232,7 @@ public partial class Building : Node2D
     {
         if (flower is null) return;
 
-        foreach (var plot in Grids.SelectMany(g => g.Grid))
+        foreach (var plot in Grids.SelectMany(g => g.Plots))
         {
             plot.RemoveCurrent();
         }
@@ -348,6 +352,11 @@ public partial class Building : Node2D
                CurrentFlower.Sprites.All(flowerPiece => flowerPiece.Plot is not null && flowerPiece.Plot.CanSet());
     }
 
+    public int GetFreeSpotsCount()
+    {
+        return Grids.SelectMany(g => g.Plots).Count(p => p.IsFree());
+    }
+
     public bool TrySetFlower()
     {
         if (CurrentFlower == null || !CanPlace()) return false;
@@ -369,7 +378,7 @@ public partial class Building : Node2D
     {
         if (CurrentFlower is null) return;
 
-        foreach (var plot in Grids.SelectMany(g => g.Grid))
+        foreach (var plot in Grids.SelectMany(g => g.Plots))
         {
             plot.RemoveCurrent();
         }
@@ -400,14 +409,14 @@ public partial class Building : Node2D
 
     public bool HasTopSpace()
     {
-        return (HasRightGrid && RightGrid!.Grid.Any(plot => plot.Y == Height - 1 && plot.IsFree())) ||
-               (HasLeftGrid && LeftGrid!.Grid.Any(plot => plot.Y == Height - 1 && plot.IsFree()));
+        return (HasRightGrid && RightGrid!.Plots.Any(plot => plot.Y == Height - 1 && plot.IsFree())) ||
+               (HasLeftGrid && LeftGrid!.Plots.Any(plot => plot.Y == Height - 1 && plot.IsFree()));
     }
 
     public bool HasBottomSpace()
     {
-        return (HasRightGrid && RightGrid!.Grid.Any(plot => plot.Y == 0 && plot.IsFree())) ||
-               (HasLeftGrid && LeftGrid!.Grid.Any(plot => plot.Y == 0 && plot.IsFree()));
+        return (HasRightGrid && RightGrid!.Plots.Any(plot => plot.Y == 0 && plot.IsFree())) ||
+               (HasLeftGrid && LeftGrid!.Plots.Any(plot => plot.Y == 0 && plot.IsFree()));
     }
 
     public bool HasRoofSpace()

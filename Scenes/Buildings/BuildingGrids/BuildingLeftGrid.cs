@@ -30,11 +30,11 @@ public partial class BuildingLeftGrid : BuildingGrid
                 // The basis vectors u and v define the axes of our skewed grid
                 var plot = Plot.Create(gridWidth + colPos, row, pos, this, true);
                 if(gaps.Any(g => g.Gaps.Any(gn => gn.Equals(plot)))) plot.IsGap = true;
-                Grid.Add(plot);
+                Plots.Add(plot);
                 AddChild(plot,OS.IsDebugBuild());
             }
         }
         
-        Grid.Sort();
+        Plots.Sort();
     }
 }

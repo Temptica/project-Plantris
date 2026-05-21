@@ -16,6 +16,7 @@ public partial class GameUi : Control
     private HBoxContainer _flowerSelectionContainer = null!;
     private MovementController _movementController = null!;
     private Button _nextButton = null!;
+    private Button _rerollButton = null!;
     private Label _scoreLabel = null!;
 
     private Flower? _flower1;
@@ -35,14 +36,15 @@ public partial class GameUi : Control
         _movementController = MovementController.Instance;
         _nextButton = GetNode<Button>("%NextButton");
         _scoreLabel = GetNode<Label>("%ScoreLabel");
+        _rerollButton = GetNode<Button>("%RerollButton");
 
-        SetNewFlower(1);
-        SetNewFlower(2);
-        SetNewFlower(3);
+        ResetFlowers();
 
         _movementController.FlowerPlaced += OnFlowerPlaced;
         _movementController.FlowerSelectedPrev += OnFlowerSelectPrev;
         _movementController.FlowerSelectedNext += OnFlowerSelectNext;
+
+        _rerollButton.Pressed += OnRerollPressed;
 
         ScoreManager.Instance.ScoreUpdated += OnScoreUpdated;
         BuildingSelector.Instance.BuildingChanged += OnBuildingChanged;
@@ -52,6 +54,14 @@ public partial class GameUi : Control
             _movementController.SetFlower(_flower1);
         }
     }
+
+    private void ResetFlowers()
+    {
+        SetNewFlower(1);
+        SetNewFlower(2);
+        SetNewFlower(3);
+    }
+
 
     public override void _ExitTree()
     {
@@ -207,6 +217,12 @@ public partial class GameUi : Control
         BuildingSelector.Instance.SelectNextBuilding();
         _nextButton.ReleaseFocus();
     }
+    
+    private void OnRerollPressed()
+    {
+        ResetFlowers();
+        _rerollButton.ReleaseFocus();
+    }
 
     private void OnScoreUpdated(int score)
     {
@@ -215,8 +231,6 @@ public partial class GameUi : Control
 
     private void OnBuildingChanged(Building building)
     {
-        SetNewFlower(1);
-        SetNewFlower(2);
-        SetNewFlower(3);
+        ResetFlowers();
     }
 }

@@ -24,7 +24,7 @@ public partial class Plot : Node2D, IComparable
 
     public PlotState State => GetState();
 
-    public Area2D PlacementArea;
+    public Area2D PlacementArea = null!;
 
     private PlotState GetState()
     {
@@ -75,9 +75,9 @@ public partial class Plot : Node2D, IComparable
         {
             PlotState.Inactive => Colors.Transparent,
             PlotState.Available when IsGap => Colors.DarkSlateGray,
-            PlotState.Available when isAvailableForType() => Colors.White,
+            PlotState.Available when IsAvailableForType() => Colors.White,
             PlotState.Available => Colors.DarkSlateGray,
-            PlotState.Selected when CurrentFlowerPiece.IsAttachmentPoint => Colors.DeepSkyBlue,
+            PlotState.Selected when CurrentFlowerPiece?.IsAttachmentPoint ?? false => Colors.DeepSkyBlue,
             PlotState.Selected => Colors.Yellow,
             PlotState.Placed => Colors.DarkRed,
             _ => Colors.RebeccaPurple,
@@ -86,19 +86,20 @@ public partial class Plot : Node2D, IComparable
         DrawRect(rect, color, false, width: -4);
     }
 
-    private bool isAvailableForType()
+    private bool IsAvailableForType()
     {
         if (IsGap) return false;
         var currentBuilding = BuildingSelector.CurrentBuilding;
-        var currentFlower = BuildingSelector.CurrentBuilding.CurrentFlower;
+        var currentFlower = BuildingSelector.CurrentBuilding?.CurrentFlower;
         
         if(currentBuilding is null || currentFlower is null) return true;
 
         if (currentFlower.AllowRoof && IsRoof) return true;
+        if(IsRoof) return false;
 
         switch (currentFlower.Type)
         {
-            case Flower.FlowerType.Top: return Y == BuildingSelector.CurrentBuilding.Height - 1;
+            case Flower.FlowerType.Top: return Y == currentBuilding.Height - 1;
             case Flower.FlowerType.Bottom: return Y == 0;
             case Flower.FlowerType.Normal:
             default: return true;

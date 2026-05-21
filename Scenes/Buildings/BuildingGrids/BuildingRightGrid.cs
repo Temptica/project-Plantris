@@ -27,11 +27,11 @@ public partial class BuildingRightGrid : BuildingGrid
 
                 var plot = Plot.Create(col, row, pos, this);
                 if(gaps.Any(g => g.Gaps.Any(gn => gn.Equals(plot)))) plot.IsGap = true;
-                Grid.Add(plot);
+                Plots.Add(plot);
                 AddChild(plot,OS.IsDebugBuild());
             }
         }
         
-        Grid.Sort();
+        Plots.Sort();
     }
 }
