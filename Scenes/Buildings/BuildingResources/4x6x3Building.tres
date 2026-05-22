@@ -35,9 +35,9 @@ metadata/_custom_type_script = "uid://bmwxfs3vwmq4m"
 [resource]
 script = ExtResource("2_qaioy")
 Texture = ExtResource("1_43ea4")
-Depth = 3
 Width = 4
 Height = 7
+Depth = 3
 Gaps = Array[ExtResource("1_hq6w6")]([SubResource("Resource_fvc1w")])
 BuildingHeight = 1452.0
 BuildingWidth = 666.6

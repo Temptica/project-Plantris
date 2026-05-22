@@ -12,11 +12,23 @@
   <component name="ChangeListManager">
     <list default="true" id="ba7e4f84-01aa-46d8-9aba-aaa555199422" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Audio/AudioPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Audio/AudioPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutResource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/plop_player.gd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/plop_player.gd.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/4x6x3Building.tres" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/4x6x3Building.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/PowerBuilding.tres" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/PowerBuilding.tres" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/city.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/city.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/drag_and_drop.gd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/drag_and_drop.gd.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shaders/wind_wave.gdshader" beforeDir="false" afterPath="$PROJECT_DIR$/Shaders/wind_wave.gdshader" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/game_ui.gd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/game_ui.gd.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/settings.gd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/settings.gd.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/World/camera.gd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/World/camera.gd.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/World/evniroment.tres" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skew.gd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/skew.gd.uid" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,61 +63,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="6.709820988773319E-24" />
-      <entry key="MS500" value="2.3192212774681315E-5" />
-      <entry key="S2" value="0.06939617710178993" />
-      <entry key="S5" value="0.34398081304712047" />
-      <entry key="S10" value="0.586498774974953" />
-      <entry key="S30" value="0.8370582923511134" />
-      <entry key="S60" value="0.9149088983888577" />
-      <entry key="M2" value="0.9565087027251021" />
-      <entry key="M5" value="0.982371083787022" />
-      <entry key="M10" value="0.9913107151387749" />
-      <entry key="M15" value="1.0080552228697446" />
-      <entry key="M30" value="2.4279869059738197" />
-      <entry key="H1" value="19.540492278533204" />
-      <entry key="H2" value="90.25052462553701" />
-      <entry key="H4" value="239.2453141536506" />
-      <entry key="D1" value="622.0173118172943" />
-      <entry key="W1" value="742.4880353774709" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0002992095879064" />
+      <entry key="S2" value="1.2614631436231911" />
+      <entry key="S5" value="2.2070891666154733" />
+      <entry key="S10" value="3.2467637474913897" />
+      <entry key="S30" value="5.356297748789028" />
+      <entry key="S60" value="7.707646729781429" />
+      <entry key="M2" value="11.55807330533669" />
+      <entry key="M5" value="20.38623828150967" />
+      <entry key="M10" value="27.833148129690716" />
+      <entry key="M15" value="31.432950044251577" />
+      <entry key="M30" value="36.20537208220654" />
+      <entry key="H1" value="46.924443188240666" />
+      <entry key="H2" value="99.77668180905523" />
+      <entry key="H4" value="235.67079649319794" />
+      <entry key="D1" value="642.2538793755624" />
+      <entry key="W1" value="779.8995408598103" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.000000186025037" />
-      <entry key="S2" value="1.0212432835421985" />
-      <entry key="S5" value="1.2804979590157584" />
-      <entry key="S10" value="1.8273828800565957" />
-      <entry key="S30" value="2.9066238967295064" />
-      <entry key="S60" value="3.3846913640535043" />
-      <entry key="M2" value="3.6728005729266786" />
-      <entry key="M5" value="3.8640834711526018" />
-      <entry key="M10" value="3.9312326031209643" />
-      <entry key="M15" value="3.958518514565366" />
-      <entry key="M30" value="4.3598311623294155" />
-      <entry key="H1" value="8.289743744344154" />
-      <entry key="H2" value="24.876938090566398" />
-      <entry key="H4" value="64.05894799752808" />
-      <entry key="D1" value="175.4381614369975" />
-      <entry key="W1" value="212.09328126884742" />
+      <entry key="MS100" value="2.1401506868094392E-4" />
+      <entry key="MS500" value="0.1853097566096241" />
+      <entry key="S2" value="0.8220289194183403" />
+      <entry key="S5" value="1.3367679465017632" />
+      <entry key="S10" value="1.7035915546356613" />
+      <entry key="S30" value="2.5555681934408567" />
+      <entry key="S60" value="3.2189618010339154" />
+      <entry key="M2" value="4.441953048571077" />
+      <entry key="M5" value="7.179297334532839" />
+      <entry key="M10" value="9.129318077933704" />
+      <entry key="M15" value="10.09041406975372" />
+      <entry key="M30" value="11.758863470713475" />
+      <entry key="H1" value="15.116600077662376" />
+      <entry key="H2" value="28.301857042389567" />
+      <entry key="H4" value="64.16967209947005" />
+      <entry key="D1" value="181.5914047433178" />
+      <entry key="W1" value="223.06964529925534" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="8.524224381044152E-6" />
-      <entry key="MS500" value="0.09686287443903527" />
-      <entry key="S2" value="0.6192476924972954" />
-      <entry key="S5" value="1.3117115618225368" />
-      <entry key="S10" value="2.162761476027577" />
-      <entry key="S30" value="3.5995100076363538" />
-      <entry key="S60" value="4.213986008930309" />
-      <entry key="M2" value="4.582399276908085" />
-      <entry key="M5" value="4.826596616499181" />
-      <entry key="M10" value="4.912421898741315" />
-      <entry key="M15" value="4.959771935454526" />
-      <entry key="M30" value="6.78389995860974" />
-      <entry key="H1" value="27.82535176317095" />
-      <entry key="H2" value="115.11864774873406" />
-      <entry key="H4" value="303.29263701222874" />
-      <entry key="D1" value="797.4502687624384" />
-      <entry key="W1" value="954.5804228137807" />
+      <entry key="MS100" value="0.895025070927973" />
+      <entry key="MS500" value="0.9794416784135036" />
+      <entry key="S2" value="1.509083178508299" />
+      <entry key="S5" value="3.0442939291327034" />
+      <entry key="S10" value="4.567861315594579" />
+      <entry key="S30" value="7.673768070321819" />
+      <entry key="S60" value="10.7671328634083" />
+      <entry key="M2" value="15.893651918558833" />
+      <entry key="M5" value="27.503363506609134" />
+      <entry key="M10" value="36.92451987370622" />
+      <entry key="M15" value="41.49586007264092" />
+      <entry key="M30" value="47.94868661116444" />
+      <entry key="H1" value="62.03116085786787" />
+      <entry key="H2" value="128.06871924234588" />
+      <entry key="H4" value="299.82898240429046" />
+      <entry key="D1" value="823.8399172289246" />
+      <entry key="W1" value="1002.9682486751475" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -208,7 +220,8 @@
       <workItem from="1779386832796" duration="616000" />
       <workItem from="1779388582884" duration="2241000" />
       <workItem from="1779434417039" duration="11000" />
-      <workItem from="1779434449512" duration="7338000" />
+      <workItem from="1779434449512" duration="8831000" />
+      <workItem from="1779457972600" duration="1977000" />
     </task>
     <task id="LOCAL-00001" summary="semi-fix movement on roof">
       <option name="closed" value="true" />
@@ -226,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779358865983</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add more buildings. Add Plop sound">
+      <option name="closed" value="true" />
+      <created>1779451005588</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779451005588</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +260,8 @@
     <MESSAGE value="Add building size calculator. Fix grid movement system" />
     <MESSAGE value="semi-fix movement on roof" />
     <MESSAGE value="More grid system implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="More grid system implementation" />
+    <MESSAGE value="Add more buildings. Add Plop sound" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add more buildings. Add Plop sound" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
