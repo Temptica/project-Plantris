@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BuildingLayoutResource" format=3 uid="uid://ytkdh3manrp7"]
+
+[ext_resource type="Script" uid="uid://bmwxfs3vwmq4m" path="res://Scenes/Buildings/BuildingLayoutGap.cs" id="1_preio"]
+[ext_resource type="Texture2D" uid="uid://c5xpo7ebfnees" path="res://Textures/Buildings/RijWoning3x4x5D.png" id="2_1n3l4"]
+[ext_resource type="Script" uid="uid://cerhevm87whap" path="res://Scenes/Buildings/BuildingLayoutResource.cs" id="3_2o4ay"]
+
+[resource]
+script = ExtResource("3_2o4ay")
+Texture = ExtResource("2_1n3l4")
+Depth = 3
+Width = 4
+Height = 5
+BuildingHeight = 1000.0
+BuildingWidth = 655.0
+BuildingDepth = 500.0
+GridOffset = Vector2(-74.468, 706.832)

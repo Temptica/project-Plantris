@@ -1,0 +1,183 @@
+[gd_resource type="Resource" script_class="BuildingLayoutResource" format=3 uid="uid://d31wbv0tu3mdp"]
+
+[ext_resource type="Script" uid="uid://bmwxfs3vwmq4m" path="res://Scenes/Buildings/BuildingLayoutGap.cs" id="1_5ci12"]
+[ext_resource type="Script" uid="uid://cpv40uw6r4pvq" path="res://Scenes/Buildings/BuildingLayoutGapNode.cs" id="2_wkvnb"]
+[ext_resource type="Texture2D" uid="uid://ba6amu1fxdbwk" path="res://Textures/Buildings/TowerBuilding7x7x13A.png" id="3_4r6am"]
+[ext_resource type="Script" uid="uid://cerhevm87whap" path="res://Scenes/Buildings/BuildingLayoutResource.cs" id="4_r3105"]
+
+[sub_resource type="Resource" id="Resource_mgocx"]
+script = ExtResource("2_wkvnb")
+Y = 6
+
+[sub_resource type="Resource" id="Resource_qmcai"]
+script = ExtResource("2_wkvnb")
+X = 1
+Y = 6
+
+[sub_resource type="Resource" id="Resource_0y5b1"]
+script = ExtResource("2_wkvnb")
+X = 2
+Y = 6
+
+[sub_resource type="Resource" id="Resource_b10ff"]
+script = ExtResource("2_wkvnb")
+X = 3
+Y = 6
+
+[sub_resource type="Resource" id="Resource_vj4a6"]
+script = ExtResource("2_wkvnb")
+X = 4
+Y = 6
+
+[sub_resource type="Resource" id="Resource_ur5us"]
+script = ExtResource("2_wkvnb")
+X = 5
+Y = 6
+
+[sub_resource type="Resource" id="Resource_mt3q6"]
+script = ExtResource("2_wkvnb")
+X = 6
+Y = 6
+
+[sub_resource type="Resource" id="Resource_ao24p"]
+script = ExtResource("2_wkvnb")
+X = 1
+Y = 5
+
+[sub_resource type="Resource" id="Resource_ncneq"]
+script = ExtResource("2_wkvnb")
+X = 2
+Y = 5
+
+[sub_resource type="Resource" id="Resource_2agja"]
+script = ExtResource("2_wkvnb")
+X = 3
+Y = 5
+
+[sub_resource type="Resource" id="Resource_tsmtg"]
+script = ExtResource("2_wkvnb")
+X = 4
+Y = 5
+
+[sub_resource type="Resource" id="Resource_rtjgb"]
+script = ExtResource("2_wkvnb")
+X = 5
+Y = 5
+
+[sub_resource type="Resource" id="Resource_8xyet"]
+script = ExtResource("2_wkvnb")
+X = 6
+Y = 5
+
+[sub_resource type="Resource" id="Resource_asr5f"]
+script = ExtResource("2_wkvnb")
+X = 1
+Y = 4
+
+[sub_resource type="Resource" id="Resource_f2bst"]
+script = ExtResource("2_wkvnb")
+X = 2
+Y = 4
+
+[sub_resource type="Resource" id="Resource_p54dm"]
+script = ExtResource("2_wkvnb")
+X = 3
+Y = 4
+
+[sub_resource type="Resource" id="Resource_0wcwe"]
+script = ExtResource("2_wkvnb")
+X = 4
+Y = 4
+
+[sub_resource type="Resource" id="Resource_f0g7d"]
+script = ExtResource("2_wkvnb")
+X = 5
+Y = 4
+
+[sub_resource type="Resource" id="Resource_yd6tk"]
+script = ExtResource("2_wkvnb")
+X = 6
+Y = 4
+
+[sub_resource type="Resource" id="Resource_end1o"]
+script = ExtResource("2_wkvnb")
+X = 1
+Y = 3
+
+[sub_resource type="Resource" id="Resource_yloka"]
+script = ExtResource("2_wkvnb")
+X = 2
+Y = 3
+
+[sub_resource type="Resource" id="Resource_i8uqu"]
+script = ExtResource("2_wkvnb")
+X = 3
+Y = 3
+
+[sub_resource type="Resource" id="Resource_6xrp2"]
+script = ExtResource("2_wkvnb")
+X = 4
+Y = 3
+
+[sub_resource type="Resource" id="Resource_2fub6"]
+script = ExtResource("2_wkvnb")
+X = 5
+Y = 3
+
+[sub_resource type="Resource" id="Resource_au5gg"]
+script = ExtResource("2_wkvnb")
+X = 6
+Y = 3
+
+[sub_resource type="Resource" id="Resource_fg6b2"]
+script = ExtResource("2_wkvnb")
+X = 5
+Y = 2
+
+[sub_resource type="Resource" id="Resource_j15d8"]
+script = ExtResource("2_wkvnb")
+X = 6
+Y = 2
+
+[sub_resource type="Resource" id="Resource_e0ccy"]
+script = ExtResource("2_wkvnb")
+X = 5
+Y = 1
+
+[sub_resource type="Resource" id="Resource_dg5ch"]
+script = ExtResource("2_wkvnb")
+X = 6
+Y = 1
+
+[sub_resource type="Resource" id="Resource_gb77u"]
+script = ExtResource("2_wkvnb")
+X = 5
+
+[sub_resource type="Resource" id="Resource_jju84"]
+script = ExtResource("2_wkvnb")
+X = 6
+
+[sub_resource type="Resource" id="Resource_0j2y5"]
+script = ExtResource("1_5ci12")
+Gaps = Array[ExtResource("2_wkvnb")]([SubResource("Resource_mgocx"), SubResource("Resource_qmcai"), SubResource("Resource_0y5b1"), SubResource("Resource_b10ff"), SubResource("Resource_vj4a6"), SubResource("Resource_ur5us"), SubResource("Resource_mt3q6"), SubResource("Resource_ao24p"), SubResource("Resource_ncneq"), SubResource("Resource_2agja"), SubResource("Resource_tsmtg"), SubResource("Resource_rtjgb"), SubResource("Resource_8xyet"), SubResource("Resource_asr5f"), SubResource("Resource_f2bst"), SubResource("Resource_p54dm"), SubResource("Resource_0wcwe"), SubResource("Resource_f0g7d"), SubResource("Resource_yd6tk"), SubResource("Resource_end1o"), SubResource("Resource_yloka"), SubResource("Resource_i8uqu"), SubResource("Resource_6xrp2"), SubResource("Resource_2fub6"), SubResource("Resource_au5gg"), SubResource("Resource_fg6b2"), SubResource("Resource_j15d8"), SubResource("Resource_e0ccy"), SubResource("Resource_dg5ch"), SubResource("Resource_gb77u"), SubResource("Resource_jju84")])
+RoofGrid = true
+_format = "XXXXXXX
+oXXXXXX
+oXXXXXX
+oXXXXXX
+oooooXX
+oooooXX
+oooooXX"
+metadata/_custom_type_script = "uid://bmwxfs3vwmq4m"
+
+[resource]
+script = ExtResource("4_r3105")
+Texture = ExtResource("3_4r6am")
+Width = 7
+Height = 13
+Depth = 7
+Gaps = Array[ExtResource("1_5ci12")]([SubResource("Resource_0j2y5")])
+BuildingHeight = 2800.309
+BuildingWidth = 1147.69
+BuildingDepth = 1139.145
+GridOffset = Vector2(0, 1885.835)

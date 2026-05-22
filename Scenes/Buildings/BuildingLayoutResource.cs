@@ -9,9 +9,10 @@ public partial class BuildingLayoutResource : Resource
 {
     [Export] public Texture2D Texture { get; set; } = null!;
 
-    [ExportGroup("Grid Units")] [Export] public int Depth { get; set; } // Left facade grid count
+    [ExportGroup("Grid Units")] 
     [Export] public int Width { get; set; } // Right facade grid count
     [Export] public int Height { get; set; } // Vertical grid count
+    [Export] public int Depth { get; set; } // Left facade grid count
 
     [ExportGroup("Gaps")] [Export] public Array<BuildingLayoutGap> Gaps { get; set; } = [];
 

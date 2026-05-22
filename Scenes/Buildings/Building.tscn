@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://pj833ntpd5kk"]
 
 [ext_resource type="Script" uid="uid://sbjsg610ldjj" path="res://Scenes/Buildings/Building.cs" id="1_ywl2g"]
-[ext_resource type="Resource" uid="uid://3daphiexyeky" path="res://Scenes/Buildings/BuildingResources/4x6x3Building2.tres" id="2_k6o7a"]
-[ext_resource type="Texture2D" uid="uid://blnaht66keh2k" path="res://Textures/Buildings/RijWoning3x4x6A.png" id="3_k6o7a"]
+[ext_resource type="Resource" uid="uid://2aysmynxofdw" path="res://Scenes/Buildings/BuildingResources/7x13x7Building.tres" id="2_k6o7a"]
+[ext_resource type="Texture2D" uid="uid://bt77fuedf6mtj" path="res://Textures/Buildings/TowerBuilding7x7x13B.png" id="3_33lr4"]
 
 [node name="Building" type="Node2D" unique_id=814127962]
 script = ExtResource("1_ywl2g")
@@ -13,4 +13,4 @@ HasRoofGrid = true
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1402347436]
 z_index = -1
 position = Vector2(-3.0559022e-10, -3.0559022e-10)
-texture = ExtResource("3_k6o7a")
+texture = ExtResource("3_33lr4")

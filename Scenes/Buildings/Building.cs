@@ -268,7 +268,6 @@ public partial class Building : Node2D
                 }
             }
 
-
             var position = flower.GridPosition + piecePosition;
             var slot = grid.GetPlot((int)position.X, (int)position.Y);
 

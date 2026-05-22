@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cx8rdc6qk8pc7"]
 
 [ext_resource type="Script" uid="uid://cx7ibmu63kf57" path="res://Managers/MovementController.cs" id="1_3qc4n"]
+[ext_resource type="Script" uid="uid://05jp5qxryb3t" path="res://Audio/AudioPlayer.cs" id="1_ifi4l"]
+[ext_resource type="AudioStream" uid="uid://b2h5flqojg1p1" path="res://Sfx/plop.mp3" id="2_2cq4n"]
 [ext_resource type="PackedScene" uid="uid://b4c4glc3dnt5b" path="res://Managers/flower_generator.tscn" id="2_h0cym"]
 [ext_resource type="Script" uid="uid://ddbj6eyegp7vu" path="res://Scenes/Camera.cs" id="2_ujmo6"]
 [ext_resource type="Script" uid="uid://caojahnwxde37" path="res://Managers/BuildingSelector.cs" id="3_h0cym"]
@@ -9,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cjccbnr38jyx2" path="res://Scenes/Buildings/BuildingResources/PowerBuilding.tres" id="5_ifi4l"]
 [ext_resource type="Resource" uid="uid://73ecujxiertp" path="res://Scenes/Buildings/BuildingResources/4x6x3Building.tres" id="6_2cq4n"]
 [ext_resource type="PackedScene" uid="uid://dpyca0isr31lo" path="res://UI/game_ui.tscn" id="7_gab5h"]
+[ext_resource type="Resource" uid="uid://dtee5vgxl0mw2" path="res://Scenes/Buildings/BuildingResources/5x5x3Building.tres" id="9_2cq4n"]
 
 [node name="City" type="Node2D" unique_id=63220871]
 
@@ -21,6 +24,12 @@ script = ExtResource("1_3qc4n")
 
 [node name="ScoreManager" type="Node" parent="Managers" unique_id=1727444801]
 script = ExtResource("3_wm66b")
+
+[node name="Audio" type="Node" parent="." unique_id=861845504]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=1329356079]
+script = ExtResource("1_ifi4l")
+_plopSound = ExtResource("2_2cq4n")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1513711695 node_paths=PackedStringArray("Ui")]
 position = Vector2(1041, 567)
@@ -37,7 +46,8 @@ position = Vector2(2170, 405)
 LayoutResource = ExtResource("5_ifi4l")
 
 [node name="Building2" parent="BuildingSelector" unique_id=688049169 instance=ExtResource("4_wm66b")]
-position = Vector2(1135.0001, 446.00003)
+position = Vector2(1215, 635)
+LayoutResource = ExtResource("9_2cq4n")
 HasLeftGrid = false
 
 [node name="Building" parent="BuildingSelector" unique_id=30608006 instance=ExtResource("4_wm66b")]

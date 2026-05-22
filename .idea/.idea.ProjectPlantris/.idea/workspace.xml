@@ -11,21 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7e4f84-01aa-46d8-9aba-aaa555199422" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Managers/ScoreManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UI/BuildingPercentageProgressBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/score_manager.gd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Managers/score_manager.gd.uid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Audio/AudioPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Audio/AudioPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingLeftGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingLeftGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRightGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRightGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRoofGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingGrids/BuildingRoofGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Plot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Plot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutResource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutResource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/city.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/city.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/GameUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/GameUi.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UI/game_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/UI/game_ui.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,61 +51,61 @@
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="7.989440738018666E-222" />
-      <entry key="S2" value="5.738826162712294E-56" />
-      <entry key="S5" value="1.0587038982146619E-22" />
-      <entry key="S10" value="1.4123485402191815E-11" />
-      <entry key="S30" value="3.8198855354153416E-4" />
-      <entry key="S60" value="0.029585272113995177" />
-      <entry key="M2" value="0.4242201228692158" />
-      <entry key="M5" value="6.033376339403579" />
-      <entry key="M10" value="19.4895805980336" />
-      <entry key="M15" value="31.195882678146923" />
-      <entry key="M30" value="62.035398768780716" />
-      <entry key="H1" value="116.09434157110438" />
-      <entry key="H2" value="218.48906033377472" />
-      <entry key="H4" value="364.38859430815205" />
-      <entry key="D1" value="633.98284655391" />
-      <entry key="W1" value="705.1601906243434" />
+      <entry key="MS100" value="6.709820988773319E-24" />
+      <entry key="MS500" value="2.3192212774681315E-5" />
+      <entry key="S2" value="0.06939617710178993" />
+      <entry key="S5" value="0.34398081304712047" />
+      <entry key="S10" value="0.586498774974953" />
+      <entry key="S30" value="0.8370582923511134" />
+      <entry key="S60" value="0.9149088983888577" />
+      <entry key="M2" value="0.9565087027251021" />
+      <entry key="M5" value="0.982371083787022" />
+      <entry key="M10" value="0.9913107151387749" />
+      <entry key="M15" value="1.0080552228697446" />
+      <entry key="M30" value="2.4279869059738197" />
+      <entry key="H1" value="19.540492278533204" />
+      <entry key="H2" value="90.25052462553701" />
+      <entry key="H4" value="239.2453141536506" />
+      <entry key="D1" value="622.0173118172943" />
+      <entry key="W1" value="742.4880353774709" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0000000000002258" />
-      <entry key="MS500" value="1.003174189774226" />
-      <entry key="S2" value="1.3546750442405247" />
-      <entry key="S5" value="1.9889213877741863" />
-      <entry key="S10" value="2.4033874966329423" />
-      <entry key="S30" value="2.776401010607756" />
-      <entry key="S60" value="2.885101304175798" />
-      <entry key="M2" value="2.9731883430834483" />
-      <entry key="M5" value="3.5673397034203598" />
-      <entry key="M10" value="4.713137085812878" />
-      <entry key="M15" value="5.765474287160529" />
-      <entry key="M30" value="9.388929518493477" />
-      <entry key="H1" value="18.28571978953075" />
-      <entry key="H2" value="42.731427509183064" />
-      <entry key="H4" value="84.39191872616028" />
-      <entry key="D1" value="168.7074436018313" />
-      <entry key="W1" value="191.80649820048689" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000000186025037" />
+      <entry key="S2" value="1.0212432835421985" />
+      <entry key="S5" value="1.2804979590157584" />
+      <entry key="S10" value="1.8273828800565957" />
+      <entry key="S30" value="2.9066238967295064" />
+      <entry key="S60" value="3.3846913640535043" />
+      <entry key="M2" value="3.6728005729266786" />
+      <entry key="M5" value="3.8640834711526018" />
+      <entry key="M10" value="3.9312326031209643" />
+      <entry key="M15" value="3.958518514565366" />
+      <entry key="M30" value="4.3598311623294155" />
+      <entry key="H1" value="8.289743744344154" />
+      <entry key="H2" value="24.876938090566398" />
+      <entry key="H4" value="64.05894799752808" />
+      <entry key="D1" value="175.4381614369975" />
+      <entry key="W1" value="212.09328126884742" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.03419667816439811" />
-      <entry key="MS500" value="0.5094731622339232" />
-      <entry key="S2" value="1.0785152971706558" />
-      <entry key="S5" value="1.7819645039905787" />
-      <entry key="S10" value="2.268455044064692" />
-      <entry key="S30" value="2.722370913969357" />
-      <entry key="S60" value="2.8857742985229957" />
-      <entry key="M2" value="3.3803773298229514" />
-      <entry key="M5" value="9.586027367316952" />
-      <entry key="M10" value="24.188101814490576" />
-      <entry key="M15" value="36.94699973547698" />
-      <entry key="M30" value="71.40888329990139" />
-      <entry key="H1" value="134.3633780802156" />
-      <entry key="H2" value="261.2023828104321" />
-      <entry key="H4" value="448.7639555518679" />
-      <entry key="D1" value="802.6851235139486" />
-      <entry key="W1" value="896.9658584788734" />
+      <entry key="MS100" value="8.524224381044152E-6" />
+      <entry key="MS500" value="0.09686287443903527" />
+      <entry key="S2" value="0.6192476924972954" />
+      <entry key="S5" value="1.3117115618225368" />
+      <entry key="S10" value="2.162761476027577" />
+      <entry key="S30" value="3.5995100076363538" />
+      <entry key="S60" value="4.213986008930309" />
+      <entry key="M2" value="4.582399276908085" />
+      <entry key="M5" value="4.826596616499181" />
+      <entry key="M10" value="4.912421898741315" />
+      <entry key="M15" value="4.959771935454526" />
+      <entry key="M30" value="6.78389995860974" />
+      <entry key="H1" value="27.82535176317095" />
+      <entry key="H2" value="115.11864774873406" />
+      <entry key="H4" value="303.29263701222874" />
+      <entry key="D1" value="797.4502687624384" />
+      <entry key="W1" value="954.5804228137807" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -130,31 +121,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Executable.Player.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Executable.Player.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Debug GDScript (Running session)" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory">
       <option name="json" value="{&#10;  // Launch: &quot;Launch a new instance of the game&quot;,&#10;  // Attach: &quot;Attach to an already running game, which was started from the Godot Editor&quot;&#10;  &quot;request&quot; : &quot;Attach&quot;,&#10;  &quot;debugServer&quot; : 6006, // port should match the Debug Adapter port in the Godot Editor project settings.&#10;  &quot;scene&quot; : &quot;main&quot;, // main, current, res://path/to/file.tscn&#10;  &#10;  // &quot;playArgs&quot; : [ &quot;--editor&quot; ], // debugging a tool script&#10;  // &quot;playArgs&quot;: [&quot;--debug-collisions&quot;,&quot;--debug-navigation&quot;], // different options&#10;  &#10;  // one click deploy and debug via Godot Editor:&#10;  // &quot;platform&quot;: &quot;Android&quot;, // including Android, iOS, Web and W4 consoles&#10;  // &quot;device&quot;: &quot;0&quot;, // index of the device of a &quot;platform&quot; type&#10;}" />
@@ -216,6 +207,8 @@
       <workItem from="1779351352215" duration="14570000" />
       <workItem from="1779386832796" duration="616000" />
       <workItem from="1779388582884" duration="2241000" />
+      <workItem from="1779434417039" duration="11000" />
+      <workItem from="1779434449512" duration="7338000" />
     </task>
     <task id="LOCAL-00001" summary="semi-fix movement on roof">
       <option name="closed" value="true" />
