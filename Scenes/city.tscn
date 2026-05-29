@@ -35,6 +35,7 @@ _plopSound = ExtResource("2_2cq4n")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=157961627]
 stream = ExtResource("6_gab5h")
+autoplay = true
 bus = &"Music"
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1513711695 node_paths=PackedStringArray("Ui")]

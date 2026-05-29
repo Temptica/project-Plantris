@@ -58,7 +58,18 @@ public partial class FlowerGenerator : Node
 
         var currentBuilding = BuildingSelector.CurrentBuilding;
 
-        return (flower.Type != Flower.FlowerType.Bottom || !(!currentBuilding?.HasBottomSpace() ?? false)) &&
-               (flower.Type != Flower.FlowerType.Top || !(!currentBuilding?.HasTopSpace() ?? false));
+        return currentBuilding != null && (AllowBottom(flower) && AllowTop(flower));
     }
+
+    private static bool AllowRoof(Flower flower) =>
+        flower.AllowRoof && BuildingSelector.CurrentBuilding!.HasRoofSpace();
+
+    private static bool AllowBottom(Flower flower) =>
+        flower.Type != Flower.FlowerType.Bottom || BuildingSelector.CurrentBuilding!.HasBottomSpace() ||
+        AllowRoof(flower);
+
+    private static bool AllowTop(Flower flower) =>
+        flower.Type != Flower.FlowerType.Top || BuildingSelector.CurrentBuilding!.HasTopSpace() || AllowRoof(flower) || AllowNonRoof(flower);
+
+    private static bool AllowNonRoof(Flower flower) => flower.AllowRoof || BuildingSelector.CurrentBuilding!.HasNonRoofSpace();
 }

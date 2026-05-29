@@ -124,6 +124,8 @@ public partial class MovementController : Node
             return;
         }
 
+        if (@event is not InputEventKey) return;
+
         if (@event.IsActionPressed("ui_cancel"))
         {
             _settings.Show();

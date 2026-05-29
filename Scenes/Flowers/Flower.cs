@@ -152,7 +152,6 @@ public partial class Flower : Resource
     public void Confirm()
     {
         Placed = true;
-        Sprite.ZIndex++;
     }
 
     public Sprite2D ShowSprite()

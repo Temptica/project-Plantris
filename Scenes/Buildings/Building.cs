@@ -35,6 +35,8 @@ public partial class Building : Node2D
     private Sprite2D _sprite = null!;
     public Flower? CurrentFlower { get; private set; }
 
+    private int _flowerZIndex;
+
     [Signal]
     public delegate void FullEventHandler();
 
@@ -231,7 +233,7 @@ public partial class Building : Node2D
     public void PositionFlower(Flower? flower)
     {
         if (flower is null) return;
-
+        
         foreach (var plot in Grids.SelectMany(g => g.Plots))
         {
             plot.RemoveCurrent();
@@ -279,7 +281,7 @@ public partial class Building : Node2D
             if (CurrentFlower is not null)
             {
                 var hideSprite = CurrentFlower.HideSprite();
-
+                _flowerZIndex++;
                 if (hideSprite.GetParent() == this)
                 {
                     RemoveChild(hideSprite);
@@ -298,6 +300,8 @@ public partial class Building : Node2D
             }
 
             CurrentFlower = flower;
+            flower.Sprite.ZIndex =_flowerZIndex;
+            
         }
 
         flower.SetPosition(grid.Transform, isRoof);
@@ -367,6 +371,10 @@ public partial class Building : Node2D
 
         CurrentFlower.Confirm();
         CurrentFlower.SetColor(CurrentFlower.GridPosition.X >= 0 ? Colors.Gray : Colors.DarkGray);
+        if (CurrentFlower.AllowRoof && CurrentFlower.GridPosition.Y > Height)
+        {
+            CurrentFlower.Sprite.ZIndex = Height + Width - (int)CurrentFlower.GridPosition.Y;
+        }
 
         if (!Grids.Any(g => g.HasFreeSpot())) EmitSignalFull();
 
@@ -421,5 +429,10 @@ public partial class Building : Node2D
     public bool HasRoofSpace()
     {
         return RoofGrid?.HasFreeSpot() ?? false;
+    }
+
+    public bool HasNonRoofSpace()
+    {
+        return (LeftGrid?.HasFreeSpot() ?? false) || (RightGrid?.HasFreeSpot() ?? false);
     }
 }
