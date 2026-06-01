@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BuildingLayoutResource" format=3 uid="uid://blhqxwyaxgjop"]
+
+[ext_resource type="Script" uid="uid://bmwxfs3vwmq4m" path="res://Scenes/Buildings/BuildingLayoutGap.cs" id="1_0wqx6"]
+[ext_resource type="Script" uid="uid://cerhevm87whap" path="res://Scenes/Buildings/BuildingLayoutResource.cs" id="3_e8fa0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b6do3"]
+load_path = "res://.godot/imported/TowerBuilding5x5x11A.png-55568eeb1d894325cdf10c7d2b97f230.s3tc.ctex"
+
+[resource]
+script = ExtResource("3_e8fa0")
+Texture = SubResource("CompressedTexture2D_b6do3")
+Width = 5
+Height = 11
+Depth = 5
+BuildingHeight = 2214.595
+BuildingWidth = 825.02
+BuildingDepth = 832.845
+GridOffset = Vector2(10.31, 1414.018)

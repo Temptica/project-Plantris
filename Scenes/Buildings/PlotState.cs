@@ -4,6 +4,6 @@ public enum PlotState
 {
     Inactive, 
     Available,
-    Selected,
     Placed,
+    Selected,
 }

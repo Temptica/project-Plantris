@@ -1,0 +1,147 @@
+[gd_resource type="Resource" script_class="BuildingLayoutResource" format=3 uid="uid://2aysmynxofdw"]
+
+[ext_resource type="Script" uid="uid://bmwxfs3vwmq4m" path="res://Scenes/Buildings/BuildingLayoutGap.cs" id="1_0yo48"]
+[ext_resource type="Texture2D" uid="uid://bt77fuedf6mtj" path="res://Textures/Buildings/TowerBuilding7x7x13B.png" id="2_n2kka"]
+[ext_resource type="Script" uid="uid://cpv40uw6r4pvq" path="res://Scenes/Buildings/BuildingLayoutGapNode.cs" id="2_rqypc"]
+[ext_resource type="Script" uid="uid://cerhevm87whap" path="res://Scenes/Buildings/BuildingLayoutResource.cs" id="3_rqypc"]
+
+[sub_resource type="Resource" id="Resource_1a1fw"]
+script = ExtResource("2_rqypc")
+Y = 6
+
+[sub_resource type="Resource" id="Resource_6moeb"]
+script = ExtResource("2_rqypc")
+X = 1
+Y = 6
+
+[sub_resource type="Resource" id="Resource_s0dr5"]
+script = ExtResource("2_rqypc")
+X = 2
+Y = 6
+
+[sub_resource type="Resource" id="Resource_u0b42"]
+script = ExtResource("2_rqypc")
+X = 3
+Y = 6
+
+[sub_resource type="Resource" id="Resource_1wdwj"]
+script = ExtResource("2_rqypc")
+X = 4
+Y = 6
+
+[sub_resource type="Resource" id="Resource_e8hp1"]
+script = ExtResource("2_rqypc")
+X = 5
+Y = 6
+
+[sub_resource type="Resource" id="Resource_80xwx"]
+script = ExtResource("2_rqypc")
+X = 6
+Y = 6
+
+[sub_resource type="Resource" id="Resource_k4qrd"]
+script = ExtResource("2_rqypc")
+Y = 5
+
+[sub_resource type="Resource" id="Resource_up3km"]
+script = ExtResource("2_rqypc")
+X = 1
+Y = 5
+
+[sub_resource type="Resource" id="Resource_etxn5"]
+script = ExtResource("2_rqypc")
+X = 2
+Y = 5
+
+[sub_resource type="Resource" id="Resource_u4tql"]
+script = ExtResource("2_rqypc")
+X = 3
+Y = 5
+
+[sub_resource type="Resource" id="Resource_jcani"]
+script = ExtResource("2_rqypc")
+X = 4
+Y = 5
+
+[sub_resource type="Resource" id="Resource_x1eg7"]
+script = ExtResource("2_rqypc")
+X = 5
+Y = 5
+
+[sub_resource type="Resource" id="Resource_08dsf"]
+script = ExtResource("2_rqypc")
+X = 6
+Y = 5
+
+[sub_resource type="Resource" id="Resource_c7nq4"]
+script = ExtResource("2_rqypc")
+X = 5
+Y = 4
+
+[sub_resource type="Resource" id="Resource_aa0hk"]
+script = ExtResource("2_rqypc")
+X = 6
+Y = 4
+
+[sub_resource type="Resource" id="Resource_k4f7d"]
+script = ExtResource("2_rqypc")
+X = 5
+Y = 3
+
+[sub_resource type="Resource" id="Resource_fo48h"]
+script = ExtResource("2_rqypc")
+X = 6
+Y = 3
+
+[sub_resource type="Resource" id="Resource_jsgxs"]
+script = ExtResource("2_rqypc")
+X = 5
+Y = 2
+
+[sub_resource type="Resource" id="Resource_fb1p2"]
+script = ExtResource("2_rqypc")
+X = 6
+Y = 2
+
+[sub_resource type="Resource" id="Resource_apkef"]
+script = ExtResource("2_rqypc")
+X = 5
+Y = 1
+
+[sub_resource type="Resource" id="Resource_x0py7"]
+script = ExtResource("2_rqypc")
+X = 6
+Y = 1
+
+[sub_resource type="Resource" id="Resource_6urdn"]
+script = ExtResource("2_rqypc")
+X = 5
+
+[sub_resource type="Resource" id="Resource_aj4b2"]
+script = ExtResource("2_rqypc")
+X = 6
+
+[sub_resource type="Resource" id="Resource_f1i1h"]
+script = ExtResource("1_0yo48")
+Gaps = Array[ExtResource("2_rqypc")]([SubResource("Resource_1a1fw"), SubResource("Resource_6moeb"), SubResource("Resource_s0dr5"), SubResource("Resource_u0b42"), SubResource("Resource_1wdwj"), SubResource("Resource_e8hp1"), SubResource("Resource_80xwx"), SubResource("Resource_k4qrd"), SubResource("Resource_up3km"), SubResource("Resource_etxn5"), SubResource("Resource_u4tql"), SubResource("Resource_jcani"), SubResource("Resource_x1eg7"), SubResource("Resource_08dsf"), SubResource("Resource_c7nq4"), SubResource("Resource_aa0hk"), SubResource("Resource_k4f7d"), SubResource("Resource_fo48h"), SubResource("Resource_jsgxs"), SubResource("Resource_fb1p2"), SubResource("Resource_apkef"), SubResource("Resource_x0py7"), SubResource("Resource_6urdn"), SubResource("Resource_aj4b2")])
+RoofGrid = true
+_format = "XXXXXXX
+XXXXXXX
+00000XX
+00000XX
+00000XX
+00000XX
+00000XX"
+metadata/_custom_type_script = "uid://bmwxfs3vwmq4m"
+
+[resource]
+script = ExtResource("3_rqypc")
+Texture = ExtResource("2_n2kka")
+Width = 7
+Height = 13
+Depth = 7
+Gaps = Array[ExtResource("1_0yo48")]([SubResource("Resource_f1i1h")])
+BuildingHeight = 2800.309
+BuildingWidth = 1147.69
+BuildingDepth = 1139.145
+GridOffset = Vector2(0, 1885.835)

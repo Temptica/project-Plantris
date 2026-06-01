@@ -1,15 +1,25 @@
 [gd_resource type="Resource" script_class="BuildingLayoutResource" format=3 uid="uid://3daphiexyeky"]
 
+[ext_resource type="Script" uid="uid://bmwxfs3vwmq4m" path="res://Scenes/Buildings/BuildingLayoutGap.cs" id="1_np46w"]
 [ext_resource type="Texture2D" uid="uid://blnaht66keh2k" path="res://Textures/Buildings/RijWoning3x4x6A.png" id="1_u6uny"]
 [ext_resource type="Script" uid="uid://cerhevm87whap" path="res://Scenes/Buildings/BuildingLayoutResource.cs" id="2_np46w"]
+[ext_resource type="Script" uid="uid://cpv40uw6r4pvq" path="res://Scenes/Buildings/BuildingLayoutGapNode.cs" id="2_qgvtl"]
+
+[sub_resource type="Resource" id="Resource_ws5nd"]
+script = ExtResource("1_np46w")
+Gaps = Array[ExtResource("2_qgvtl")]([])
+LeftGrid = true
+GridOffset = Vector2(3, 4)
+metadata/_custom_type_script = "uid://bmwxfs3vwmq4m"
 
 [resource]
 script = ExtResource("2_np46w")
 Texture = ExtResource("1_u6uny")
 Depth = 3
 Width = 4
-Height = 6
-BuildingHeight = 1452.0
-BuildingWidth = 666.6
-BuildingDepth = 505.0
-GridOffset = Vector2(-74, 936)
+Height = 7
+Gaps = Array[ExtResource("1_np46w")]([SubResource("Resource_ws5nd")])
+BuildingHeight = 1446.855
+BuildingWidth = 662.038
+BuildingDepth = 491.405
+GridOffset = Vector2(-77.358, 931.263)

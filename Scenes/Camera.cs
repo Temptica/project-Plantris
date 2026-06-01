@@ -45,7 +45,7 @@ public partial class Camera : Camera2D
     public void Start()
     {
         Started = true;
-        OnBuildingChanged(BuildingSelector.Instance.CurrentBuilding);
+        OnBuildingChanged(BuildingSelector.CurrentBuilding);
     }
 
     public void End()

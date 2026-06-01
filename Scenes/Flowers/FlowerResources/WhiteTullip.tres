@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Flower" format=3 uid="uid://duu2cc1jho2jv"]
+
+[ext_resource type="Script" uid="uid://bjmtfvrt58ryu" path="res://Scenes/Flowers/FlowerPiece.cs" id="1_c4p8n"]
+[ext_resource type="Texture2D" uid="uid://bvd2anqdbi74v" path="res://Textures/Plants/SmallFlower1BlockB.png" id="2_tp3pq"]
+[ext_resource type="Script" uid="uid://cu8cbopqkr6pw" path="res://Scenes/Flowers/Flower.cs" id="3_2a1hm"]
+
+[sub_resource type="Resource" id="Resource_c4p8n"]
+script = ExtResource("1_c4p8n")
+IsAttachmentPoint = true
+
+[resource]
+script = ExtResource("3_2a1hm")
+FlowerName = "White tullip"
+Sprites = Array[ExtResource("1_c4p8n")]([SubResource("Resource_c4p8n")])
+Texture = ExtResource("2_tp3pq")
+Type = 1
+AllowRoof = true
+metadata/_custom_type_script = "uid://cu8cbopqkr6pw"

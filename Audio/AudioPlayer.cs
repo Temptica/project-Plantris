@@ -12,6 +12,7 @@ public partial class AudioPlayer : AudioStreamPlayer
         MovementController.Instance.FlowerPlaced += _ =>
         {
             PitchScale = Random.Shared.NextSingle() * 0.2f + 0.9f; //(0.9, 1.1)
+            SetStream(_plopSound);
             Play();
         };
     }

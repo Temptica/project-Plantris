@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using Godot;
 using ProjectPlantris.Scenes;
 using ProjectPlantris.Scenes.Buildings;
@@ -19,11 +20,19 @@ public partial class MovementController : Node
 
     public static MovementController Instance { get; private set; } = null!;
 
-    [Signal] public delegate void FlowerPlacedEventHandler(Flower flower);
-    [Signal] public delegate void FlowerSelectedNextEventHandler();
-    [Signal] public delegate void FlowerSelectedPrevEventHandler();
+    [Signal]
+    public delegate void FlowerPlacedEventHandler(Flower flower);
 
-    private static Building? CurrentBuilding => BuildingSelector.Instance.CurrentBuilding;
+    [Signal]
+    public delegate void FlowerSelectedNextEventHandler();
+
+    [Signal]
+    public delegate void FlowerSelectedPrevEventHandler();
+
+    [Signal]
+    public delegate void FlowerMovedEventHandler();
+
+    private static Building? CurrentBuilding => BuildingSelector.CurrentBuilding;
 
     public override void _Ready()
     {
@@ -42,9 +51,9 @@ public partial class MovementController : Node
     public void SetFlower(Flower flower)
     {
         _selectedFlower = flower;
-        
+
         if (CurrentBuilding is null) return;
-    
+
         switch (_selectedFlower.Type)
         {
             case Flower.FlowerType.Top:
@@ -55,27 +64,27 @@ public partial class MovementController : Node
                 _selectedFlower.GridPosition = new Vector2(_selectedFlower.GridPosition.X, y);
                 break;
             }
-    
+
             case Flower.FlowerType.Bottom:
             {
                 _selectedFlower.GridPosition = new Vector2(_selectedFlower.GridPosition.X, 0);
                 break;
             }
-    
+
             case Flower.FlowerType.Normal:
             {
                 var y = CurrentBuilding.Height / 2.0f;
-    
+
                 if (y + _selectedFlower.MaxY + 1 > CurrentBuilding.Height)
                 {
                     y = CurrentBuilding.Height - _selectedFlower.MaxY - 1;
                 }
-    
+
                 _selectedFlower.GridPosition = new Vector2(_selectedFlower.GridPosition.X, y);
                 break;
             }
         }
-    
+
         DrawFlower();
     }
 
@@ -104,9 +113,8 @@ public partial class MovementController : Node
         {
             MoveDown();
         }
-        
+
         DrawFlower();
-        
     }
 
     public override void _Input(InputEvent @event)
@@ -115,6 +123,8 @@ public partial class MovementController : Node
         {
             return;
         }
+
+        if (@event is not InputEventKey) return;
 
         if (@event.IsActionPressed("ui_cancel"))
         {
@@ -127,7 +137,8 @@ public partial class MovementController : Node
         {
             MoveRight();
             _timer.Start(TimeoutTime);
-        } else if (@event.IsActionPressed("left"))
+        }
+        else if (@event.IsActionPressed("left"))
         {
             MoveLeft();
             _timer.Start(TimeoutTime);
@@ -137,12 +148,11 @@ public partial class MovementController : Node
         {
             MoveUp();
             _timer.Start(TimeoutTime);
-            return;
-        } else if (@event.IsActionPressed("down"))
+        }
+        else if (@event.IsActionPressed("down"))
         {
             MoveDown();
             _timer.Start(TimeoutTime);
-            
         }
 
         if (@event.IsActionPressed("accept"))
@@ -167,31 +177,31 @@ public partial class MovementController : Node
 
     private void MoveRight()
     {
-        if(_selectedFlower == null || CurrentBuilding is null) return;
-        
+        if (_selectedFlower == null || CurrentBuilding is null) return;
+
         var rightMostNewPosition =
             _selectedFlower.GridPosition.X +
             _selectedFlower.Sprites.Max(sprite => sprite.X) +
             1;
-        
+
         if (rightMostNewPosition >= CurrentBuilding.Width)
         {
             return;
         }
-        
+
         _selectedFlower.GridPosition += Vector2.Right;
     }
 
     private void MoveLeft()
     {
-        if(_selectedFlower == null || CurrentBuilding is null) return;
-        
+        if (_selectedFlower == null || CurrentBuilding is null) return;
+
         if (_selectedFlower.GridPosition.X < 0)
         {
             var rightMostNewPosition =
                 _selectedFlower.GridPosition.X -
                 _selectedFlower.Sprites.MaxBy(sprite => sprite.X)!.X;
-        
+
             if (rightMostNewPosition <= -CurrentBuilding.Depth)
             {
                 return;
@@ -203,76 +213,90 @@ public partial class MovementController : Node
                 _selectedFlower.GridPosition.X +
                 _selectedFlower.Sprites.Min(sprite => sprite.X) -
                 1;
-        
+
             if (leftMostNewPosition < -CurrentBuilding.Depth)
             {
                 return;
             }
         }
-        
+
         _selectedFlower.GridPosition += Vector2.Left;
     }
 
     private void MoveUp()
     {
-        if(_selectedFlower == null || CurrentBuilding is null) return;
-        
-        if (_selectedFlower.Type != Flower.FlowerType.Normal)
+        if (_selectedFlower == null || CurrentBuilding is null) return;
+
+        if (_selectedFlower.Type == Flower.FlowerType.Bottom &&
+            (!_selectedFlower.AllowRoof || !CurrentBuilding.HasRoofGrid))
         {
             return;
         }
-        
-        var currentBuilding = CurrentBuilding;
+
+        if (_selectedFlower.Type == Flower.FlowerType.Bottom && _selectedFlower.GridPosition.Y < CurrentBuilding.Height)
+        {
+            _selectedFlower.GridPosition = new Vector2(_selectedFlower.GridPosition.X, CurrentBuilding.Height);
+            return;
+        }
         
         var upMostNewPosition =
             _selectedFlower.GridPosition.Y +
             _selectedFlower.Sprites.Max(sprite => sprite.Y) +
             1;
-        
-        if (upMostNewPosition >= currentBuilding.Height)
+
+        var buildingHeight = CurrentBuilding.Height;
+        if (_selectedFlower.AllowRoof && CurrentBuilding.HasRoofGrid) buildingHeight += CurrentBuilding.Depth;
+
+
+        if (upMostNewPosition >= buildingHeight)
         {
             return;
         }
-        
-        _selectedFlower.GridPosition += Vector2.Up;
+
+        _selectedFlower.GridPosition -= Vector2.Up;
     }
 
     private void MoveDown()
     {
-        if(_selectedFlower == null || CurrentBuilding is null) return;
-        
-        if (_selectedFlower.Type != Flower.FlowerType.Normal)
+        if (_selectedFlower == null || CurrentBuilding is null) return;
+
+        if (_selectedFlower.Type == Flower.FlowerType.Top)
         {
             return;
         }
-        
+
         if (_selectedFlower.GridPosition.Y == 0)
         {
             return;
         }
-        
-        _selectedFlower.GridPosition += Vector2.Down;
+
+        if (_selectedFlower.Type == Flower.FlowerType.Bottom && _selectedFlower.GridPosition.Y ==  CurrentBuilding.Height)
+        {
+            _selectedFlower.GridPosition = new Vector2(_selectedFlower.GridPosition.X, 1);
+        }
+
+        _selectedFlower.GridPosition -= Vector2.Down;
     }
 
     private void Confirm()
     {
-        if(_selectedFlower == null || CurrentBuilding is null) return;
-        
+        if (_selectedFlower == null || CurrentBuilding is null) return;
+
         // Validate position. Place if correct.
         if (!CurrentBuilding.TrySetFlower())
         {
             return;
         }
-        
-        EmitSignal(SignalName.FlowerPlaced, _selectedFlower);
+
+        EmitSignalFlowerPlaced(_selectedFlower);
     }
 
     private void DrawFlower()
     {
-        if(_selectedFlower == null || CurrentBuilding is null) return;
-        
+        if (_selectedFlower == null || CurrentBuilding is null) return;
+
         // Remove flower from current spot and move it to new spot.
         CurrentBuilding.PositionFlower(_selectedFlower);
+        EmitSignalFlowerMoved();
     }
 }
-

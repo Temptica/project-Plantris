@@ -1,11 +1,11 @@
+using System.Linq;
 using Godot;
 using Godot.Collections;
 using ProjectPlantris.Managers;
-using ProjectPlantris.Scenes.Buildings;
 
 namespace ProjectPlantris.Scenes.Flowers;
 
-[GlobalClass]
+[Tool, GlobalClass]
 public partial class Flower : Resource
 {
     public enum FlowerType
@@ -19,6 +19,51 @@ public partial class Flower : Resource
     [Export] public Array<FlowerPiece> Sprites { get; set; } = [new FlowerPiece()];
     [Export] public required Texture2D Texture { get; set; }
     [Export] public FlowerType Type { get; set; } = FlowerType.Normal;
+    [Export] public bool AllowRoof { get; set; }
+
+    [ExportCategory("Generation")] [Export(PropertyHint.MultilineText)]
+    private string Format;
+
+    [ExportToolButton("Generate Sprites")] private Callable GenerateSprites => Callable.From(GenerateSpritesByFormat);
+
+    private void GenerateSpritesByFormat()
+    {
+        if (string.IsNullOrEmpty(Format)) return;
+        
+        Sprites.Clear();
+        var lines = Format.Split('\n');
+        var y = lines.Length-1;
+        foreach (var line in lines)
+        {
+            var x = 0;
+            while (x < line.Length)
+            {
+                switch (line[x])
+                {
+                    case 'X' or 'x':
+                        Sprites.Add(new FlowerPiece { X = x, Y = y});
+                        break;
+                    case 'A' or 'a':
+                        Sprites.Add(new FlowerPiece { X = x, Y = y, IsAttachmentPoint = true});
+                        break;
+                    case 'F' or 'f':
+                        Sprites.Add(new FlowerPiece { X = x, Y = y, IsFake = true});
+                        break;
+                }
+
+                x++;
+            }
+
+            y--;
+        }
+        
+        if (!Sprites.Any(s => s is { X: 0, Y: 0 }))
+        {
+            Sprites.Add(new FlowerPiece { IsFake = true });
+        }
+
+        ResourceSaver.Save(this);
+    }
 
     public Sprite2D Sprite { get; set; } = null!;
     public Vector2 GridPosition { get; set; }
@@ -31,6 +76,8 @@ public partial class Flower : Resource
     public int Width { get; private set; }
 
     public int Height { get; private set; }
+
+    public bool Placed { get; private set; }
 
     public Flower Copy()
     {
@@ -52,9 +99,10 @@ public partial class Flower : Resource
             Height = Height,
             LeftBottomPiece = LeftBottomPiece,
             Type = Type,
+            AllowRoof = AllowRoof
         };
 
-        copy.SetSpriteValues();
+        copy.SetSprite();
 
         return copy;
     }
@@ -67,6 +115,11 @@ public partial class Flower : Resource
         MaxX = Sprites[0].X;
         MinY = Sprites[0].Y;
         MaxY = Sprites[0].Y;
+
+        if (!Sprites.Any(s => s is { X: 0, Y: 0 }))
+        {
+            Sprites.Add(new FlowerPiece { IsFake = true });
+        }
 
         foreach (var sprite in Sprites)
         {
@@ -82,22 +135,23 @@ public partial class Flower : Resource
         }
 
         Width = MaxX - MinX + 1;
-        Height = MaxY - MinY;
+        Height = MaxY - MinY + 1;
 
-        SetSpriteValues();
+        SetSprite();
     }
 
-    private void SetSpriteValues()
+    private void SetSprite()
     {
         Sprite = new Sprite2D
         {
             Texture = Texture,
+            Name = $"{FlowerName}Sprite"
         };
     }
 
     public void Confirm()
     {
-        
+        Placed = true;
     }
 
     public Sprite2D ShowSprite()
@@ -108,43 +162,52 @@ public partial class Flower : Resource
 
     public Sprite2D HideSprite()
     {
+        if (Placed) return Sprite;
         Sprite.Hide();
         return Sprite;
     }
 
-    public void SetPosition()
+    public void SetPosition(Transform2D transform, bool isRoof)
     {
         var plot = LeftBottomPiece.Plot;
-        if (plot is null || BuildingSelector.Instance.CurrentBuilding is null) return;
-        
+        if (plot is null || BuildingSelector.CurrentBuilding is null) return;
+
         Sprite.FlipH = plot.IsLeft;
 
         if (Sprite.GetParent() is null)
         {
-            plot.AddChild(Sprite);
+            plot.AddChild(Sprite, OS.IsDebugBuild());
         }
         else
         {
             Sprite.Reparent(plot);
         }
 
-        var offset = new Vector2(0, Height);
+        Vector2 localCenter;
 
-        if (Width > 1)
+        if (isRoof)
         {
-            var unitOffset = (Width - 1) * BuildingSelector.Instance.CurrentBuilding.Unit / 2.0f;
+            localCenter = new Vector2(1f, 1f) * (Mathf.FloorToInt(Height / 2f) + 1);
+        }
+        else
+        {
+            // --- Wall Alignment Math (Original Logic) ---
+            var xDirection = plot.IsLeft ? 1f : -1f;
+            const float yDirection = 1f;
+            var width = Width > 1 ? Width / -4f : 0;
 
-            if (plot.IsLeft)
-            {
-                offset += new Vector2(0, unitOffset);
-            }
-            else
-            {
-                offset += new Vector2(-unitOffset, 0);
-            }
+            localCenter = new Vector2(
+                0.5f + width * xDirection,
+                0.5f + (Height - 1) / 2f * yDirection
+            );
         }
 
-        Sprite.Position = offset;
+        Sprite.Position = transform * localCenter;
+    }
+
+    public void SetPosition(Vector2 pos)
+    {
+        Sprite.Position = pos;
     }
 
     public void SetColor(Color color)

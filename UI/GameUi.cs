@@ -10,12 +10,13 @@ public partial class GameUi : Control
     private TextureButton _flowerButton1 = null!;
     private TextureButton _flowerButton2 = null!;
     private TextureButton _flowerButton3 = null!;
-    private FlowerGenerator _flowerGenerator = null!;
+    private static FlowerGenerator FlowerGenerator => FlowerGenerator.Instance;
     private Panel _panel = null!;
     private TextureRect _panelTexture = null!;
     private HBoxContainer _flowerSelectionContainer = null!;
     private MovementController _movementController = null!;
     private Button _nextButton = null!;
+    private Button _rerollButton = null!;
     private Label _scoreLabel = null!;
 
     private Flower? _flower1;
@@ -29,23 +30,23 @@ public partial class GameUi : Control
         _flowerButton1 = GetNode<TextureButton>("%Flower1");
         _flowerButton2 = GetNode<TextureButton>("%Flower2");
         _flowerButton3 = GetNode<TextureButton>("%Flower3");
-        _flowerGenerator = GetNode<FlowerGenerator>("%FlowerGenerator");
         _panel = GetNode<Panel>("%HighlightPanel");
         _panelTexture = GetNode<TextureRect>("%HighlightPanelTexture");
         _flowerSelectionContainer = GetNode<HBoxContainer>("%FlowerSelectionContainer");
         _movementController = MovementController.Instance;
         _nextButton = GetNode<Button>("%NextButton");
         _scoreLabel = GetNode<Label>("%ScoreLabel");
+        _rerollButton = GetNode<Button>("%RerollButton");
 
-        SetNewFlower(1);
-        SetNewFlower(2);
-        SetNewFlower(3);
+        ResetFlowers();
 
         _movementController.FlowerPlaced += OnFlowerPlaced;
         _movementController.FlowerSelectedPrev += OnFlowerSelectPrev;
         _movementController.FlowerSelectedNext += OnFlowerSelectNext;
 
-        // ScoreManager.Instance.ScoreUpdated += OnScoreUpdated;
+        _rerollButton.Pressed += OnRerollPressed;
+
+        ScoreManager.Instance.ScoreUpdated += OnScoreUpdated;
         BuildingSelector.Instance.BuildingChanged += OnBuildingChanged;
 
         if (_flower1 is not null)
@@ -54,16 +55,24 @@ public partial class GameUi : Control
         }
     }
 
+    private void ResetFlowers()
+    {
+        SetNewFlower(1);
+        SetNewFlower(2);
+        SetNewFlower(3);
+    }
+
+
     public override void _ExitTree()
     {
         _movementController.FlowerPlaced -= OnFlowerPlaced;
         _movementController.FlowerSelectedPrev -= OnFlowerSelectPrev;
         _movementController.FlowerSelectedNext -= OnFlowerSelectNext;
 
-        // if (ScoreManager.Instance is not null)
-        // {
-        //     ScoreManager.Instance.ScoreUpdated -= OnScoreUpdated;
-        // }
+        if (ScoreManager.Instance is not null)
+        {
+            ScoreManager.Instance.ScoreUpdated -= OnScoreUpdated;
+        }
 
         BuildingSelector.Instance.BuildingChanged -= OnBuildingChanged;
     }
@@ -156,7 +165,7 @@ public partial class GameUi : Control
         {
             case 1:
             {
-                _flower1 = _flowerGenerator.GetRandomFlower();
+                _flower1 = FlowerGenerator.GetRandomFlower();
 
                 if (_flower1 is not null)
                 {
@@ -167,7 +176,7 @@ public partial class GameUi : Control
             }
             case 2:
             {
-                _flower2 = _flowerGenerator.GetRandomFlower();
+                _flower2 = FlowerGenerator.GetRandomFlower();
 
                 if (_flower2 is not null)
                 {
@@ -178,7 +187,7 @@ public partial class GameUi : Control
             }
             default:
             {
-                _flower3 = _flowerGenerator.GetRandomFlower();
+                _flower3 = FlowerGenerator.GetRandomFlower();
 
                 if (_flower3 is not null)
                 {
@@ -208,6 +217,12 @@ public partial class GameUi : Control
         BuildingSelector.Instance.SelectNextBuilding();
         _nextButton.ReleaseFocus();
     }
+    
+    private void OnRerollPressed()
+    {
+        ResetFlowers();
+        _rerollButton.ReleaseFocus();
+    }
 
     private void OnScoreUpdated(int score)
     {
@@ -216,6 +231,6 @@ public partial class GameUi : Control
 
     private void OnBuildingChanged(Building building)
     {
-        SetNewFlower(_selectedIndex);
+        ResetFlowers();
     }
 }

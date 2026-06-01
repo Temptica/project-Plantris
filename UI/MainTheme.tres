@@ -1,0 +1,36 @@
+[gd_resource type="Theme" format=3 uid="uid://dnuasw3disinb"]
+
+[ext_resource type="FontFile" uid="uid://bk31f7q6fjfei" path="res://Fonts/Roundo-Regular.ttf" id="1_eapfb"]
+[ext_resource type="StyleBox" uid="uid://d1ghmxkq5kibu" path="res://ui_box_flat_darker.tres" id="1_lu26r"]
+[ext_resource type="StyleBox" uid="uid://d053u0plwdlik" path="res://ui_box_flat.tres" id="2_eapfb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6qqc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywmy4"]
+bg_color = Color(0.49019608, 0.92941177, 0.7058824, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_detail = 12
+
+[resource]
+Button/colors/font_color = Color(0.050980393, 0.18431373, 0.15294118, 1)
+Button/fonts/font = ExtResource("1_eapfb")
+Button/styles/disabled = SubResource("StyleBoxFlat_g6qqc")
+Button/styles/focus = ExtResource("1_lu26r")
+Button/styles/hover = ExtResource("1_lu26r")
+Button/styles/normal = ExtResource("2_eapfb")
+Button/styles/pressed = ExtResource("1_lu26r")
+Panel/styles/panel = ExtResource("2_eapfb")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/fonts/font = ExtResource("1_eapfb")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ywmy4")

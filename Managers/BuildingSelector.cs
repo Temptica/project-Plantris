@@ -10,7 +10,7 @@ public partial class BuildingSelector : Node2D
     [Export] public Array<Building> Buildings { get; set; } = [];
 
     public static BuildingSelector Instance { get; private set; } = null!;
-    public Building? CurrentBuilding { get; private set; }
+    public static Building? CurrentBuilding { get; private set; }
 
     private int _currentCount;
 
@@ -51,7 +51,6 @@ public partial class BuildingSelector : Node2D
         CurrentBuilding = Buildings[_currentCount - 1];
         CurrentBuilding.Full += OnFilled;
         CurrentBuilding.Enable();
-
         EmitSignalBuildingChanged(CurrentBuilding);
     }
 
