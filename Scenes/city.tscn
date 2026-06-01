@@ -13,6 +13,63 @@
 [ext_resource type="AudioStream" uid="uid://cjqfnv8gj5hfh" path="res://Music/A world left to plant.wav" id="6_gab5h"]
 [ext_resource type="PackedScene" uid="uid://dpyca0isr31lo" path="res://UI/game_ui.tscn" id="7_gab5h"]
 [ext_resource type="Resource" uid="uid://dtee5vgxl0mw2" path="res://Scenes/Buildings/BuildingResources/5x5x3Building.tres" id="9_2cq4n"]
+[ext_resource type="Script" uid="uid://cpv40uw6r4pvq" path="res://Scenes/Buildings/BuildingLayoutGapNode.cs" id="11_pdxid"]
+[ext_resource type="Script" uid="uid://bmwxfs3vwmq4m" path="res://Scenes/Buildings/BuildingLayoutGap.cs" id="12_hluyl"]
+
+[sub_resource type="Resource" id="Resource_pdxid"]
+script = ExtResource("11_pdxid")
+Y = 2
+
+[sub_resource type="Resource" id="Resource_hluyl"]
+script = ExtResource("11_pdxid")
+Y = 1
+
+[sub_resource type="Resource" id="Resource_odnm4"]
+script = ExtResource("11_pdxid")
+
+[sub_resource type="Resource" id="Resource_p1kk6"]
+script = ExtResource("12_hluyl")
+Gaps = Array[ExtResource("11_pdxid")]([SubResource("Resource_pdxid"), SubResource("Resource_hluyl"), SubResource("Resource_odnm4")])
+LeftGrid = true
+_format = "X
+X
+X"
+metadata/_custom_type_script = "uid://bmwxfs3vwmq4m"
+
+[sub_resource type="Resource" id="Resource_76y8w"]
+script = ExtResource("11_pdxid")
+Y = 2
+
+[sub_resource type="Resource" id="Resource_skwfe"]
+script = ExtResource("11_pdxid")
+X = 1
+Y = 2
+
+[sub_resource type="Resource" id="Resource_8sad3"]
+script = ExtResource("11_pdxid")
+X = 2
+Y = 2
+
+[sub_resource type="Resource" id="Resource_n7wpf"]
+script = ExtResource("11_pdxid")
+Y = 1
+
+[sub_resource type="Resource" id="Resource_viccy"]
+script = ExtResource("11_pdxid")
+X = 1
+Y = 1
+
+[sub_resource type="Resource" id="Resource_jtc0r"]
+script = ExtResource("11_pdxid")
+
+[sub_resource type="Resource" id="Resource_ly2n0"]
+script = ExtResource("12_hluyl")
+Gaps = Array[ExtResource("11_pdxid")]([SubResource("Resource_76y8w"), SubResource("Resource_skwfe"), SubResource("Resource_8sad3"), SubResource("Resource_n7wpf"), SubResource("Resource_viccy"), SubResource("Resource_jtc0r")])
+RoofGrid = true
+_format = "XXX
+XX
+X"
+metadata/_custom_type_script = "uid://bmwxfs3vwmq4m"
 
 [node name="City" type="Node2D" unique_id=63220871]
 
@@ -35,7 +92,6 @@ _plopSound = ExtResource("2_2cq4n")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=157961627]
 stream = ExtResource("6_gab5h")
-autoplay = true
 bus = &"Music"
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1513711695 node_paths=PackedStringArray("Ui")]
@@ -51,11 +107,13 @@ Buildings = [NodePath("Building"), NodePath("Building2"), NodePath("Building3")]
 [node name="Building3" parent="BuildingSelector" unique_id=814127962 instance=ExtResource("4_wm66b")]
 position = Vector2(2170, 405)
 LayoutResource = ExtResource("5_ifi4l")
+Gaps = [SubResource("Resource_p1kk6")]
 
 [node name="Building2" parent="BuildingSelector" unique_id=688049169 instance=ExtResource("4_wm66b")]
 position = Vector2(1215, 635)
 LayoutResource = ExtResource("9_2cq4n")
 HasLeftGrid = false
+Gaps = [SubResource("Resource_ly2n0")]
 
 [node name="Building" parent="BuildingSelector" unique_id=30608006 instance=ExtResource("4_wm66b")]
 position = Vector2(510, 683)

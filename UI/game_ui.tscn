@@ -209,4 +209,4 @@ theme_override_styles/hover = ExtResource("6_oohqu")
 theme_override_styles/focus = ExtResource("6_oohqu")
 text = "NEXT BUILDING"
 
-[connection signal="pressed" from="MarginContainer2/NextButton" to="." method="_on_next_building_pressed"]
+[connection signal="pressed" from="MarginContainer2/NextButton" to="." method="OnNextBuildingPressed"]

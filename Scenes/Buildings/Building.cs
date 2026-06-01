@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Godot;
+using Godot.Collections;
 using ProjectPlantris.Scenes.Buildings.BuildingGrids;
 using ProjectPlantris.Scenes.Flowers;
 
@@ -16,6 +18,8 @@ public partial class Building : Node2D
     [Export] public bool HasLeftGrid { get; set; } = true;
     [Export] public bool HasRightGrid { get; set; } = true;
     [Export] public bool HasRoofGrid { get; set; }
+
+    [Export] public Array<BuildingLayoutGap> Gaps { get; set; } = [];
 
     [ExportToolButton("refresh", Icon = "Reload")]
     private Callable Refresh => Callable.From(UpdateTexture);
@@ -49,8 +53,8 @@ public partial class Building : Node2D
             RightGrid = new BuildingRightGrid();
             RightGrid.CreateGrid(LayoutResource.Width, LayoutResource.Height, LayoutResource.BuildingWidth,
                 LayoutResource.BuildingHeight, LayoutResource.BuildingAngle, LayoutResource.GridOffset,
-                LayoutResource.Gaps.Where(g => g.RightGrid).ToList());
-            AddChild(RightGrid,OS.IsDebugBuild());
+                GetAllRoofsGridGaps(g => g!.RightGrid));
+            AddChild(RightGrid, OS.IsDebugBuild());
             Grids.Add(RightGrid);
         }
 
@@ -59,7 +63,7 @@ public partial class Building : Node2D
             LeftGrid = new BuildingLeftGrid();
             LeftGrid.CreateGrid(LayoutResource.Depth, LayoutResource.Height, LayoutResource.BuildingDepth,
                 LayoutResource.BuildingHeight, LayoutResource.BuildingAngle, LayoutResource.GridOffset,
-                LayoutResource.Gaps.Where(g => g.LeftGrid).ToList());
+                GetAllRoofsGridGaps(g => g!.LeftGrid));
             AddChild(LeftGrid, OS.IsDebugBuild());
             Grids.Add(LeftGrid);
         }
@@ -70,14 +74,20 @@ public partial class Building : Node2D
             var gridOffset = LayoutResource.GridOffset + new Vector2(0, -LayoutResource.BuildingHeight);
             RoofGrid.CreateGrid(LayoutResource.Width, LayoutResource.Depth, LayoutResource.BuildingWidth,
                 LayoutResource.BuildingDepth, LayoutResource.BuildingAngle, gridOffset,
-                LayoutResource.Gaps.Where(g => g.RoofGrid).ToList());
-            AddChild(RoofGrid,OS.IsDebugBuild());
+                GetAllRoofsGridGaps(g => g!.RoofGrid));
+            AddChild(RoofGrid, OS.IsDebugBuild());
             Grids.Add(RoofGrid);
         }
 
         _sprite = GetNode<Sprite2D>("Sprite2D");
         UpdateTexture();
         PlotCount = Grids.SelectMany(g => g.Plots).Count(p => !p.IsGap);
+    }
+
+    private List<BuildingLayoutGap> GetAllRoofsGridGaps(Func<BuildingLayoutGap?, bool>? predicate = null)
+    {
+        predicate ??= _ => true;
+        return [..LayoutResource.Gaps.Where(predicate), ..Gaps.Where(predicate)];
     }
 
     private void UpdateTexture()
@@ -113,7 +123,7 @@ public partial class Building : Node2D
 
         if (HasRightGrid)
         {
-            var gaps = LayoutResource.Gaps.Where(g => g?.RightGrid ?? false).SelectMany(g => g.Gaps).ToList();
+            var gaps = GetAllRoofsGridGaps(g => g?.RightGrid ?? false).SelectMany(g => g.Gaps).ToList();
             for (var row = 0; row < LayoutResource.Height; row++)
             {
                 for (var col = 0; col < LayoutResource.Width; col++)
@@ -144,7 +154,7 @@ public partial class Building : Node2D
 
         if (HasLeftGrid)
         {
-            var gaps = LayoutResource.Gaps.Where(g => g?.LeftGrid ?? false).SelectMany(g => g.Gaps).ToList();
+            var gaps =  GetAllRoofsGridGaps(g => g?.LeftGrid ?? false).SelectMany(g => g.Gaps).ToList();
             for (var row = 0; row < LayoutResource.Height; row++)
             {
                 for (var col = LayoutResource.Depth; col > 0; col--)
@@ -152,26 +162,17 @@ public partial class Building : Node2D
                     var pos = -col * d + row * v;
                     pos += LayoutResource.GridOffset;
 
-                    // To draw skewed textures correctly, we use Transform2D
-                    // The basis vectors u and v define the axes of our skewed grid
                     var transform = new Transform2D(d, v, pos);
 
                     DrawSetTransformMatrix(transform);
 
-                    // Now we draw in the skewed local space.
-                    // A unit rectangle here will be skewed according to u and v.
-                    // Note: Rect2(0, -1, 1, 1) means the rectangle starts at the 'bottom'
-                    // in our grid (where v is up-pointing) and goes 1 unit up.
                     var rect = new Rect2(0, 0, 0.98f, 0.98f);
-                    var flippedCol = (Width - 1) - col; 
+                    var flippedCol = Width - 1 - col;
 
-                    var color = gaps.Any(g => g.X == flippedCol && g.Y == row) 
-                        ? Colors.Red 
+                    var color = gaps.Any(g => g.X == flippedCol && g.Y == row)
+                        ? Colors.Red
                         : Colors.RebeccaPurple;
                     DrawRect(rect, color, false);
-
-                    // If you were to draw a texture, it would now be correctly skewed:
-                    // DrawTextureRect(someTexture, rect, false);
                     DrawRect(new Rect2(-0.1f, -0.1f, 0.2f, 0.2f), Colors.Green);
                 }
             }
@@ -179,8 +180,8 @@ public partial class Building : Node2D
 
         if (HasRoofGrid)
         {
-            //Intentional ? due to editor
-            var gaps = LayoutResource.Gaps.Where(g => g?.RoofGrid ?? false).SelectMany(g => g.Gaps).ToList();
+            //Intentional ? due to the editor
+            var gaps =  GetAllRoofsGridGaps(g => g?.RoofGrid ?? false).SelectMany(g => g.Gaps).ToList();
             for (var row = 0; row < LayoutResource.Depth; row++)
             {
                 for (var col = 0; col < LayoutResource.Width; col++)
@@ -233,7 +234,7 @@ public partial class Building : Node2D
     public void PositionFlower(Flower? flower)
     {
         if (flower is null) return;
-        
+
         foreach (var plot in Grids.SelectMany(g => g.Plots))
         {
             plot.RemoveCurrent();
@@ -247,7 +248,7 @@ public partial class Building : Node2D
             : isFlipped
                 ? LeftGrid
                 : RightGrid)!;
-        
+
         var maxLocalX = flower.Sprites.Count != 0 ? flower.Sprites.Max(p => p.X) : 0;
 
         foreach (var piece in flower.Sprites)
@@ -256,7 +257,7 @@ public partial class Building : Node2D
 
             if (isRoof)
             {
-                piecePosition.Y -= Height; 
+                piecePosition.Y -= Height;
                 if (isFlipped)
                 {
                     piecePosition.X = maxLocalX - piecePosition.X;
@@ -300,8 +301,7 @@ public partial class Building : Node2D
             }
 
             CurrentFlower = flower;
-            flower.Sprite.ZIndex =_flowerZIndex;
-            
+            flower.Sprite.ZIndex = _flowerZIndex;
         }
 
         flower.SetPosition(grid.Transform, isRoof);
@@ -352,7 +352,7 @@ public partial class Building : Node2D
     private bool CanPlace()
     {
         return CurrentFlower is not null &&
-               CurrentFlower.Sprites.All(flowerPiece => flowerPiece.Plot is not null && flowerPiece.Plot.CanSet());
+               CurrentFlower.Sprites.All(flowerPiece => flowerPiece.Plot is null || flowerPiece.Plot.CanSet());
     }
 
     public int GetFreeSpotsCount()

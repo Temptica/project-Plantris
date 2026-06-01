@@ -7,9 +7,9 @@
 [resource]
 script = ExtResource("3_2o4ay")
 Texture = ExtResource("2_1n3l4")
-Depth = 3
 Width = 4
 Height = 5
+Depth = 3
 BuildingHeight = 1000.0
 BuildingWidth = 655.0
 BuildingDepth = 500.0

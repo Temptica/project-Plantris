@@ -58,14 +58,3 @@ public partial class ScoreManager : Node
 
 
 }
-
-/*
-
-   func reset():
-    score = 0
-    score_updated.emit(score)
-
-   func _add_points(value:int):
-    score += value
-    score_updated.emit(score)
- */

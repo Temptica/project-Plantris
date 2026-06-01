@@ -144,7 +144,7 @@ public partial class Plot : Node2D, IComparable
         // - Any piece, this is a gap, only check for attachment points to be occupied
         // - Roof piece, only check for attachment points
 
-        if (IsRoof && !CurrentFlowerPiece.IsAttachmentPoint) return true;
+        if (IsRoof && CurrentFlowerPiece.IsEmptyForRoof) return true;
         
         if (FlowerPiece != null) return false;
         

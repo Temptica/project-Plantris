@@ -62,17 +62,15 @@ public partial class GameUi : Control
         SetNewFlower(3);
     }
 
-
     public override void _ExitTree()
     {
         _movementController.FlowerPlaced -= OnFlowerPlaced;
         _movementController.FlowerSelectedPrev -= OnFlowerSelectPrev;
         _movementController.FlowerSelectedNext -= OnFlowerSelectNext;
 
-        if (ScoreManager.Instance is not null)
-        {
-            ScoreManager.Instance.ScoreUpdated -= OnScoreUpdated;
-        }
+        // It can be null due to orders of events.
+        ScoreManager.Instance?.ScoreUpdated -= OnScoreUpdated;
+
 
         BuildingSelector.Instance.BuildingChanged -= OnBuildingChanged;
     }
@@ -217,7 +215,7 @@ public partial class GameUi : Control
         BuildingSelector.Instance.SelectNextBuilding();
         _nextButton.ReleaseFocus();
     }
-    
+
     private void OnRerollPressed()
     {
         ResetFlowers();

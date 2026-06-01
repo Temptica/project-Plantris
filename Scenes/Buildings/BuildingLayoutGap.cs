@@ -32,7 +32,7 @@ public partial class BuildingLayoutGap : Resource
                 var @char = line[x];
                 if (@char is 'X' or 'x')
                 {
-                    Gaps.Add(new BuildingLayoutGapNode() { X = x + (int)GridOffset.X, Y = y + (int)GridOffset.Y });
+                    Gaps.Add(new BuildingLayoutGapNode { X = x + (int)GridOffset.X, Y = y + (int)GridOffset.Y });
                 }
 
                 x++;

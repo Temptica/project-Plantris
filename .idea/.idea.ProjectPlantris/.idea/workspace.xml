@@ -11,11 +11,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7e4f84-01aa-46d8-9aba-aaa555199422" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Managers/FlowerGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/FlowerGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectPlantris/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Managers/MovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/MovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Managers/ScoreManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectPlantris.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectPlantris.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Flowers/Flower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Flowers/Flower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Building.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutGap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutGap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/4x5x3Building3.tres" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/BuildingResources/4x5x3Building3.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Buildings/Plot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Buildings/Plot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/city.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/city.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/GameUi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UI/GameUi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/MainTheme.tres" beforeDir="false" afterPath="$PROJECT_DIR$/UI/MainTheme.tres" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/game_ui.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/UI/game_ui.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.godot" beforeDir="false" afterPath="$PROJECT_DIR$/project.godot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,17 +40,33 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3bfb329b50ab4b719e770a577377990fdba600/73/ab1654d0/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4881db23b1834147bd6855274699690d580800/08/59b975d0/Transform2D.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4881db23b1834147bd6855274699690d580800/17/edd8ee26/Node2D.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4881db23b1834147bd6855274699690d580800/7f/12802c8c/CanvasItem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4881db23b1834147bd6855274699690d580800/c3/5b106245/Rect2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4881db23b1834147bd6855274699690d580800/a8/8abb7127/Mathf.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4881db23b1834147bd6855274699690d580800/b7/8d592b38/Array`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36978e939a72ba483af5622ba2b67fac3ffb2ed829ca5940aae057311fb8653/CanvasItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71246fd56f7999d0787c963da3362569a1129b41237bf6d1930bffe452552/Node.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/71f134c2c07aaaaf17b017ca3da7e8c67a1e5e113930899908632c45926e465/GodotObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/72232369dedef4956c1d69fcbae39d4cc134eb62fe113c3e45ee0d288157b3/Node3D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/83d2c16e2f9030dadc605c90d9b36a5f67ec143808daee3e1987164af7754e5/AudioStreamRandomizer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///tmp/JetBrainsPerUserTemp-1000-1/SourceGeneratedDocuments/981E606FDB047ACB31FD92CA/Godot.SourceGenerators/Godot.SourceGenerators.ScriptSignalsGenerator/ProjectPlantris.Managers.MovementController_ScriptSignals.generated.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Audio/AudioPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Audio/MusicPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Audio/VoiceLinePlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Managers/BuildingSelector.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Managers/FlowerGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Managers/MovementController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Managers/ScoreManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutGap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutGapNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scenes/Buildings/BuildingLayoutResource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scenes/Camera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scenes/Flowers/Flower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scenes/Flowers/FlowerPiece.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UI/GameUi.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="McpProjectServerCommands">
     <commands />
@@ -120,31 +145,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Executable.Player.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Executable.Player.executor": "Debug",
+    "Attach to Process.23129:Godot_v4.6.3-stable_mono_linux.executor": "Debug",
+    "Attach to Process.28837:Godot_v4.6.3-stable_mono_linux.executor": "Debug",
+    "Attach to Process.38851:Godot_v4.6.3-stable_mono_linux.executor": "Debug",
+    "Attach to Process.39471:Godot_v4.6.3-stable_mono_linux.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Executable.Player">
     <configuration name="Debug GDScript (Running session)" type="GDSCRIPT_DEBUG_RUN_CONFIGURATION" factoryName="GdScriptRunFactory">
       <option name="json" value="{&#10;  // Launch: &quot;Launch a new instance of the game&quot;,&#10;  // Attach: &quot;Attach to an already running game, which was started from the Godot Editor&quot;&#10;  &quot;request&quot; : &quot;Attach&quot;,&#10;  &quot;debugServer&quot; : 6006, // port should match the Debug Adapter port in the Godot Editor project settings.&#10;  &quot;scene&quot; : &quot;main&quot;, // main, current, res://path/to/file.tscn&#10;  &#10;  // &quot;playArgs&quot; : [ &quot;--editor&quot; ], // debugging a tool script&#10;  // &quot;playArgs&quot;: [&quot;--debug-collisions&quot;,&quot;--debug-navigation&quot;], // different options&#10;  &#10;  // one click deploy and debug via Godot Editor:&#10;  // &quot;platform&quot;: &quot;Android&quot;, // including Android, iOS, Web and W4 consoles&#10;  // &quot;device&quot;: &quot;0&quot;, // index of the device of a &quot;platform&quot; type&#10;}" />
@@ -155,7 +184,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Editor" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/.config/godotenv/godot/versions/godot_dotnet_4_6_2_stable/Godot_v4.6.2-stable_mono_linux_x86_64/Godot_v4.6.2-stable_mono_linux.x86_64" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../.config/godotenv/godot/versions/godot_dotnet_4_6_3_stable/Godot_v4.6.3-stable_mono_linux_x86_64/Godot_v4.6.3-stable_mono_linux.x86_64" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot; --editor" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -171,7 +200,7 @@
       </method>
     </configuration>
     <configuration name="Player" type="RunExe" factoryName=".NET Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/.config/godotenv/godot/versions/godot_dotnet_4_6_2_stable/Godot_v4.6.2-stable_mono_linux_x86_64/Godot_v4.6.2-stable_mono_linux.x86_64" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../.config/godotenv/godot/versions/godot_dotnet_4_6_3_stable/Godot_v4.6.3-stable_mono_linux_x86_64/Godot_v4.6.3-stable_mono_linux.x86_64" />
       <option name="PROGRAM_PARAMETERS" value="--path &quot;./&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -250,6 +279,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Add building size calculator. Fix grid movement system" />
@@ -274,6 +314,45 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Scenes/Buildings/Plot.cs</url>
+          <line>139</line>
+          <properties documentPath="$PROJECT_DIR$/Scenes/Buildings/Plot.cs" containingFunctionPresentation="Method 'CanSet'">
+            <startOffsets>
+              <option value="4004" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4064" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Managers/MovementController.cs</url>
+          <line>315</line>
+          <properties documentPath="$PROJECT_DIR$/Managers/MovementController.cs" containingFunctionPresentation="Method 'Confirm'">
+            <startOffsets>
+              <option value="8241" />
+            </startOffsets>
+            <endOffsets>
+              <option value="8296" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UI/GameUi.cs</url>
+          <line>214</line>
+          <properties documentPath="$PROJECT_DIR$/UI/GameUi.cs" containingFunctionPresentation="Method 'OnNextBuildingPressed'">
+            <startOffsets>
+              <option value="6151" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6198" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
