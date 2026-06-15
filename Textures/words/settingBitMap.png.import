@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://druhu61qfgl4n"
+path="res://.godot/imported/settingBitMap.png-f13423d007c4cc11f4c6057f1284bffa.res"
+
+[deps]
+
+source_file="res://Textures/words/settingBitMap.png"
+dest_files=["res://.godot/imported/settingBitMap.png-f13423d007c4cc11f4c6057f1284bffa.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

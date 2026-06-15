@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjectPlantris"
-run/main_scene="uid://cx8rdc6qk8pc7"
+run/main_scene="uid://bltsncf5bwo1c"
 config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 

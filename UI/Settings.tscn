@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://i0qgm17ct3m8"]
 
-[ext_resource type="Script" uid="uid://bi8kh1em40uno" path="res://UI/settings.gd" id="1_7iqql"]
-[ext_resource type="StyleBox" uid="uid://d053u0plwdlik" path="res://ui_box_flat.tres" id="2_vbc7n"]
+[ext_resource type="StyleBox" uid="uid://d053u0plwdlik" path="res://ui_box_flat.tres" id="1_lbqto"]
+[ext_resource type="Script" uid="uid://bln553mywiiaj" path="res://UI/Settings.cs" id="1_ojqoa"]
+[ext_resource type="PackedScene" uid="uid://d0iakfgv7rdp6" path="res://UI/Components/SliderComponent/Slider.tscn" id="3_i550k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgjsl"]
 
@@ -10,20 +11,17 @@ subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_7iqql"]
 font = SubResource("SystemFont_qosaw")
-font_size = 40
+font_size = 64
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qosaw"]
-font_size = 32
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_vbc7n"]
-font_size = 26
+font_size = 52
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hnc8t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgjsl"]
+font_size = 28
 font_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Control" unique_id=1819486395]
@@ -34,7 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7iqql")
+script = ExtResource("1_ojqoa")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1573680224]
 layout_mode = 1
@@ -50,7 +48,7 @@ theme_override_constants/margin_bottom = 100
 
 [node name="Panel" type="Panel" parent="MarginContainer" unique_id=864363180]
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_vbc7n")
+theme_override_styles/panel = ExtResource("1_lbqto")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel" unique_id=749690061]
 layout_mode = 1
@@ -79,6 +77,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer" unique_id=648489620]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer" unique_id=468138069]
 layout_mode = 2
@@ -101,24 +100,23 @@ size_flags_horizontal = 3
 text = "Master"
 label_settings = SubResource("LabelSettings_qosaw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master" unique_id=1181844686]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="MasterLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer" unique_id=1365575053]
+[node name="MasterSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master" unique_id=463119914 instance=ExtResource("3_i550k")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "1 0 0"
-label_settings = SubResource("LabelSettings_vbc7n")
-horizontal_alignment = 1
+focus_neighbor_left = NodePath("../../../../ReturnButton")
+focus_neighbor_top = NodePath("../../../../ReturnButton")
+focus_neighbor_right = NodePath("../../SFX/SfxSlider")
+focus_neighbor_bottom = NodePath("../../SFX/SfxSlider")
+focus_next = NodePath("../../SFX/SfxSlider")
+focus_previous = NodePath("../../../../ReturnButton")
 
-[node name="MasterSlider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer" unique_id=1133025101]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 2
-value = 50.0
+[node name="Slider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/MasterSlider" index="1" unique_id=999882775]
+focus_neighbor_left = NodePath("../../../../../ReturnButton")
+focus_neighbor_top = NodePath("../../../../../ReturnButton")
+focus_neighbor_right = NodePath("../../../SFX/SfxSlider/Slider")
+focus_neighbor_bottom = NodePath("../../../SFX/SfxSlider/Slider")
+focus_next = NodePath("../../../SFX/SfxSlider/Slider")
+focus_previous = NodePath("../../../../../ReturnButton")
 
 [node name="SFX" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=195060502]
 layout_mode = 2
@@ -129,24 +127,23 @@ size_flags_horizontal = 3
 text = "SFX"
 label_settings = SubResource("LabelSettings_qosaw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX" unique_id=1844367535]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="SFXLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer" unique_id=88229275]
+[node name="SfxSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX" unique_id=422705771 instance=ExtResource("3_i550k")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "1 0 0"
-label_settings = SubResource("LabelSettings_vbc7n")
-horizontal_alignment = 1
+focus_neighbor_left = NodePath("../../Master/MasterSlider")
+focus_neighbor_top = NodePath("../../Master/MasterSlider")
+focus_neighbor_right = NodePath("../../Music/MusicSlider")
+focus_neighbor_bottom = NodePath("../../Music/MusicSlider")
+focus_next = NodePath("../../Music/MusicSlider")
+focus_previous = NodePath(".")
 
-[node name="SFXSLider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer" unique_id=598946935]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 2
-value = 50.0
+[node name="Slider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/SfxSlider" index="1" unique_id=999882775]
+focus_neighbor_left = NodePath("../../../Master/MasterSlider/Slider")
+focus_neighbor_top = NodePath("../../../Master/MasterSlider/Slider")
+focus_neighbor_right = NodePath("../../../Music/MusicSlider/Slider")
+focus_neighbor_bottom = NodePath("../../../Music/MusicSlider/Slider")
+focus_next = NodePath("../../../Music/MusicSlider/Slider")
+focus_previous = NodePath("../../../Master/MasterSlider/Slider")
 
 [node name="Music" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1109613109]
 layout_mode = 2
@@ -157,24 +154,23 @@ size_flags_horizontal = 3
 text = "Music"
 label_settings = SubResource("LabelSettings_qosaw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music" unique_id=1891769974]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="MusicLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer" unique_id=362608695]
+[node name="MusicSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music" unique_id=1012267143 instance=ExtResource("3_i550k")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "1 0 0"
-label_settings = SubResource("LabelSettings_vbc7n")
-horizontal_alignment = 1
+focus_neighbor_left = NodePath("../../SFX/SfxSlider")
+focus_neighbor_top = NodePath("../../SFX/SfxSlider")
+focus_neighbor_right = NodePath("../../Voices/VoicesSlider")
+focus_neighbor_bottom = NodePath("../../Voices/VoicesSlider")
+focus_next = NodePath("../../Voices/VoicesSlider")
+focus_previous = NodePath("../../SFX/SfxSlider")
 
-[node name="MusicSlider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer" unique_id=396053378]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 2
-value = 50.0
+[node name="Slider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/MusicSlider" index="1" unique_id=999882775]
+focus_neighbor_left = NodePath("../../../SFX/SfxSlider/Slider")
+focus_neighbor_top = NodePath("../../../SFX/SfxSlider/Slider")
+focus_neighbor_right = NodePath("../../../Voices/VoicesSlider/Slider")
+focus_neighbor_bottom = NodePath("../../../Voices/VoicesSlider/Slider")
+focus_next = NodePath("../../../Voices/VoicesSlider/Slider")
+focus_previous = NodePath("../../../SFX/SfxSlider/Slider")
 
 [node name="Voices" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2058596527]
 layout_mode = 2
@@ -185,29 +181,36 @@ size_flags_horizontal = 3
 text = "Voices"
 label_settings = SubResource("LabelSettings_qosaw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices" unique_id=358927997]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-
-[node name="VoiceLabel" type="Label" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VBoxContainer" unique_id=1791211471]
+[node name="VoicesSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices" unique_id=1452343046 instance=ExtResource("3_i550k")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "1 0 0"
-label_settings = SubResource("LabelSettings_vbc7n")
-horizontal_alignment = 1
+focus_neighbor_left = NodePath("../../Music/MusicSlider")
+focus_neighbor_top = NodePath("../../Music/MusicSlider")
+focus_neighbor_right = NodePath("../../../../ReturnButton")
+focus_neighbor_bottom = NodePath("../../../../ReturnButton")
+focus_next = NodePath("../../../../ReturnButton")
+focus_previous = NodePath("../../Music/MusicSlider")
 
-[node name="VoiceSlider" type="HSlider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VBoxContainer" unique_id=229739277]
+[node name="Slider" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VoicesSlider" index="1" unique_id=999882775]
+focus_neighbor_left = NodePath("../../../Music/MusicSlider/Slider")
+focus_neighbor_top = NodePath("../../../Music/MusicSlider/Slider")
+focus_neighbor_right = NodePath("../../../../../ReturnButton")
+focus_neighbor_bottom = NodePath("../../../../../ReturnButton")
+focus_next = NodePath("../../../../../ReturnButton")
+focus_previous = NodePath("../../../Music/MusicSlider/Slider")
+
+[node name="ReturnButton" type="Button" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer" unique_id=1294478036]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 2
-value = 50.0
-
-[node name="Button" type="Button" parent="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer" unique_id=1294478036]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+focus_neighbor_left = NodePath("../VBoxContainer/VBoxContainer/Voices/VoicesSlider/Slider")
+focus_neighbor_top = NodePath("../VBoxContainer/VBoxContainer/Voices/VoicesSlider/Slider")
+focus_neighbor_right = NodePath("../VBoxContainer/VBoxContainer/Master/MasterSlider/Slider")
+focus_neighbor_bottom = NodePath("../VBoxContainer/VBoxContainer/Master/MasterSlider/Slider")
+focus_next = NodePath("../VBoxContainer/VBoxContainer/Master/MasterSlider/Slider")
+focus_previous = NodePath("../VBoxContainer/VBoxContainer/Voices/VoicesSlider/Slider")
+theme_override_font_sizes/font_size = 40
 text = "Return"
 
 [node name="Controlls" type="Panel" parent="MarginContainer/Panel/HBoxContainer" unique_id=1115224660]
@@ -229,6 +232,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer" unique_id=212440612]
 layout_mode = 2
+theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer" unique_id=1912759879]
 layout_mode = 2
@@ -240,6 +244,7 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer" unique_id=1373045072]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=83158197]
 layout_mode = 2
@@ -253,7 +258,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1062814652]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "A/Left"
+text = "A / Left"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1006206419]
@@ -268,7 +273,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer2" unique_id=470150521]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "D/Right"
+text = "D / Right"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1971519841]
@@ -283,7 +288,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=379255770]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "W/Up"
+text = "W / Up"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2047352193]
@@ -298,7 +303,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=895719733]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "S/Down"
+text = "S / Down"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1535435577]
@@ -313,7 +318,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1375439133]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "Q/Left/L1"
+text = "Q / Left / L1"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=386460324]
@@ -328,7 +333,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer6" unique_id=1392709830]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "D/Right/R1"
+text = "D / Right / R1"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1234323519]
@@ -343,7 +348,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer7" unique_id=2029142838]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "Enter/Space Controller: A /B"
+text = "Enter / Space Controller: A / B"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=22669486]
@@ -358,7 +363,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 [node name="Label2" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer8" unique_id=460439713]
 layout_mode = 2
 size_flags_horizontal = 10
-text = "Tab/ Controller: Y / X"
+text = "Tab / Controller: Y / X"
 label_settings = SubResource("LabelSettings_wgjsl")
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/HBoxContainer/Controlls/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2025495163]
@@ -370,8 +375,7 @@ label_settings = SubResource("LabelSettings_wgjsl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/VBoxContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/VBoxContainer/SFXSLider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VBoxContainer/VoiceSlider" to="." method="_on_voice_slider_value_changed"]
-[connection signal="pressed" from="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/Button" to="." method="_on_return_button_pressed"]
+[editable path="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Master/MasterSlider"]
+[editable path="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/SFX/SfxSlider"]
+[editable path="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Music/MusicSlider"]
+[editable path="MarginContainer/Panel/HBoxContainer/Settings/MarginContainer/VBoxContainer/VBoxContainer/Voices/VoicesSlider"]

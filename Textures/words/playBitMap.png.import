@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://i7m8888qy7s0"
+path="res://.godot/imported/playBitMap.png-f099b689da75775c7b6fc1a1c664f5d8.res"
+
+[deps]
+
+source_file="res://Textures/words/playBitMap.png"
+dest_files=["res://.godot/imported/playBitMap.png-f099b689da75775c7b6fc1a1c664f5d8.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

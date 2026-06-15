@@ -1,9 +1,73 @@
 [gd_scene format=3 uid="uid://ca553ds82l8ii"]
 
-[node name="MainMenu" type="Control" unique_id=840176923]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="Script" uid="uid://crfrn0ovc3qdh" path="res://Scenes/MainMenu.cs" id="1_8ctay"]
+[ext_resource type="Texture2D" uid="uid://filv2jim4cue" path="res://Textures/Buildings/BigCuboidBuilding9x9x18B.png" id="1_p8ccj"]
+[ext_resource type="Texture2D" uid="uid://cg34hm0f42kaw" path="res://Textures/Enviroment/BilboardFrame1.png" id="2_d8nwk"]
+[ext_resource type="Texture2D" uid="uid://fv5q2jxlajus" path="res://Textures/Enviroment/BilboardFrame2.png" id="3_4cwpn"]
+[ext_resource type="Texture2D" uid="uid://bk6mxq2w4ddqo" path="res://Textures/words/play.png" id="4_4cwpn"]
+[ext_resource type="Texture2D" uid="uid://c4ll7navu6433" path="res://Textures/words/setting.png" id="5_f40uw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8ccj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d8nwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4cwpn")
+}],
+"loop": true,
+"name": &"Billboard",
+"speed": 5.0
+}]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d8nwk"]
+viewport_path = NodePath("Sprite2D/SubViewport")
+
+[node name="MainMenu" type="Node2D" unique_id=139739241]
+script = ExtResource("1_8ctay")
+
+[node name="TextureRect" type="Sprite2D" parent="." unique_id=1092958391]
+position = Vector2(709.00006, 1715.0001)
+scale = Vector2(0.6146, 0.6146)
+texture = ExtResource("1_p8ccj")
+
+[node name="TextureRect2" type="AnimatedSprite2D" parent="." unique_id=289110175]
+position = Vector2(1056, 533)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_p8ccj")
+animation = &"Billboard"
+frame_progress = 0.59516144
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1762842442]
+position = Vector2(1402, 763)
+texture = SubResource("ViewportTexture_d8nwk")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite2D" unique_id=686370810]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="SettingsButton" type="TextureButton" parent="Sprite2D/SubViewport" unique_id=730881188]
+unique_name_in_owner = true
+offset_left = 661.0
+offset_top = 202.0
+offset_right = 1161.0
+offset_bottom = 702.0
+scale = Vector2(0.5, 0.5)
+texture_pressed = ExtResource("5_f40uw")
+texture_hover = ExtResource("5_f40uw")
+texture_focused = ExtResource("5_f40uw")
+
+[node name="PlayButton" type="TextureButton" parent="Sprite2D/SubViewport" unique_id=1365905041]
+unique_name_in_owner = true
+offset_left = 658.0
+offset_top = 162.0
+offset_right = 1458.7637
+offset_bottom = 962.0
+scale = Vector2(0.5, 0.5)
+texture_pressed = ExtResource("4_4cwpn")
+texture_hover = ExtResource("4_4cwpn")
+texture_focused = ExtResource("4_4cwpn")
